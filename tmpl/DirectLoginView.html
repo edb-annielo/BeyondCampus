@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- header --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+  <div id="page-directlogin" class="maincontent">
+  	<div subpage="login" class="subpage" id="page-directlogin-login">
+        <h1><%- dict('Login') %></h1>
+        <div class="main">
+            <div style="text-align:right"><a href="#page/login/signup" class="greenbg btnSignUp"><%- dict('Sign Up') %></a></div>
+            <div class="infobox">
+              <div class="infobox-inner">
+                  <h2 class="requiredFld"><%- dict('Username') %> / <%- dict('Email') %><%- dict(': ') %></h2>
+                  <div>
+                    <input type="text" id="name" name="name" value="" maxlength="80" autocapitalize="off" autocorrect="off" required />
+                  </div>
+                  <h2 class="requiredFld"><%- dict('Password') %><%- dict(': ') %></h2>
+                  <div>
+                    <input type="password" id="password" name="password" value="" maxlength="80" autocapitalize="off" autocorrect="off" required  />
+                  </div>
+                  <div>
+                    <input type="button" id="btnOK" name="btnOK" value="<%- dict('OK') %>" class="greenbg" />
+                  </div>
+                  <div class="line">
+                  <a href="#page/login/forget" ><%- dict('Forget Password') %></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="signup" class="subpage" id="page-directlogin-signup">
+        <h1><%- dict('Sign Up') %></h1>
+        <div class="main">
+            <div class="infobox">
+                <div class="infobox-inner">
+                  <h2 class="requiredFld"><%- dict('Username') %><%- dict(': ') %></h2>
+                  <div>
+                    <div class="line note">A-Z a-z 0-9 *-._</div>
+                    <input type="text" id="name" name="name" value="" maxlength="80"  autocapitalize="off" autocorrect="off" pattern="[a-zA-Z0-9\*\-\._]+" required  />
+                    <div class="line note validresult"></div>
+                  </div>
+                  <h2 class="requiredFld"><%- dict('Email Address') %><%- dict(': ') %></h2>
+                  <div>
+                  	<div class="line note"><%- dict('accept email from HK educational organisations only') %><%- dict(', ') %><%- dict('e.g.') %><br />
+                     <em>xxxxx@xxx.edu.hk , xxxxx@eservices.hkedcity.net , <br />xxxxx@hkedcity.net , xxxxx@xxx.gov.hk </em>
+                     <br /><strong><%- dict('must be a legit address') %></strong>
+                    </div>
+                    <input type="email" id="email" name="email" value="" maxlength="80"  autocapitalize="off" autocorrect="off" required />
+                    <div class="line note validresult"></div>
+                  </div>
+                  <h2 class="requiredFld"><%- dict('Password') %><%- dict(': ') %></h2>
+                  <div>
+                    <div class="line note"><%- dict('at least 4 characters') %></div>
+                    <input type="password" id="password" name="password" value="" maxlength="80"  autocapitalize="off" autocorrect="off" pattern="^.{4,}$" required />
+                    <div class="line note validresult"></div>
+                  </div>
+                  <h2 class="requiredFld"><%- dict('Confirm Password') %><%- dict(': ') %></h2>
+                  <div>
+                    <input type="password" id="confirmpassword" name="confirmpassword" value="" maxlength="80"  autocapitalize="off" pattern="^.{4,}$" autocorrect="off" required />
+                    <div class="line note validresult"></div>
+                  </div>
+                  <div>
+                    <input type="button" id="btnOK" name="btnOK" value="<%- dict('OK') %>" class="greenbg" />
+                  </div>
+                </div>
+            </div>
+            <div class="infobox" style="text-align:left">
+            	<h2><%- dict('FAQ') %><%- dict(': ') %><%- dict('Sign Up') %></h2>
+				<div class="infobox-inner note">
+                    <% if(user.lang() == 1028) { %>
+                        <div class="line">
+                            <div class="lblField">問：我是否必須申請一個帳戶，才能使用「移動學堂」？</div>
+                            <div>答：不一定。如果你只是參加一個旅程（例如：學生），你不需要申請帳戶；但是，如果你想建立或修改旅程（例如：教師、活動策劃人），你便需要申請帳戶。</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">問：我是一名學生領袖，我們會舉辦一個實地考察活動，我可以申請一個帳戶嗎？</div>
+                            <div>答：可以。請使用你在學校的電郵地址進行註冊。（即是你的學生電郵地址）</div>
+                        </div>
+                    <% } else { %>
+                        <div class="line">
+                            <div class="lblField">Q: Must I sign-up an account to use Beyond Campus?</div>
+                            <div>A: No. If you are only participting a trip, e.g. students, you do not need an account. However, you need to apply an account if you want to create and modify trips, e.g. teachers, event organisers.</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">Q: I am a student leader. We are hosting a field trip event. Can I apply an account?</div>
+                            <div>A: Yes. Remember to use your email address at school to sign-up. (i.e. your student email)</div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="signup2" class="subpage" id="page-directlogin-signup2">
+    	<h1><%- dict('Sign Up') %></h1>
+        <div class="main">
+            <div class="infobox">
+              <div class="infobox-inner">
+               <div class="line">
+                <%- dict('Please check your email.') %> <%- dict('An activate note has been sent to you.') %><br />
+                <%- dict('The activate process will be expired in 3 days.') %>
+                </div>
+                <!--<div class="line">
+                <a href="#page/login/recovery"><%- dict('I have received the email.') %></a>
+                </div>-->
+              </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="forget" class="subpage" id="page-directlogin-forget">
+        <h1><%- dict('Forget Password') %></h1>
+        <div class="main">
+            <div class="infobox">
+              <div class="infobox-inner">
+                <h2 class="requiredFld"><%- dict('Username') %> / <%- dict('Email') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="text" id="name" name="name" value="" maxlength="80" autocapitalize="off" autocorrect="off" required />
+                </div>
+                <div>
+                  <input type="button" id="btnOK" name="btnOK" value="<%- dict('Reset Password') %>" class="greenbg" />
+                </div>
+                <div class="line">
+                <a href="#page/login/recovery"><%- dict('I have received the email.') %></a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="forget2" class="subpage" id="page-directlogin-forget2">
+    	<h1><%- dict('Forget Password') %></h1>
+        <div class="main">
+            <div class="infobox">
+              <div class="infobox-inner">
+               <div class="line">
+                <%- dict('Please check your email.') %> <%- dict('A recovery note has been sent to you.') %><br />
+                <%- dict('The reset process will be expired in 3 days.') %>
+                </div>
+                <div class="line">
+                <a href="#page/login/recovery"><%- dict('I have received the email.') %></a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="recovery" class="subpage" id="page-directlogin-recovery">
+        <h1><%- dict('Reset Password') %></h1>
+        <div class="main">
+            <div class="infobox">
+              <div class="infobox-inner">
+                <h2 class="requiredFld"><%- dict('Email Address') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="email" id="email" name="email" value="" maxlength="80" autocapitalize="off" autocorrect="off" required />
+                  <div class="line note validresult"></div>
+                </div>
+                <h2 class="requiredFld"><%- dict('Recovery Code') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="text" id="recoverycode" name="recoverycode" value="" maxlength="80" autocapitalize="off" autocorrect="off" required />
+                  <div class="line note validresult"></div>
+                </div>
+                <h2 class="requiredFld"><%- dict('New Password') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="password" id="password" name="password" value="" maxlength="80" autocapitalize="off"  autocorrect="off" pattern="^.{4,}$" required/>
+                  <div class="line note validresult"></div>
+                </div>
+                <h2 class="requiredFld"><%- dict('Confirm Password') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="password" id="confirmpassword" name="confirmpassword" value="" maxlength="80" autocapitalize="off"  autocorrect="off" pattern="^.{4,}$" required/>
+                  <div class="line note validresult"></div>
+                </div>
+                <div>
+                  <input type="button" id="btnOK" name="btnOK" value="<%- dict('Reset Password') %>" class="greenbg" />
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="activate" class="subpage" id="page-directlogin-activate">
+        <h1><%- dict('Activate Account') %></h1>
+        <div class="main">
+            <div class="infobox">
+              <div class="infobox-inner">
+                <h2 class="requiredFld"><%- dict('Username') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="text" id="name" name="name" value="" maxlength="80" autocapitalize="off" autocorrect="off" required />
+                  <div class="line note validresult"></div>
+                </div>
+                <h2 class="requiredFld"><%- dict('Activate Code') %><%- dict(': ') %></h2>
+                <div>
+                  <input type="text" id="activatecode" name="activatecode" value="" maxlength="80" autocapitalize="off" autocorrect="off" required />
+                  <div class="line note validresult"></div>
+                </div>
+                <div>
+                  <input type="button" id="btnOK" name="btnOK" value="<%- dict('Activate Account') %>" class="greenbg" />
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div subpage="changepwd" class="subpage" id="page-directlogin-changepwd">
+        <h1><%- dict('Change Password') %></h1>
+        <div class="main">
+            <div class="infobox">
+                <div class="infobox-inner">
+                  <h2><%- dict('Username') %><%- dict(': ') %></h2>
+                  <div>
+                    <input type="text" id="name" name="name" value="" readonly />
+                  </div>
+                  <h2 class="requiredFld"><%- dict('Current Password') %><%- dict(': ') %></h2>
+                  <div>
+                    <input type="password" id="oldpassword" name="oldpassword" value="" maxlength="80" autocapitalize="off" autocorrect="off" required  />
+                    <div class="line note validresult"></div>
+                  </div>
+                  <h2 class="requiredFld"><%- dict('New Password') %><%- dict(': ') %></h2>
+                  <div>
+                    <div class="line note"><%- dict('at least 4 characters') %></div>
+                    <input type="password" id="password" name="password" value="" maxlength="80" autocapitalize="off"  autocorrect="off" pattern="^.{4,}$" required/>
+                    <div class="line note validresult"></div>
+                  </div>
+                  <h2 class="requiredFld"><%- dict('Confirm Password') %><%- dict(': ') %></h2>
+                  <div>
+                    <input type="password" id="confirmpassword" name="confirmpassword" value="" maxlength="80" autocapitalize="off"  autocorrect="off" pattern="^.{4,}$" required/>
+                    <div class="line note validresult"></div>
+                  </div>
+                  <div>
+                    <input type="button" id="btnOK" name="btnOK" value="<%- dict('Change Password') %>" class="greenbg" />
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

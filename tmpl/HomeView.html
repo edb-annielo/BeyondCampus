@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- header --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" --><div id="page-home">
+<img src="img/home-logo.png" width="466" height="166" alt="<%- dict('Beyond Campus') %>" id="home-logo" />
+<div class="home-menu-outer <%- (appFunc.isApp() && !appFunc.isGMapReady())?'error':'' %>">
+<div class="home-menu gMapError">
+	<div><%- dict("No Internet.") %><br /><%- dict("Please connect to internet.") %></div>
+	<button type="button" class="btnLoadGMap"><%- dict("Continue") %></button>
+</div>
+<div class="home-menu gMapNormal">
+<div class="part1"><div class="part1b">
+<div class="detail"></div>
+<div class="title"><h1><%- dict("Please Select Mode") %><%- dict(':') %></h1></div>
+<div class="home-modebuttons <%- user.isLogined()?'':' showtips' %>">
+<% if(!user.isLogined()) { %><div class="logintips">(<%- dict('Plan the Trip') %> / <%- dict('Pre-Trip') %><%- dict(': ') %><%- dict('Login required') %><%- dict('.') %>)</div><% } %>
+<div class="plantrip"><a href="#mode/plan" title="<%- dict('Plan the Trip') %>"><%- dict('Plan the Trip') %></a></div>
+<div class="pretrip"><a href="#mode/pre" title="<%- dict('Pre-Trip') %>"><%- dict('Pre-Trip') %></a></div>
+<div class="thetrip"><a href="#mode/trip" title="<%- dict('The Trip') %>"><%- dict('The Trip') %></a></div>
+<div class="aftertrip"><a href="#mode/after" title="<%- dict('After Trip') %>"><%- dict('After Trip') %></a></div>
+</div>
+<div class="detail-layer">
+<div class="detail-plantrip detail-content">
+    <div>
+    	<strong><%- dict('Plan the Trip') %><%- dict(':') %></strong><span class="logintags">(<%- dict('Login required') %>)</span><br />
+        <%- dict('Where are you going?') %><br />
+        <%- dict('Which locations will you visit?') %><br />
+        <%- dict('What will you do at those locations?') %>
+    </div>
+</div>
+<div class="detail-pretrip detail-content">
+    <div>
+        <strong><%- dict("Pre-Trip") %><%- dict(':') %></strong><span class="logintags">(<%- dict('Login required') %>)</span><br />
+        <%- dict("Improve checkpoints' accuracy using GPS.") %><br />
+        <%- dict('Is the trip too long or too short?') %><br />
+        <%- dict('Are the tasks feasible?') %>
+    </div>
+</div>
+<div class="detail-thetrip detail-content">
+    <div>
+       	<strong><%- dict('The Trip') %><%- dict(':') %></strong><br />
+        <%- dict('Go to the checkpoints.') %><br />
+       	<%- dict('Complete and submit the tasks.') %>
+    </div>
+</div>
+<div class="detail-aftertrip detail-content">
+    <div>
+        <strong><%- dict('After Trip') %><%- dict(':') %></strong><br />
+        <%- dict("Review my trip's submission.") %><br />
+        <%- dict("Review the participants' submissions.") %><span class="logintags">(<%- dict('Login required') %>)</span>
+    </div>
+</div>
+</div>
+</div>
+</div><div class="part2">
+<div class="title">
+<h1><%- dict('Current Trip') %><%- dict(': ') %></h1>
+</div>
+<div id="recentmaps"></div>
+
+<div class="getAMap">
+    <h2><img src="img/maplist-tabicon-getmap.png" alt="<%- dict('Get a Map') %>" /><%- dict('Get a Map') %></h2>
+    <div class="searchbox">
+    <div class="searchbox-bg">
+      <input autocomplete="on" maxlength="100" type="search" id="search" name="search" /><a href="javascript:void(0)" class="yellowbg btnSearch" id="btnSearch"><%- dict('Go') %></a>
+    </div></div>
+    <div class="line note"><span class="lblText"><%- dict('Please enter "Map Key"') %><%- dict('.') %></span>
+    <span class="lblText"><%- dict('e.g.') %>B00033M1J</span></div>
+</div>
+</div>
+</div></div></div><!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

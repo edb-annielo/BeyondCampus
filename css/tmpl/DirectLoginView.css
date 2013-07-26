@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+#page-directlogin{
+
+}
+#page-directlogin .infobox{
+	text-align:center;
+}
+#page-directlogin #btnOK{
+	margin:10px 0;
+}
+#page-directlogin .infobox h2{
+	margin-bottom:5px;
+}
+#page-directlogin .infobox .validresult{
+	color:#060;
+}
+#page-directlogin .infobox .validresult.error{
+	color:#F00;
+}
+#page-directlogin .infobox .validresult.error:before{
+	content: "\2718";
+}
+#page-directlogin .infobox .validresult.ok:before{
+	content: "\2714";
+	
+}
+#page-directlogin .btnSignUp{
+	margin-right:5px;
+}
+@media screen and (min-width:525px) and (max-width:719px) { 
+	
+	#page-directlogin #page-directlogin-login .btnSignUp{
+		min-width: 90px;
+   		padding: 4px 10px;
+		font-size:20px;
+	}
+}
+@media screen and (max-width:524px) { 
+	
+	#page-directlogin .infobox{
+		padding-left:0;
+		padding-right:0;
+	}
+	#page-directlogin .infobox input[type="text"], 
+	#page-directlogin .infobox input[type="password"], 
+	#page-directlogin .infobox input[type="email"] {
+		font-size: 20px;
+		max-width:90%;
+		min-height:0;
+		min-width:0;
+		width:90%;
+	}
+	#page-directlogin #page-directlogin-login .btnSignUp{
+		min-width: 90px;
+   		padding: 4px 10px;
+		font-size:20px;
+	}
+}

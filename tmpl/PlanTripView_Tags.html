@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+        <div subpage="tags" class="subpage"> 
+          <div class="section subsections basicinfo">
+            <h2><%- dict('Search Tags') %></h2>
+            <div class="subsection flipper horizontal">
+              <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+              <div class="flipper-content">
+                <input id="btnAddTags" type="button" style="float:right" value="<%- dict('Add Tag(s)') %>" name="btnAddTags">
+                <div class="line lblField"><%- dict('Add Tags') %></div>
+                <div class="note"><em><%- dict('Fill in suitable field(s).') %><br />
+      				<%- dict('Use semi-colon') %> "<strong>;</strong>" <%- dict('to seperate tags.') %></em></div>
+                <div class="line">
+                    <div class="note"><%- dict('School') %> / <%- dict('Project') %> / <%- dict('Organization') %><%- dict(':') %></div>
+                    <div><input id="tag_school" name="tag_school" type="text" tagType="1" /></div>
+                </div>
+                <div class="line">
+                    <div class="note"><%- dict('Key Learning Areas') %> / <br /><%- dict('Other Learning Experiences') %><%- dict(':') %></div>
+                    <div>
+                      <select id="tag_klaole" name="tag_klaole" tagType="2">
+                        <option value="">-- <%- dict('please select') %> ---</option>
+                        <% $.each(OPTIONS.klaole, function(key){ %>
+                        <% if($.isPlainObject(OPTIONS.klaole[key])){ %>
+                            <optgroup label="<%- dict(key) %>">
+                            <% $.each(OPTIONS.klaole[key], function(key2){ %>
+                                <option value="<%- dict(key2) %>"><%- dict(OPTIONS.klaole[key][key2]) %></option>
+                            <% }); %>
+                            </optgroup>
+                        <% } else { %>
+                        <option value="<%-dict(key)%>"><%- dict(OPTIONS.klaole[key]) %></option>
+                        <% } %>
+                        <% }); %>
+                      </select>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="note"><%- dict('Subjects') %><%- dict(':') %></div>
+                    <div><input id="tag_subject" name="tag_subject" type="text" tagType="3" /></div>
+                </div>
+                <div class="line">
+                    <div class="note"><%- dict('Locations') %><%- dict(':') %></div>
+                    <div><input id="tag_location" name="tag_location" type="text" tagType="4" /></div>
+                </div>
+                <div class="line">
+                    <div class="note"><%- dict('Other Tags') %><%- dict(':') %></div>
+                    <div><textarea id="tag_other" name="tag_other" rows="2" tagType="0"></textarea></div>
+                </div>
+              </div>
+              <div class="flipper-normal tap-box">
+                  <div class="line lblField"><%- dict('Add Tags') %></div>
+              </div>
+            </div>
+            <div class="subsection">
+              <div class="line lblField"><%- dict('All Tags') %></div>
+              <div class="line">
+                  <div class="note"><%- dict('School') %> / <%- dict('Project') %> / <%- dict('Organization') %><%- dict(':') %></div>
+                  <div class="searchTags" tagType="1"></div>
+              </div>
+              <div class="line">
+                  <div class="note"><%- dict('KLA') %> / <%- dict('OLE') %><%- dict(':') %></div>
+                  <div class="searchTags" tagType="2"></div>
+              </div>
+              <div class="line">
+                  <div class="note"><%- dict('Subjects') %><%- dict(':') %></div>
+                  <div class="searchTags" tagType="3"></div>
+              </div>
+              <div class="line">
+                  <div class="note"><%- dict('Locations') %><%- dict(':') %></div>
+                  <div class="searchTags" tagType="4"></div>
+              </div>
+              <div class="line">
+                  <div class="note"><%- dict('Other Tags') %><%- dict(':') %></div>
+                  <div class="searchTags" tagType="0"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

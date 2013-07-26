@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***********************************************************/
+
+
+#page-setting .main .subpage[subpage='2']:before,
+#page-setting .menu a.menubtn.color2 .menubg{
+	/* IE */
+	background-image: url('../gradient/left-C64297-CB144C.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,right top,from(  #C64297  ),to(  #CB144C  )); 
+	background-image:-webkit-linear-gradient(left, #C64297 , #CB144C  ); 
+	background-image:   -moz-linear-gradient(left, #C64297 , #CB144C  ); 
+	background-image:    -ms-linear-gradient(left, #C64297 , #CB144C  ); 
+	background-image:     -o-linear-gradient(left, #C64297 , #CB144C  ); 
+	background-image:        linear-gradient(left, #C64297 , #CB144C  ); 
+}
+#page-setting .menu a.menubtn.color2:active .menubg {
+	-webkit-box-shadow:0px 0px 10px 0px #CB144C; 
+       -moz-box-shadow:0px 0px 10px 0px #CB144C;
+	        box-shadow:0px 0px 10px 0px #CB144C; 
+}
+
+#page-setting .main .subpage[subpage='0']:before,
+#page-setting .menu a.menubtn.color0 .menubg{
+	/* IE */
+	background-image: url('../gradient/left-8E3D44-732427.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,right top,from(  #8E3D44  ),to(  #732427  )); 
+	background-image:-webkit-linear-gradient(left, #8E3D44 , #732427  ); 
+	background-image:   -moz-linear-gradient(left, #8E3D44 , #732427  ); 
+	background-image:    -ms-linear-gradient(left, #8E3D44 , #732427  ); 
+	background-image:     -o-linear-gradient(left, #8E3D44 , #732427  ); 
+	background-image:        linear-gradient(left, #8E3D44 , #732427  ); 
+}
+#page-setting .menu a.menubtn.color0:active .menubg {
+	-webkit-box-shadow:0px 0px 10px 0px #732427; 
+       -moz-box-shadow:0px 0px 10px 0px #732427;
+	        box-shadow:0px 0px 10px 0px #732427; 
+}
+
+#page-setting .main .subpage[subpage='1']:before,
+#page-setting .menu a.menubtn.color1 .menubg{
+	/* IE */
+	background-image: url('../gradient/left-A87C4F-754C28.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,right top,from(  #A87C4F  ),to(  #754C28  )); 
+	background-image:-webkit-linear-gradient(left, #A87C4F , #754C28  ); 
+	background-image:   -moz-linear-gradient(left, #A87C4F , #754C28  ); 
+	background-image:    -ms-linear-gradient(left, #A87C4F , #754C28  ); 
+	background-image:     -o-linear-gradient(left, #A87C4F , #754C28  ); 
+	background-image:        linear-gradient(left, #A87C4F , #754C28  ); 
+}
+#page-setting .menu a.menubtn.color1:active .menubg {
+	-webkit-box-shadow:0px 0px 10px 0px #754C28; 
+       -moz-box-shadow:0px 0px 10px 0px #754C28;
+	        box-shadow:0px 0px 10px 0px #754C28; 
+}
+
+
+#page-setting  #btnOK{
+	margin:10px 0;
+}
+#page-setting  #account{
+	width:256px;
+	display:inline-block;
+	background:#FFFFFF;
+	text-align:left;
+	padding:5px 10px;
+	border:1px solid #000;
+}
+#page-setting  select#service{
+	width:256px;
+}
+#page-setting .infobox .curr_acc{
+	margin-bottom:20px;
+}
+#page-setting .infobox .login_acc{
+	margin:10px 0;
+}
+
+@media screen and (min-width:720px) { 	
+	#page-setting .menu a.menubtn.color2 {
+		background:url(../../img/setting-menubgpic-color2.png) top right no-repeat;
+	}
+	#page-setting .menu a.menubtn.color0 {
+		background:url(../../img/setting-menubgpic-color0.png) top right no-repeat;
+	}
+
+	#page-setting .menu a.menubtn.color1 {
+		background:url(../../img/setting-menubgpic-color1.png) top right no-repeat;
+	}
+
+}
+
+@media screen and (min-width:720px) and (max-width:849px) { 	
+
+
+}
+@media screen and (min-width:525px) and (max-width:719px) { 	
+
+}
+@media screen and (max-width:524px) { 
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><div class="table-row">
+<div class="table-cell-3 divNav">
+<a href="javascript:history.back();" title="<%- dict('Back') %>"><img src="img/siteheader-back.png" width="28" height="28" alt="<%- dict('Back') %>" /></a><!--
+--><a href="javascript:history.forward();" title="<%- dict('Forward') %>"><img src="img/siteheader-forward.png" width="28" height="28" alt="<%- dict('Forward') %>" /></a><!--
+--><a href="#page/home" class="btnHome" title="<%- dict('Home') %>"><img src="img/siteheader-home.png" width="28" height="28" alt="<%- dict('Home') %>" /></a><!--
+--><a href="#page/setting/2" title="<%- dict('System Config.') %>"><img src="img/siteheader-config.png" width="28" height="28" alt="<%- dict('System Config.') %>" /></a><!--
+--><a href="#page/info" title="<%- dict('Information') %>"><img src="img/siteheader-info.png" width="28" height="28" alt="<%- dict('Information') %>" /></a>
+</div><div class="table-cell-3" style="text-align:center"><a href="#page/home"><img height="31" alt="<%- dict('Step Out') %>" src="img/logo.png" id="siteheader-logo"></a></div><% if(!siteInfo.notSupport()){  %><div class="table-cell-3 divLogin" style="text-align:right">
+<% if (user.get('userID') == null){ %><a href="javascript:void(0)" id="btnLogin" class="redbg smallbtn"><img src="img/siteheader-login.png" width="20" height="20" /><%- dict("Login") %><span class="resolution-large"> / <%- dict("Sign Up") %></span></a><% } else { %><a href="#page/setting/0" class="username"><%-user.get('account')%></a> <a href="javascript:void(0)" id="btnLogout" class="greenbg smallbtn"><img src="img/siteheader-logout.png" width="20" height="20" /><%- dict("Logout") %></a><% } %>
+</div><% } %></div><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" --><!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

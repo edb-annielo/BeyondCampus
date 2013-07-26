@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-newmap" class="mapcontent">
+      <div class="left">
+        <div class="section basicinfo">
+          <h2><%- dict('Basic') %></h2>
+          <div class="line"><span class="requiredFld"><%- dict('Map Name') %><%- dict(':') %></span>
+            <input id="name" name="name" value="<%- mapObj.name %>" type="text" required />
+          </div>
+          <div class="line"><%- dict('Description') %><%- dict(':') %><br />
+            <textarea id="description" name="description" row="5" cols="40" class="webedit" ><%- mapObj.description %></textarea>
+          </div>
+        </div>
+        <div class="section">
+          <div class="line"><span class="requiredFld"><%- dict('Language') %><%- dict(':') %></span> 
+            <select id="language" name="language" value="<%= mapObj.language %>">
+            <% $.each(OPTIONS.lang, function(key){ %>
+            <option value="<%=key%>" <%= mapObj.language==key?' selected':'' %>><%=OPTIONS.lang[key]%></option>
+            <% }); %>
+            </select>
+            <input type="button" value="<%- dict('Switch Language') %>" id="btnChangeLang" name="btnChangeLang" />
+          </div>
+          <div class="line"><span class="requiredFld"><%- dict('Creator') %><%- dict(':') %></span> 
+            <input id="creatorName" name="creatorName" value="<%- user.get('account') %>" type="text" required maxlength="100" />
+          </div>
+        </div>
+        <div class="section basicinfo">
+          <h2><%- dict('Map Centre') %></h2>
+          <div class="line note">
+              <%- dict('Move the map to change its default location.') %></div>
+          <div class="line">
+            <span class="requiredFld"><%- dict('Lat') %><%- dict(':') %></span> <input id="lat" name="lat" value="<%- mapObj.mapCentre_lat %>" type="text" required pattern="<%=PATTERN.Lat%>" />
+          </div>
+          <div class="line">
+            <span class="requiredFld"><%- dict('Lng') %><%- dict(':') %></span> <input id="lng" name="lng" value="<%- mapObj.mapCentre_lng %>" type="text" required pattern="<%=PATTERN.Lng%>" />
+            <div class="note"><%- dict("Latitude and longitude of the map's centre") %></div>
+          </div>
+          <div class="line">
+            <span class="requiredFld"><%- dict('Zoom') %><%- dict(':') %></span> <input id="zoom" name="zoom" value="<%- mapObj.mapCentre_zoom %>" type="text" required pattern="<%=PATTERN.Zoom%>" />
+            <div class="note"><%- dict('Zoom level of the map') %></div>
+          </div>
+          <div class="line"><input type="button" id="btnUpdateByInput" name="btnUpdateByInput" value="<%- dict('Update (by Input)') %>"/></div>
+        </div>
+      </div>
+      <div class="main">
+      	<div class="mapTitle">
+            <div class="clearfix">
+                <h1><%- dict('New Map') %></h1>
+                <span id="mapCanvasButtons">
+                    <a href="javascript:void(0)" class="greybg-lt" id="btnMyPosition"><img src="<%=CONFIG.YouAreHere%>" height="24"/><%- dict('My Position') %></a>
+                </span>
+            </div>
+            <div class="line"><form class="lblText" onSubmit="return false;"><span class="lblText"><img src="img/search-icon.png" title="<%- dict('Search Places') %>" alt="<%- dict('Search Places') %>" /></span><!--
+                --><input id="mapSearchbox" name="mapSearchbox" type="search" title="<%- dict('Search Places') %>" placeholder="<%- dict('Search Places') %>" /><!--
+                --><a href="javascript:void(0)" id="mapSearchbox_btnClear" class="lblText"><img src="img/btnClear.png" title="<%- dict('Clear Search') %>" alt="<%- dict('Clear Search') %>" /></a><!--
+                --></form>
+            </div>
+        </div>
+        <div id="mapCanvas"></div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-preview" class="mapcontent">
+      <div class="left">
+        <div class="section basicinfo">
+          <div style="float:right" class="mapAttrIcons">
+          <% if( mapObj.language == "en") { %><img src="img/maplist-attr-lang1033.png" title="<%- dict('English') %>" /><%} 
+             else if( mapObj.language == "zh-HK") { %><img src="img/maplist-attr-lang1028.png" title="<%- dict('Chinese') %>" /><%}%>
+          <% if(mapAttr.isCreator){ %><img src="img/maplist-attr-creator.png" title="<%- dict('Created by Me') %>" /><% } %>
+          <% if(mapAttr.isCollaborator) { %><img src="img/maplist-attr-collaborating.png" title="<%- dict('Collaborator') %>" /><% }  %>
+          <% if( mapAttr.isFavMap) { %><img src="img/maplist-attr-favmap.png" title="<%- dict('Fav. Map') %>" /><%}%>
+          <% if( mapAttr.isOpenedMap && false) { %><img src="img/maplist-attr-opened.png" title="<%- dict('Opened') %>" /><%}%>
+          <% if(mapAttr.isSubmitted) { %><img src="img/maplist-attr-submitted.png" title="<%- dict('Submitted') %>" /><% }  %>
+          <% if(!mapAttr.isEnable){ %><img src="img/maplist-attr-disablemap.png" title="<%- dict('Disable') %>" /><% } 
+             else if(mapAttr.isPublic){ %><img src="img/maplist-attr-publicmap.png" title="<%- dict('Public') %>" /><% } 
+             else { %><img src="img/maplist-attr-privatemap.png" title="<%- dict('Private') %>" /><% } %>
+          </div>
+          <h2><%- dict('Preview Map') %></h2>
+          <div class="line"><span class="lblField"><%- dict('Map Name') %><%- dict(':') %></span> <span class="lblText"><%- mapObj.name %></span></div>
+          <div class="line"><span class="lblField"><%- dict('Description') %><%- dict(':') %></span>
+            <div class="longbox short"><div class="longbox2"> <%=  Convert.BBCodetoHtml(mapObj.description) %> </div><a href="javascript:void(0)" class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+          </div>
+        </div>
+        <div class="section"><span class="lblField"><%- dict('Language') %><%- dict(':') %></span> <span class="lblText"><%= OPTIONS.lang[mapObj.language] %></span></div>
+        <div class="section qr">
+          <h2><%- dict('Map Key') %> <img src="img/btnmapkey.png" alt="<%- dict('Map Key') %>" /></h2>
+          <div class="line"><div class="mapKey"><%= mapObj.mapKey %></div></div>
+          <div class="note"><%- dict('you may use map key to search this map') %></div>
+          <div class="line"> <img src="http://chart.apis.google.com/chart?cht=qr&chs=200x200&chld=2&chl=<%= mapObj.mapKey %>" style="width:200px;height:200px" class="imgQR" /> </div>
+        </div>
+        <% if(user.isLogined()){
+        if(mapAttr.isDuplicable) { %>
+        <div class="section important">
+        	<h2><%- dict('Duplicate This Map') %> <img src="img/maplist-attr-copyable.png" alt="<%- dict('Duplicate This Map') %>" /></h2>
+            <div class="line" style="text-align:center">
+            	<a class="custombg" id="btnDuplicateMap" href="javascript:void(0)"><%- dict('Duplicate') %></a>
+            </div>
+            <% if(!(mapAttr.isCreator || mapAttr.isCollaborator)) { %>
+            <div class="line"><a href="<%- dict('cc url')%>" target="_blank"><%- dict('Terms')%><%- dict(': ')%><%- dict('cc terms')%></a></div>
+            <% } %>
+        </div>
+        <% } 
+        } %>
+        <div class="resolution-small selectmode section">
+          <h2><%- dict('Open') %></h2>
+          <div class="line"><%- dict('Please select mode') %><%- dict(':') %></div>
+          <div class="line">
+          <a href="#mode/plan/<%= mapObj.mapKey %>" class="selectmode-plan"><img src="img/maplist-mode-plan.png"><br /><%- dict('Plan the Trip') %></a> 
+          <a href="#mode/pre/<%= mapObj.mapKey %>" class="selectmode-pre"><img src="img/maplist-mode-pre.png"><br /><%- dict('Pre-Trip') %></a> 
+          <a href="#mode/trip/<%= mapObj.mapKey %>" class="selectmode-trip"><img src="img/maplist-mode-trip.png"><br /><%- dict('The Trip') %></a>
+          <a href="#mode/after/<%= mapObj.mapKey %>" class="selectmode-after"><img src="img/maplist-mode-after.png"><br /><%- dict('After Trip') %></a></div>
+        </div>
+      </div>
+      <div class="main">
+      	<div class="mapTitle">
+        	<h1><%- mapObj.name %></h1>
+            <span style="float:right; display:inline-block">
+                <a href="javascript:void(0)" class="greybg-lt" id="btnMyPosition"><img src="<%=CONFIG.YouAreHere%>" height="24"/><%- dict('My Position') %></a>
+                <a href="javascript:void(0)" class="greybg-lt"  id="btnReturnCentre"><img src="img/mapcontent-returncentre.png" height="22"/><%- dict('Return to Map Centre') %></a>
+            </span>
+        </div>
+        <div id="mapCanvas"></div>
+        <div class="section track">
+          	<div class="note"><span class="lblSuggestedBoundary"><strong>----</strong> <%- dict('Suggested Boundary') %></span> <span class="lblSuggestedTrack"><strong>----</strong> <%- dict('Suggested Track') %></span></div>
+        </div>
+        <div class="selectmode section">
+          <h2><%- dict('Open') %></h2>
+          <h3><%- dict('Please select mode') %><%- dict(':') %></h3>
+          <div class="line">
+          <a href="#mode/plan/<%= mapObj.mapKey %>" class="selectmode-plan"><img src="img/maplist-mode-plan.png"><br /><%- dict('Plan the Trip') %></a> 
+          <a href="#mode/pre/<%= mapObj.mapKey %>" class="selectmode-pre"><img src="img/maplist-mode-pre.png"><br /><%- dict('Pre-Trip') %></a> 
+          <a href="#mode/trip/<%= mapObj.mapKey %>" class="selectmode-trip"><img src="img/maplist-mode-trip.png"><br /><%- dict('The Trip') %></a>
+          <a href="#mode/after/<%= mapObj.mapKey %>" class="selectmode-after"><img src="img/maplist-mode-after.png"><br /><%- dict('After Trip') %></a></div>
+        </div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,713 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- header --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-info" class="maincontent menuAndMain clearfix">
+      <div class="menu">
+        <div><a href="#page/info/about" class="menubtn color0"><div class="menubg"><img src="img/info-menuicon-about.png" alt="<%- dict('About Us') %>"><%- dict('About Us') %></div></a></div>
+        <div><a href="#page/info/terms" class="menubtn color1"><div class="menubg"><img src="img/info-menuicon-term.png" alt="<%- dict('Terms & Conditions') %>"><%- dict('Terms & Conditions') %></div></a></div>
+        <div><a href="#page/info/gps" class="menubtn color2"><div class="menubg"><img src="img/info-menuicon-faq.png"alt="<%- dict('FAQ') %>"><%- dict('FAQ') %></div></a></div>
+      </div>
+      <h1><%- dict('Information') %></h1>
+      <div class="main-outer">
+          <div class="main">
+            <div subpage="about" class="subpage color0">
+              <div class="submenu">
+                <a href="#page/info/about" class="currlink"><%- dict('About "Beyond Campus"') %></a> | 
+                <a href="#page/info/view"><%- dict('Best Viewed') %></a> | 
+                <a href="#page/info/whatsnew"><%- dict('Whats New') %></a> | 
+                <a href="#page/info/contact"><%- dict('Contact Us') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('About "Beyond Campus"') %></h2>
+                <div class="infobox-inner">
+                  <div><%- dict('@info-aboutus-line1') %></div>
+                  <div><%- dict('@info-aboutus-line2') %></div>
+                  <ul>
+                  <li><%- dict('@info-aboutus-line3') %><br />
+                  <%- dict('@info-aboutus-line4') %>
+                  <ul>
+                  <li><%- dict('@info-aboutus-line5') %></li>
+                  <li><%- dict('@info-aboutus-line6') %></li>
+                  <li><%- dict('@info-aboutus-line7') %></li></ul></li>
+                  <li><%- dict('@info-aboutus-line8') %><br />
+                  <%- dict('@info-aboutus-line9') %></li>
+                  <li><%- dict('@info-aboutus-line10') %></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Link to "Beyond Campus"') %></h2>
+                <div class="infobox-inner">
+                  <h3><%- dict('Site URL') %></h3>
+                  <div class="line"><a href="<%- baseURL %>" target="_blank"><%- baseURL %></a></div>
+                  <h3><%- dict('QR Code') %></h3>
+                  <div class="line"> <img src="http://chart.apis.google.com/chart?cht=qr&chs=200x200&chld=2&chl=<%- baseURL %>" style="width:200px;height:200px" class="imgQR" /> </div>
+                </div>
+              </div>
+            </div>
+            <div subpage="whatsnew" class="subpage color0">
+              <div class="submenu">
+                <a href="#page/info/about"><%- dict('About "Beyond Campus"') %></a> | 
+                <a href="#page/info/view"><%- dict('Best Viewed') %></a> | 
+                <a href="#page/info/whatsnew" class="currlink"><%- dict('Whats New') %></a> | 
+                <a href="#page/info/contact"><%- dict('Contact Us') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Whats New') %></h2>
+                <div class="infobox-inner">
+                	<h3>2013-07-19</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">任務次序</span>：可以重新排列任務的次序。</li>
+                            <li><span class="lblField">修改規則R2、R4、R6</span>：參加者亦可輸入定點的密碼來解除定點或任務的鎖定。</li>
+                        <% } else { %>
+                    		<li><span class="lblField">Task Ordering</span>: You may now rearrange the tasks' orders.</li>
+                            <li><span class="lblField">Modify Rules R2, R4, R6</span>: Alternatively, the checkpoints/tasks could also be unlocked by entering the checkpoints' passwords.</li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                	<h3>2013-05-02</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">搜尋地點</span>：可以在「規劃旅程」使用「地點搜尋」功能。</li>
+                        <% } else { %>
+                    		<li><span class="lblField">Search Places</span>: You may now use "location search" in "Plan the Trip" mode.</li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                	<h3>2013-04-19</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">試用帳戶/公開的旅程</span>：基於安全考慮，由試用賬戶所建立的旅程不能被設置為「公開的旅程」。</li>
+                        <% } else { %>
+                    		<li><span class="lblField">Trial Accounts &amp; Public Trips</span>: Due to security concerns, the trips created by trial accounts cannot be set as public trips.</li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                	<h3>2013-04-16</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">新規則R3、R7 - 輸入密碼</span>：參加者需要輸入定點的密碼，以打開被鎖定的定點[R7]或任務[R3]。例如：(1) 由老師帶領，在定點齊集學生才打開任務；(2) 老師需要在定點講解後才開始任務；(3) 室內活動，以輸入貼在定點牆壁的密碼代替使用定位(GPS)。 </li>
+                        <% } else { %>
+                    		<li><span class="lblField">New Rules R3, R7 - Enter Passwords</span>: Participants have to enter the checkpoint's password to unlock the checkpoint [R7] or its tasks [R3]. e.g. (1) Led by the teacher, all students have to be gathered at the checkpoint before starting its tasks; (2) the teacher explains at the checkpoint before starting its tasks; (3) indoor activities, insteads of using GPS, enter the password which stick on the wall of the checkpoint.</li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                	<h3>2013-03-24 ~ 2013-03-30</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">單欄 / 雙欄、並排</span>：可以轉換至「單欄」或「雙欄、並排」檢視。</li>
+                        <% } else { %>
+                    		<li><span class="lblField">1 Column / 2 Columns, Side-by-Side</span>: You may now switch between "1 Column" and "2 Columns, Side-by-Side" views.</li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                	<h3>2013-03-17 ~ 2013-03-22</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">定點與任務-快速瀏覽</span>：可以快速檢視所有定點與任務。</li>
+                            <li><span class="lblField">定點與任務-下載</span>：可以下載所有定點及其任務為文件檔案。</li>
+                            <li><span class="lblField">下載所有參加者的習作</span></li>
+                        <% } else { %>
+                    		<li><span class="lblField">Checkpoints &amp; Tasks - Quick View</span>: You may now have a quick view to all checkpoints &amp; tasks.</li>
+                            <li><span class="lblField">Checkpoints &amp; Tasks - Download</span>: You may download the above quick view as a document file.</li>
+                            <li><span class="lblField">Download All Participants' Submissions</span></li>
+                        <% } %>
+                        
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">字眼更動</span>：「提交」改為「習作呈交」。</li>
+                        <% } else { %>
+                    		<li>(There is a major wording change in Chinese version.)</li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                    <h3>2013-03-10 ~ 2013-03-16</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">定點次序</span>：可以重新排列定點的次序。</li>
+                        <% } else { %>
+                    		<li><span class="lblField">Checkpoint Ordering</span>: You may now rearrange the checkpoints' orders.</li>
+                        <% } %>
+                        
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">作答類型「輸入網址」</span>：適合需要利用其他網站的任務。
+                            例如：訪問遊客並拍攝影片，然後上載到Youtube</li>
+                            <li><span class="lblField">常見問題</span></li>
+                        <% } else { %>
+                    		<li><span class="lblField">Answer Type "Enter URL"</span>: It is suitable for tasks required the using of other websites.
+                            e.g. Interview a tourist and record the video, then upload it to Youtube.</li>
+                            <li><span class="lblField">FAQ</span></li>
+                        <% } %>
+                        
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">更新消息</span></li>
+                        <% } else { %>
+                    		<li><span class="lblField">What's New</span></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <br />
+                <div class="infobox-inner">
+                	<h3>2013-03-03 ~ 2013-03-09</h3>
+                  	<ul>
+                    	<% if(user.lang() == 1028) { %>
+                        	<li><span class="lblField">複製旅程</span>：如果旅程作者允許，你可以複製他人的旅程成為你的旅程；你亦可以更改你的旅程的「可複製旅程」設定。</li>
+                        	<li><span class="lblField">常見問題</span></li>
+                        <% } else { %>
+                    		<li><span class="lblField">Copy Trips</span>: You may now copy others' trips as your own trips, if trip creators allowed, and set your trips' copyable status.</li>
+                        	<li><span class="lblField">FAQ</span></li>
+                        <% } %>
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div subpage="view" class="subpage color0">
+              <div class="submenu">
+                <a href="#page/info/about"><%- dict('About "Beyond Campus"') %></a> | 
+                <a href="#page/info/view" class="currlink"><%- dict('Best Viewed') %></a> | 
+                <a href="#page/info/whatsnew"><%- dict('Whats New') %></a> | 
+                <a href="#page/info/contact"><%- dict('Contact Us') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Best Viewed') %></h2>
+                <div class="infobox-inner">
+                  <em><%- dict('@info-bestview-cat1') %></em><br />
+                  <%- dict('@info-bestview-cat1-screen') %><br />
+                  <%- dict('@info-bestview-cat1-browser') %><br />
+                  <br />
+                  <em><%- dict('@info-bestview-cat2') %></em><br />
+                  <%- dict('@info-bestview-cat2-screen') %><br />
+                  <%- dict('@info-bestview-cat2-browser') %><br />
+                  <small><%- dict('@info-bestview-cat2-browser-warning') %></small><br />
+                  <%- dict('@info-bestview-cat2-device') %>
+                </div>
+              </div>
+            </div>
+            <div subpage="contact" class="subpage color0">
+              <div class="submenu">
+                <a href="#page/info/about"><%- dict('About "Beyond Campus"') %></a> | 
+                <a href="#page/info/view"><%- dict('Best Viewed') %></a> | 
+                <a href="#page/info/whatsnew"><%- dict('Whats New') %></a> | 
+                <a href="#page/info/contact" class="currlink"><%- dict('Contact Us') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Contact Us') %></h2>
+                <div class="infobox-inner">
+                  	<%- dict('@info-contactus-line1') %><br />
+                    <%- dict('@info-contactus-line2') %><br />
+                    <%- dict('@info-contactus-line3').replace("{tel}",dict('@info-tel')) %><br />
+                    <%- dict('@info-contactus-line4').replace("{email}",dict('@info-email')) %>
+                </div>
+              </div>
+            </div>
+            <div subpage="terms" class="subpage color1">
+              <div class="submenu">
+                <a href="#page/info/terms" class="currlink"><%- dict('Terms & Conditions') %></a> | 
+                <a href="#page/info/privacy"><%- dict('Privacy Policy') %></a> | 
+                <a href="#page/info/disclaimer"><%- dict('Disclaimer') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Terms & Conditions') %></h2>
+                <div class="infobox-inner">
+                <%- dict('@info-terms').replace("{tel}",dict('@info-tel')).replace("{email}",dict('@info-email')) %>
+                </div>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Copyright') %></h2>
+                <div class="infobox-inner">
+                  &copy; 2013 Education Bureau, HKSAR Government 
+                </div>
+              </div>
+            </div>
+            <div subpage="privacy" class="subpage color1">
+              <div class="submenu">
+                <a href="#page/info/terms"><%- dict('Terms & Conditions') %></a> | 
+                <a href="#page/info/privacy" class="currlink"><%- dict('Privacy Policy') %></a> | 
+                <a href="#page/info/disclaimer"><%- dict('Disclaimer') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Privacy Policy Statement (PPS)') %></h2>
+                <div class="infobox-inner">
+                	(<%- dict('English Version Only')%>)<br /><br />
+                    The Education Bureau ("EDB") of the Government of the Hong Kong Special Administrative Region is committed to ensuring that all personal data submitted through "Beyond Campus" website ("this website") are handled in accordance with the relevant provisions of the Personal Data (Privacy) Ordinance.<br /><br />
+                    When you browse this website, cookies may be temporarily stored in your computer's hard drive, and will be removed if you clear the cookies in your browser. The purpose of using cookies is for navigation only. We will not collect any personal data from you under this circumstance. You have a choice not to accept the cookies by configuring your Internet browser settings, but if you do, you may not be able to acquire full functionality of this website.<br /><br />
+                    If you elect to sign up to this website, we will invited to collect your information (email address, username and password) to provide access to certain features by verifing your identity. If you choose not to provide us with the requested information, you will not be able to access such non-public areas because we cannot verify your identity.<br /><br />
+                    EDB will record visits to this website. The analysis service on this website is provided by Google. Google will share the anonymous data it collects through any such activity with the EDB for compiling traffic analysis and improving the services provided by "Beyond Campus". EDB will not collect any personal identifiable information from any such activity and will not match the obtained data with any personal data possibly held by EDB.
+                </div>
+              </div>
+            </div>
+            <div subpage="disclaimer" class="subpage color1">
+              <div class="submenu">
+                <a href="#page/info/terms"><%- dict('Terms & Conditions') %></a> | 
+                <a href="#page/info/privacy"><%- dict('Privacy Policy') %></a> | 
+                <a href="#page/info/disclaimer" class="currlink"><%- dict('Disclaimer') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Disclaimer') %></h2>
+                <div class="infobox-inner">
+                    <%- dict('@info-disclaimer-line1') %><br /><br />
+                    <%- dict('@info-disclaimer-line2') %>
+                </div>
+              </div>
+            </div>
+            <div subpage="help" class="subpage color2">
+              <div class="submenu">
+                <a href="#page/info/help" class="currlink"><%- dict('FAQ') %></a> | 
+                <a href="#page/info/gps"><%- dict('Use of GPS') %></a> | 
+                <a href="#page/info/download"><%- dict('Downloads') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('FAQ') %></h2>
+                <div class="infobox-inner">
+                    <% if(user.lang() == 1028) { %>
+                        <div class="line">
+                            <div class="lblField">問：我是否需要付費，才能使用「移動學堂」？</div>
+                            <div>答：不用，絕對免費。「移動學堂」是由教育局研發製作的電子教學工具，當然是免費使用。</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">問：我可否使用「移動學堂」作商業用途？</div>
+                            <div>答：不可以。「移動學堂」是製作給教師在香港作學與教用途。</div>
+                        </div>
+                    <% } else { %>
+                        <div class="line">
+                            <div class="lblField">Q: Do I have to pay to use Beyond Campus?</div>
+                            <div>A: No, absolutely free. 
+                            "Beyond Campus" is an educational e-tool designed &amp; developed by the Education Bureau, it is free to use. </div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">Q: Can I use Beyond Campus for commerical purposes?</div>
+                            <div>A: No. Beyond Campus is developed for teachers to facilitate learning and teaching in Hong Kong.</div>
+                        </div>
+                    <% } %>
+                </div>
+              </div>  
+              <div class="infobox">
+                <h2><%- dict('Account') %></h2>
+                <div class="infobox-inner">
+                	<!--(<%- dict('Under Construction')%>) (<%- dict('English Version Only')%>)<br /><br />-->
+                    <% if(user.lang() == 1028) { %>
+                        <div class="line">
+                            <div class="lblField">問：我是否必須申請一個帳戶，才能使用「移動學堂」？</div>
+                            <div>答：不一定。如果你只是參加一個旅程（例如：學生），你不需要申請帳戶；但是，如果你想建立或修改旅程（例如：教師、活動策劃人），你便需要申請帳戶。</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">問：我是一名學生領袖，我們會舉辦一個實地考察活動，我可以申請一個帳戶嗎？</div>
+                            <div>答：可以。請使用你在學校的電郵地址進行註冊。（即是你的學生電郵地址）</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">問：我已經成功申請了一個帳號。為什麼我不能登入？</div>
+                            <div>答：當完成登記時，我們會寄出啟動帳戶的步驟到你的電郵。你必須先啟動您的帳戶才能登入。以下為常見的帳戶登記問題：
+                                <ul>
+                                    <li>電郵地址不存在，例如：
+                                        電郵地址打字錯誤、
+                                        虛假的電郵地址、
+                                        E-services的電郵地址誤寫為 "@eservice"（正確是 "@eservice<strong style="text-decoration:underline">s</strong>.hkedcity.net"）
+                                    </li>
+                                    <li>不能接收「啟動帳戶」郵件，例如：電郵信箱已滿</li>
+                                    <li>3天之內沒有啟動帳戶</li>
+                                </ul>
+                            </div>
+                    	</div>
+                    <% } else { %>
+                        <div class="line">
+                            <div class="lblField">Q: Must I sign-up an account to use Beyond Campus?</div>
+                            <div>A: No. If you are only participting a trip, e.g. students, you do not need an account. However, you need to apply an account if you want to create and modify trips, e.g. teachers, event organisers.</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">Q: I am a student leader. We are hosting a field trip event. Can I apply an account?</div>
+                            <div>A: Yes. Remember to use your email address at school to sign-up. (i.e. your student email)</div>
+                        </div>
+                        <div class="line">
+                            <div class="lblField">Q: I have applied an account successfully. Why can't I login?</div>
+                            <div>A: Once registered, an activate note will be sent to your email. You must activate your account. Belows are common sign-up problems.
+                                <ul>
+                                    <li>The email address does not exist, e.g.
+                                        typo in the email address, 
+                                        entering a fake email address,
+                                        mistaking spelled E-services email as "@eservice" (should be "@eservice<strong style="text-decoration:underline">s</strong>.hkedcity.net").
+                                    </li>
+                                    <li>The activition email cannot be received, e.g. the mailbox is full.</li>
+                                    <li>The account is not activated within 3 days.</li>
+                                </ul>
+                            </div>
+                    	</div>
+                    <% } %>
+                </div>
+              </div>    
+              <div class="infobox">
+                <h2><%- dict('Trip') %></h2>
+                <div class="infobox-inner">              
+                    <h3><%- dict('@info-faq-tripicon') %></h3>
+                    <table class="table table-bordered table-striped" style="width:95%">
+                        <tr>
+                          <th style="width:25%"><%- dict('Language') %><%- dict(': ') %></th>
+                          <td style="width:75%">
+                                <span class="seg lblText"><img src="img/maplist-attr-lang1033.png" title="<%- dict('English') %>" /> <%- dict('English') %></span>
+                                <span class="seg lblText"><img src="img/maplist-attr-lang1028.png" title="<%- dict('Chinese') %>" /> <%- dict('Chinese') %></span>
+                                <div class="line note">* <%- dict("Change your trip's language") %><%- dict(': ') %><span class="lblField"><%- dict('Plan the Trip') %> &raquo; <span class="help-varField"><%- dict('Trip') %></span> &raquo; <%- dict('Basic') %></span></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th style="width:25%"><%- dict('Trip Status') %><%- dict(': ') %></th>
+                          <td style="width:75%">
+                               <span class="seg lblText"><img src="img/maplist-attr-disablemap.png" title="<%- dict('Disable') %>" /> <%- dict('Disabled') %></span>
+                               <span class="seg lblText"><img src="img/maplist-attr-publicmap.png" title="<%- dict('Public') %>" /> <%- dict('Public Map') %></span>
+                               <span class="seg lblText"><img src="img/maplist-attr-privatemap.png" title="<%- dict('Private') %>" /> <%- dict('Private Map') %></span>
+                               <div class="line note">* <%- dict("Change your trip's status") %><%- dict(': ') %><span class="lblField"><%- dict('Plan the Trip') %> &raquo; <span class="help-varField"><%- dict('Trip') %></span> &raquo; <%- dict('Advance') %></span></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th style="width:25%"><%- dict('Plan the Trip') %><%- dict(': ') %></th>
+                          <td style="width:75%">
+                                <span class="seg lblText"><img src="img/maplist-attr-copyable.png" title="<%- dict('Duplicable Trip') %>" /> <%- dict('Duplicable Trip') %></span>
+                                <div class="line note">* <%- dict("Change your trip's settings") %><%- dict(': ') %><span class="lblField"><%- dict('Plan the Trip') %> &raquo; <span class="help-varField"><%- dict('Trip') %></span> &raquo; <%- dict('Advance') %></span></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th style="width:25%"><%- dict('My Trips') %><%- dict(': ') %></th>
+                          <td style="width:75%">
+                                <span class="seg lblText"><img src="img/maplist-attr-creator.png" title="<%- dict('Created by Me') %>" /> <%- dict('Created by Me') %></span>
+                                <span class="seg lblText"><img src="img/maplist-attr-collaborating.png" title="<%- dict('Collaborator') %>" /> <%- dict('Collaborator') %></span>
+                                <div class="line note">* <%- dict('Add collaborators to your trip') %><%- dict(': ') %><span class="lblField"><%- dict('Plan the Trip') %> &raquo; <span class="help-varField"><%- dict('Trip') %></span> &raquo; <%- dict('Users') %></span></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th style="width:25%"><%- dict('Participants') %><%- dict(': ') %></th>
+                          <td style="width:75%">
+                                <!--<img src="img/maplist-attr-favmap.png" title="<%- dict('Fav. Map') %>" /> <%- dict('Favourite Map') %>-->
+                                <!--<img src="img/maplist-attr-opened.png" title="<%- dict('Opened') %>" /> <%- dict('Opened') %>-->
+                                <span class="seg lblText"><img src="img/maplist-attr-submitted.png" title="<%- dict('Submitted') %>" /> <%- dict('Submitted') %></span>
+                          </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <h3><%- dict('Trip Status') %><%- dict(': ') %><%- dict('Public') %> vs. <%- dict('Private') %></h3>
+                    <div class="line note">
+                    <% if(user.lang() == 1028) { %>
+                        * 基於安全考慮，由試用賬戶所建立的旅程不能被設置為「公開的旅程」。
+                    <% } else { %>
+                        * Due to security concerns, the trips created by trial accounts cannot be set as public trips.
+                    <% } %>
+                    </div>
+                    <table class="table table-bordered table-striped" style="width:95%">
+                        <tr>
+                          <th colspan="2"><img src="img/maplist-attr-disablemap.png" title="<%- dict('Disable') %>" /> <%- dict('Disabled') %><%- dict(': ') %></th>
+                        </tr>
+                        <tr>
+                          <td style="width:10%"></th>
+                          <td style="width:90%">
+                            <ul class="note">
+                              <li><span class="lblField"><%- dict('Plan the Trip') %></span> &raquo; <span class="lblField help-varField"><%- dict('Trip') %></span> &raquo; <span class="lblField"><%- dict('Advance') %></span> &raquo; <span class="lblField"><%- dict('Enable Map') %></span> &raquo; <span class="lblField"><%- dict('@info-faq-select-false') %></span></li>
+                              <li><%- dict('@info-faq-tripstatus-disable') %></li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th colspan="2"><img src="img/maplist-attr-publicmap.png" title="<%- dict('Public') %>" /> <%- dict('Public Map') %><%- dict(': ') %></th>
+                        </tr>
+                        <tr>
+                          <td style="width:10%"></th>
+                          <td style="width:90%">
+                            <ul class="note">
+                              <li><span class="lblField"><%- dict('Plan the Trip') %></span> &raquo; <span class="lblField help-varField"><%- dict('Trip') %></span> &raquo; <span class="lblField"><%- dict('Advance') %></span> &raquo; <span class="lblField"><%- dict('Public Map') %></span> &raquo; <span class="lblField"><%- dict('@info-faq-select-true') %></span></li>
+                              <li><%- dict('@info-faq-tripstatus-public') %></li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th colspan="2"><img src="img/maplist-attr-privatemap.png" title="<%- dict('Private') %>" /> <%- dict('Private Map') %><%- dict(': ') %></th>
+                        </tr>
+                        <tr>
+                          <td style="width:10%"></th>
+                          <td style="width:90%">
+                            <ul class="note">
+                              <li><span class="lblField"><%- dict('Plan the Trip') %></span> &raquo; <span class="help-varField lblField"><%- dict('Trip') %></span> &raquo; <span class="lblField"><%- dict('Advance') %></span> &raquo; <span class="lblField"><%- dict('Public Map') %></span> &raquo; <span class="lblField"><%- dict('@info-faq-select-false') %></span></li>
+                              <li><%- dict('@info-faq-tripstatus-private') %></li>
+                              <li><%- dict('@info-faq-tripstatus-private-password') %></li>
+                            </ul>
+                          </td>
+                        </tr>
+                    </table>                  
+                </div>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('GPS') %></h2>
+                <div class="infobox-inner">
+                    &raquo; <a href="#page/info/gps"><%- dict('Use of GPS') %></a>
+                </div>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Device') %> / <%- dict('Platform') %> / <%- dict('Browser') %></h2>
+                <div class="infobox-inner">
+                	<!--(<%- dict('Under Construction')%>) (<%- dict('English Version Only')%>)<br /><br />-->
+                    <% if(user.lang() == 1028) { %>
+                        <div class="line">
+                            <div class="lblField">問：在各裝置/平台 / 瀏覽器上使用「移動學堂」時，是否有任何限制？</div>
+                            <div>答：以下為已知限制。
+                            	<ul class="note">
+                                	<li>Windows XP：<br />本網站不支援Internet Explorer 8或以下，而Windows XP不能升級至 IE 9，請改用其他瀏覽器，例如：<a href="http://www.getfirefox.com" target="_blank">Firefox</a>、<a href="http://www.google.com/intl/zh-TW/chrome/browser/" target="_blank">Chrome</a>或<a href="http://www.apple.com/hk/safari/" target="_blank">Safari</a></li>
+                                    <li>「照相 / 選擇圖片」的任務：
+                                        <ul>
+                                            <li>Internet Explorer 9：不支援（請升級至 IE 10 或改用其他瀏覽器）</li>
+                                            <li>桌上電腦 / 筆記簿電腦 (Windows / Mac)：不支援照相，但可選擇圖片</li>
+                                            <li>iOS 5：不支援（請升級至 iOS 6）</li>
+                                            <li>Android：如果電量不足，有機會作答失敗</li>
+                                        </ul>
+                                    </li>
+                                    <li>定位功能：
+                                        <ul>
+                                            <li>Android 的 Chrome：不能使用任何定位功能，直至Google修正其錯誤</li>
+                                            <li>桌上電腦 / 筆記簿電腦 (Windows / Mac)：需開啟無線網路(wifi)</li>
+                                            <li>移動裝置 (iOS / Android)：需啟用裝置的定位服務，詳見「<a href="#page/info/gps">使用定位系統 (GPS)</a>」</li>
+                                        </ul>
+                                    </li>
+                                    <li>下載功能：
+                                    	<ul>
+                                            <li>Android：不支援</li>
+                                            <li>iOS：不支援</li>
+                                            <li>Internet Explorer：不支援</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="line">
+                            <div class="lblField">Q: Is there any limitation when using Beyond Campus in various devices or browsers?</div>
+                            <div>A: Below are known limitations.
+                            	<ul class="note">
+                                	<li>Windows XP: <br />This site does not support Internet Explorer 8 or below, but Windows XP cannot upgrade to IE 9. Please switch to other browsers, e.g. <a href="http://www.getfirefox.com" target="_blank">Firefox</a>, <a href="http://www.google.com/chrome" target="_blank">Chrome</a> or <a href="http://www.apple.com/safari/" target="_blank">Safari</a></li>
+                                    <li>"Camera / Select Image" tasks: 
+                                        <ul>
+                                            <li>Internet Explorer 9: Not supported (Please upgrade to IE 10 or switch browsers)</li>
+                                            <li>Desktop / Laptop (Windows / Mac): No camera functions, but can select image</li>
+                                            <li>iOS 5: Not supported (Please upgrade to iOS 6)</li>
+                                            <li>Android: If the battery is low, it may fail.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Location Service (GPS): 
+                                        <ul>
+                                            <li>Android Chrome: Any GPS function is unavailable until Google fixes its bug.</li>
+                                            <li>Desktop / Laptop (Windows / Mac): Wifi connection must be enabled.</li>
+                                            <li>Mobile Devices (iOS / Android): "Location service" must be enabled, please refer to "<a href="#page/info/gps">Use of GPS</a>"</li>
+                                        </ul>
+                                    </li>
+                                    <li>Download Functions:
+                                    	<ul>
+                                            <li>Android: Not supported</li>
+                                            <li>iOS: Not supported</li>
+                                            <li>Internet Explorer: Not supported</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+              </div>       
+            </div>
+            <div subpage="gps" class="subpage color2">
+              <div class="submenu">
+                <a href="#page/info/help"><%- dict('FAQ') %></a> | 
+                <a href="#page/info/gps" class="currlink"><%- dict('Use of GPS') %></a> | 
+                <a href="#page/info/download"><%- dict('Downloads') %></a>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Use of GPS') %></h2>
+                <div class="infobox-inner">
+               		<h3>1. <%- dict("Enable Location Service of the Device") %></h3>
+                    <%- dict('@info-gps-enable') %>
+                    <ul>
+                    <li>
+                    <div class="flipper vertical <%- appFunc.get('android')?'open':''%>">
+                        <div class="line"><a href="javascript:void(0)" class="flipper-btnOpen lblField">Android</a></div>
+                        <div class="flipper-content">
+                        <table class="table table-bordered table-striped" style="width:95%">
+                            <tr>
+                              <th style="width:25%">Android (2.3.4)<%- dict(': ') %></th>
+                              <td style="width:75%">
+                                    <%- dict('@info-gps-android-enable-2.3.4') %>
+                                      <ol>
+                                          <li>  <span class="gps-tick"><%- dict('tick') %></span> <span class="gps-sysField"><%- dict('Use wireless networks') %></span></li>
+                                          <li>  <span class="gps-tick"><%- dict('tick') %></span> <span class="gps-sysField"><%- dict('Use GPS satellites') %></span></li>
+                                      </ol>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th style="width:25%">Android (4.1)<%- dict(': ') %></th>
+                              <td style="width:75%">
+                                    <%- dict('@info-gps-android-enable-4.1') %>
+                                      <ol>
+                                          <li>  <span class="gps-tick"><%- dict('tick') %></span> <span class="gps-sysField"><%- dict('Access to my location') %></span></li>
+                                          <li>  <span class="gps-tick"><%- dict('tick') %></span> <span class="gps-sysField"><%- dict('GPS satellites') %></span></li>
+                                          <li>  <span class="gps-tick"><%- dict('tick') %></span> <span class="gps-sysField"><%- dict("Google's location service") %></span></li>
+                                      </ol>
+                              </td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="flipper vertical <%- appFunc.get('iOS')?'open':''%>">
+                        <div class="line"><a href="javascript:void(0)" class="flipper-btnOpen lblField">iOS <span class="note">(iPad / iPhone / iPod Touch)</span></a></div>
+                        <div class="flipper-content">
+                        <table class="table table-bordered table-striped" style="width:95%">
+                            <tr>
+                              <th style="width:25%">iOS 5<%- dict(': ') %></th>
+                              <td style="width:75%"><%- dict('@info-gps-ios-enable-ios5') %>
+                                      <ol>
+                                          <li>  <span class="gps-on"><%- dict('Turn On') %></span> <span class="gps-sysField"><%- dict('Location Services') %></span></li>
+                                          <li>  <span class="gps-on"><%- dict('Turn On') %></span> <span class="gps-sysField"><%- dict('Your choice of web browser, eg. Safari') %></span></li>
+                                      </ol>
+                                
+                              </td>
+                            </tr>
+                            <tr>
+                              <th style="width:25%">iOS 6<%- dict(': ') %></th>
+                              <td style="width:75%"><%- dict('@info-gps-ios-enable-ios6') %> 
+                                      <ol>
+                                          <li>  <span class="gps-on"><%- dict('Turn On') %></span> <span class="gps-sysField"><%- dict('Location Services') %></span></li>
+                                          <li>  <span class="gps-on"><%- dict('Turn On') %></span> <span class="gps-sysField"><%- dict('Your choice of web browser, eg. Safari') %></span></li>
+                                      </ol>
+                              </td>
+                            </tr>                                  
+                        </table>
+                        </div>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="flipper vertical <%- (appFunc.get('device')=='Windows'||appFunc.get('device')=='Mac')?'open':''%>">
+                        <div class="line"><a href="javascript:void(0)" class="flipper-btnOpen lblField"><%- dict('Desktop / Laptop') %> (Windows / Mac)</a></div>
+                        <div class="flipper-content">
+                        <table class="table table-bordered table-striped" style="width:95%">
+                        	<tr>
+                           	  <th style="width:25%"><%- dict('Prerequisite') %><%- dict(': ') %></th><th colspan="2"><%- dict('Wifi connection must be enabled.') %></th>
+                            </tr>
+                            <tr>
+                              <th style="width:25%">IE 9+ <%- dict(': ') %><div class="note">Internet Explorer</div></th>
+                              <td style="width:75%">
+                                    <%- dict('@info-gps-ie-enable') %>
+                                      <ol>
+                                          <li>  <span class="gps-untick"><%- dict('Cancel') %></span> <span class="gps-sysField"><%- dict('Never allow websites to request your physical location') %></span></li>
+                                      </ol>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th style="width:25%">Firefox<%- dict(': ') %></th>
+                              <td style="width:75%">
+                              		<%- dict('Enabled as default') %>
+                                    <div class="note"><a href="http://www.mozilla.org/en-US/firefox/geolocation/" target="_blank">(Location-Aware Browsing)</a></div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th style="width:25%">Chrome<%- dict(': ') %></th>
+                              <td style="width:75%">
+                              		<%- dict('@info-gps-chrome-enable') %>
+                                    <ol>
+                                        <li>  <span class="gps-select"><%- dict('Select') %></span> <span class="gps-sysField"><%- dict('Allow all sites to track my physical location') %></span>
+                                        <%- dict('or') %> <span class="gps-sysField"><%- dict('Ask me when a site tries to track my physical location') %></span></li>
+                                    </ol>
+                              </td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+                    </li>
+                    </ul>
+                    <br />
+                    <h3>2. <%- dict("Allow This Site using the Location Service") %></h3>
+                    <%- dict('@info-gps-site') %>
+                </div>
+              </div>
+              <div class="infobox">
+                <h2><%- dict('References') %></h2>
+                <div class="infobox-inner">
+                    <% if(user.lang() == 1028) { %>
+                      <ul>
+                      	<li>Android
+                          <ul>
+                            <li><a href="http://support.google.com/android/bin/answer.py?hl=zh-Hant&answer=168578" target="_blank">Android 2.3：位置與安全性設定</a></li>
+                            <li><a href="http://support.google.com/gmm/bin/answer.py?hl=zh-Hant&answer=1690359" target="_blank">Google 地圖行動: 位置來源與精確度</a></li>
+                          </ul>
+                        </li>
+                        <li>iOS
+                          <ul>
+                            <li><a href="http://support.apple.com/kb/HT4995?viewlocale=zh_TW" target="_blank">iOS 5：認識定位服務</a></li>
+                            <li><a href="http://support.apple.com/kb/HT5467?viewlocale=zh_TW" target="_blank">iOS 6：認識定位服務</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    <% } else { %>
+                      <ul>
+                      	<li>Android
+                          <ul>
+                            <li><a href="http://support.google.com/android/bin/answer.py?hl=en&answer=168578" target="_blank">Android 2.3: Location &amp; security settings</a></li>
+                            <li><a href="http://support.google.com/gmm/bin/answer.py?hl=en&answer=1690359" target="_blank">Google Maps for Mobile: Location source and accuracy</a></li>  
+                          </ul>
+                        </li>
+                        <li>iOS
+                          <ul>
+                            <li><a href="http://support.apple.com/kb/HT4995?viewlocale=en_US" target="_blank">iOS 5: Understanding Location Services</a></li>
+                            <li><a href="http://support.apple.com/kb/HT5467?viewlocale=en_US" target="_blank">iOS 6: Understanding Location Services</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    <% } %>
+                </div>
+              </div>
+            </div>
+            <div subpage="download" class="subpage color2">
+              <div class="submenu">
+                <a href="#page/info/help"><%- dict('FAQ') %></a> | 
+                <a href="#page/info/gps"><%- dict('Use of GPS') %></a> |
+                <a href="#page/info/download" class="currlink"><%- dict('Downloads') %></a> 
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Downloads') %></h2>
+                <div class="infobox-inner">
+                    <%- dict('Under Construction')%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><div class="main-outer2"></div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

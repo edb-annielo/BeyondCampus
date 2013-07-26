@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+#page-default{
+	
+}
+
+#page-default .infobox{
+	text-align:center;
+}
+#page-default  #btnOK{
+	margin:10px 0;
+}

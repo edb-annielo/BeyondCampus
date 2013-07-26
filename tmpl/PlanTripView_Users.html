@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+        <div subpage="users" class="subpage"> 
+          <div class="section subsections basicinfo">
+          	<h2><%- dict('Users') %></h2>
+          	<div class="subsection flipper horizontal">
+                <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                <div class="flipper-content">
+                  <input id="btnAddUsers" type="button" style="float:right" value="<%- dict('Add Collaborator(s)') %>" name="btnAddUsers">
+                  <div class="line lblField"><%- dict('Add Collaborators') %></div>
+                  <div class="note"><em><%- dict('Fill in suitable field(s).') %><br />
+      				<%- dict('Use semi-colon') %> "<strong>;</strong>" <%- dict('to seperate users.') %></em></div>
+                  <div class="line">
+                      <div class="note"><img src="img/maplist-attr-collaborating.png" alt="<%- dict('Collaborators') %>" /> <%- dict('Collaborators') %><%- dict(': ') %>(<%- dict('Enter Username') %>)</div>
+                      <div><textarea id="post_collaborator" name="post_collaborator" type="text" postType="2" rows="3"></textarea></div>
+                  </div>
+                  <div class="line" style="display:none">
+                      <div class="note">Trackers: (Enter Username)</div>
+                      <div><textarea id="post_checker" name="post_checker" type="text" postType="3" rows="3"></textarea></div>
+                  </div>
+                </div>
+                <div class="flipper-normal tap-box">
+                    <div class="line lblField"><%- dict('Add Collaborators') %></div>
+                </div>
+              </div>
+              <div class="subsection">
+                <div class="line lblField"><%- dict('All Users') %></div>
+                <div class="line">
+                    <div class="line note"><img src="img/maplist-attr-creator.png" alt="<%- dict('Creator') %>" /> <%- dict('Creator') %><%- dict(':') %></div>
+                    <div class="mapUsers" postType="1"></div>
+                </div>
+                <div class="line">
+                    <div class="line note"><img src="img/maplist-attr-collaborating.png" alt="<%- dict('Collaborators') %>" /> <%- dict('Collaborators') %><%- dict(':') %></div>
+                    <div class="mapUsers" postType="2"></div>
+                </div>
+                <div class="line">
+                    <div class="note">Checkers:</div>
+                    <div class="mapUsers" postType="3"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

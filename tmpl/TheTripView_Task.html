@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-thetrip" class="mapcontent">
+      <div class="left">
+		<div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal"></div>
+            <div class="slider-content checkpoint-detail">
+            	<div class="checkpoint-tasks">
+                    <div class="section subsections">
+                        <div class="tasks">
+                            <div class="subsection task">
+                                <div class="task-main">
+                                    <div class="line"><%= taskNumber(taskObj.taskOrder) %><%-taskObj.question %></div>
+                                    <% if((taskObj.question2 != "") && (taskObj.question2 != null)) { %>
+                                    <div class="line longbox"><div class="longbox2"><%=  Convert.BBCodetoHtml(taskObj.question2) %></div></div>
+                                    <% } 
+                                    switch (taskObj.answerType) {
+                                    	case 0:
+                                        	%><div class="line note"><em>(<%- dict('Click to complete this task') %>)</em></div>
+                                            <div class="line"><input type="button" value="<%- dict('Click Here') %>" /><input type="hidden" value="" /></div>
+                                            <div class="line completedText"></div><% 
+                                            break;
+                                        case 1: 
+                                            %><div class="line"><textarea></textarea></div><% 
+                                            break;
+                                        case 2:
+                                            var opts = $.parseJSON(taskObj.answerOptions);
+                                            %><div class="line">
+                                                <select>
+                                                	<option value="">-- <%- dict('please select') %> --</option>
+                                                    <%  $.each(opts, function(key, value){
+                                                    %>
+                                                    <option><%- key %></option>
+                                                    <%
+                                                    }); %>
+                                                </select>
+                                            </div><% 
+                                            break;
+                                        case 3:
+                                            var opts = $.parseJSON(taskObj.answerOptions);
+                                            %>
+                                                <%  $.each(opts, function(key, value){
+                                                %>
+                                                <div class="line clearfix">
+                                                <div class="checkbox">
+                                                <input type="checkbox" value="<%- key %>" />
+                                                <div class="checkbox-tick"></div>
+                                                </div> <%= key %>
+                                                </div>
+                                                <%
+                                                }); %>
+                                            <% 
+                                            break;
+                                        case 4:
+                                            var value = Convert.ToBoolean(taskObj.answer);
+                                            %><div class="line clearfix">
+                                                <div class="radio">
+                                                <input type="radio" name="taskRadio_<%=taskObj.id%>" class="newTask-answer" value="true">
+                                                <div class="radio-tick"></div>
+                                                </div> <%- dict('TRUE') %>
+                                              </div>
+                                              <div class="line clearfix"> 
+                                                <div class="radio">
+                                                <input type="radio" name="taskRadio_<%=taskObj.id%>" class="newTask-answer" value="false">
+                                                <div class="radio-tick"></div>
+                                                </div> <%- dict('FALSE') %> 
+                                            </div><% 
+                                            break;
+                                         case 5:
+                                         	%><div class="line note"><em>(<%- dict('Click to get current geolocation') %>)</em></div>
+                                            <div class="line"><input type="button" value="<%- dict('Get Current Geolocation') %>" /><input type="hidden" value="" /></div>
+                                            <div class="line completedText"></div><%                                         	
+                                        	break;
+                                         case 6:
+                                        	%><div class="line note"><em>(<%- dict('Click to capture a photo / select an image') %>)</em></div>
+                                            <div class="captureImage">
+                                            	<% if(siteInfo.isApp()) { %>
+                                            	<input type="button" class="selectImageApp fromCamera" value="<%- dict('Capture a photo') %>" /> 
+                                                <input type="button" class="selectImageApp fromLibrary" value="<%- dict('Select from library') %>" />
+                                                <% } else { %><input type="file" accept="image/*" class="selectImage" /><% } %>
+                                                <div class="selectImage-preview"></div>
+                                                <div class="selectImage-rotation">
+                                                    <a href="javascript:void(0)" title="anticlockwise" class="selectImage-anticlockwise"><img src="img/arrow_rotate_anticlockwise.png"></a>
+                                                    <a href="javascript:void(0)" title="clockwise" class="selectImage-clockwise"><img src="img/arrow_rotate_clockwise.png"></a>
+                                                </div>
+                                            </div>
+                                            <div class="line note">
+                                            * <%- dict('The photo image will be resized to less than ') %><%-CONFIG.ImgSize.maxWidth %>*<%-CONFIG.ImgSize.maxHeight %><%- dict('.') %>
+                                            <% if(appFunc.get("iOS")) { %><br />* <%- dict('iOS Users: This function is only available to iOS6 or above.') %><% } 
+                                             if(appFunc.get("android")) { %><br />* <%- dict('Android Users: To take a photo, after clicking [Choose file] button, select [Android System] > [Camera].') %><% }
+                                             if(appFunc.get("browser")=="MSIE") { %><br />* <%- dict('IE Users: This function is only available to IE10 or above.') %><% } 
+                                            %></div><% 
+                                         	break;
+                                         case 7: 
+                                         	%><div class="line note"><em>(<%- dict('Enter URL') %>)</em></div>
+                                            <div class="line"><input type="url" maxlength="500" /></div><% 
+                                            break;
+                                    } %>
+                            	</div><!-- task-main -->
+
+                            </div>
+                        </div>
+                    </div>
+             	</div>
+            </div>
+          </div>   
+        </div>      
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

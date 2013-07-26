@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- header --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-setting" class="maincontent menuAndMain clearfix">
+      <div class="menu">
+        <div><a href="#page/setting/2" class="menubtn color2"><div class="menubg"><img src="img/setting-menuicon-config.png" alt="<%- dict('System Config.') %>"><%- dict('System Config.') %></div></a></div>
+        <% if(user.isLogined()){ %><div><a href="#page/setting/0" class="menubtn color0"><div class="menubg"><img src="img/setting-menuicon-account.png" alt="<%- dict('Account') %>"><%- dict('Account') %></div></a></div><% } %>
+        <div><a href="#page/setting/1" class="menubtn color1"><div class="menubg"><img src="img/setting-menuicon-system.png"alt="<%- dict('System Reset') %>"><%- dict('System Reset') %></div></a></div>
+      </div>
+      <div subpage="2" class="subpage">
+       	<h1><%- dict('System Config.') %></h1>
+      </div>
+      <% if(user.isLogined()){ %>
+      <div subpage="0" class="subpage">
+        <h1><%- dict('Account') %></h1>
+      </div>
+      <% } %>
+      <div subpage="1" class="subpage">
+        <h1><%- dict('Danger Zone') %></h1>
+      </div>
+      <div class="main-outer">
+      	<div class="main">
+            <div subpage="2" class="subpage" id="page-setting-systemconfig">
+              <div class="infobox">
+                <h2><span lang="en">Language</span> <span lang="<%- dict('@locale-sup')%>"><%- dict('Language Setting') %></span></h2>
+                <div class="infobox-inner">
+                  <table class="table table-bordered table-striped" style="width:95%">
+                    <tr>
+                      <th style="width:40%"><span lang="en">Current Language</span><br /><span lang="<%- dict('@locale-sup')%>"><%- dict('Current Language') %></span><%- dict(': ') %></th>
+                      <td style="width:60%"><%= dict(user.lang()) %></td>
+                    </tr>
+                    <tr>
+                      <th style="width:40%"><span lang="en-GB">Switch to</span> <span lang="<%- dict('@locale-sup')%>"><%- dict('Switch to') %></span><%- dict(': ') %></th>
+                      <td style="width:60%"><% $.each(DICT, function(langID){
+                          if(langID != user.lang()){
+                              %><a href="javascript:void(0)" class="greybg-lt btnChangeLanguage" langID="<%-langID%>" lang="<%-DICT[langID]['@locale']%>"><%= dict(langID) %></a><%
+                          }
+                      }); %>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="infobox" id="page-setting-gpscompass">
+                <h2><%- dict('GPS') %> / <%- dict('Compass') %></h2>
+                <div class="infobox-inner">
+                  <h3><%- dict('GPS') %></h3>
+                  <table class="table table-bordered table-striped" style="width:95%">
+                    <tr>
+                      <th colspan="2">&raquo; <em><a href="#page/info/gps"><%- dict('Use of GPS') %></a></em></th>
+                    </tr>
+                    <tr>
+                      <th style="width:40%"><%- dict('Available') %><%- dict('?') %></th>
+                      <td style="width:60%"><%- (((siteInfo.geolocation != null) || (siteInfo.geolocation2 !=null)) && (siteInfo.get("watchID_geolocation") != null))?dict('YES'):dict('NO') %></td>
+                    </tr>
+                    <% if(siteInfo.get("watchID_geolocation") == null) { %>
+                    <tr>
+                      <th></th>
+                      <td  style="border:1px solid #999; padding:2px"><ol><li><a href="#page/info/gps"><strong><%- dict('Enable location service of the device') %></strong></a></li>
+                      <li><%- dict('Click this button to start using GPS in Beyond Campus') %><br />
+                      <a href="javascript:void(0)" id="btnGetGeo" class="greenbg smallbtn"><%- dict('Start using GPS') %></a></li></ol></td>
+                    </tr>
+                    <tr><th></th><td>&nbsp;</td></tr>
+                    <% } %>
+                    <% if(siteInfo.geolocation != null){%>
+                    <tr>
+                      <th><%- dict('Location') %> (<%- dict('Lat') %>, <%- dict('Lng') %>):</th>
+                      <td><div class="note"><%- siteInfo.geolocation.lat %>, <%- siteInfo.geolocation.lng %></div></td>
+                    </tr>
+                    <tr>
+                      <th><%- dict('Accuracy') %><%- dict(':') %></th>
+                      <td><%- (siteInfo.geolocation.accuracy!=null)?(siteInfo.geolocation.accuracy+dict('m') ):dict('Unknown')  %></td>
+                    </tr>
+                    <tr>
+                      <th><%- dict('Timestamp') %><%- dict(':') %></th>
+                      <td><div class="note"><%- dict('Last Update') %><%- dict(': ') %><%- moment(siteInfo.geolocation.logTime).format("YYYY-M-D HH:mm:ss") %></div>
+                        <div class="note">(<%- dict('GPS Timestamp') %><%- dict(': ') %><%- moment(siteInfo.geolocation.timestamp).format("YYYY-M-D HH:mm:ss") %>)</div></td>
+                    </tr>
+                    <% } else if(siteInfo.get("watchID_geolocation") == null) { %>
+                    <tr>
+                      <th></th>
+                      <td><div class="note"><%- dict('GPS is disabled.') %></div></td>
+                    </tr>
+                    <% } else if(siteInfo["geolocation2"] != null) { %>
+                    <tr>
+                      <th><%- dict('Location') %><%- dict(':') %></th>
+                      <td><div class="note"><%- dict('Waiting for a higher gps accuracy.') %></div></td>
+                    </tr>
+                    <tr>
+                      <th><%- dict('Accuracy') %><%- dict(':') %></th>
+                      <td><%- siteInfo.geolocation2.accuracy+dict('m')  %></td>
+                    </tr>
+                    <tr>
+                      <th><%- dict('Timestamp') %><%- dict(':') %></th>
+                      <td><div class="note"><%- dict('Last Update') %><%- dict(': ') %><%- moment(siteInfo.geolocation2.logTime).format("YYYY-M-D HH:mm:ss") %></div></td>
+                    </tr>
+                    <% } else { %>
+                    <tr>
+                      <th></th>
+                      <td><div class="note"><%- dict('Waiting... Please allow the GPS in the browser.') %></div></td>
+                    </tr>
+                    <% } %>
+                  </table>
+                </div>
+                <!--<h3>Compass</h3>
+                <table class="table table-bordered table-striped" style="width:95%">
+                  <tr>
+                    <th style="width:40%">Available?</th>
+                    <td style="width:60%"><%= (siteInfo.compass != null)?"YES":"NO" %></td>
+                  </tr>
+                  <% if(siteInfo.compass != null){%>
+                  <tr>
+                    <th>Orientation:</th>
+                    <td><%- siteInfo.compass.orientation %>&deg;</td>
+                  </tr>
+                  <tr>
+                    <th>Timestamp:</th>
+                    <td><%= new Date(siteInfo.compass.timestamp)  %></td>
+                  </tr>
+                  <% } %>
+                </table>-->
+              </div>
+              <div class="infobox">
+                <h2><%- dict('Misc.') %></h2>
+                <div class="infobox-inner">
+                  <table class="table table-bordered table-striped" style="width:95%">
+                    <tr>
+                      <th style="width:40%"><%- dict('Device') %> / <%- dict('Platform') %></th>
+                      <td style="width:60%"><%= siteInfo.get("device") %></td>
+                    </tr>
+                    <tr>
+                      <th style="width:40%"><%- dict('Browser') %></th>
+                      <td style="width:60%"><%= siteInfo.get("browser") %></td>
+                    </tr>
+                    <tr>
+                      <th style="width:40%"><%- dict('Is App') %><%- dict('?') %></th>
+                      <td style="width:60%"><%= siteInfo.get("isApp")?dict('YES'):dict('NO')  %></td>
+                    </tr>
+                    <tr>
+                      <th style="width:40%"><%- dict('Time zone') %></th>
+                      <td style="width:60%">UTC <%- moment().format("ZZ")  %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <% if(user.isLogined()){ %>
+            <div subpage="0" class="subpage" id="page-setting-account">
+                <div class="infobox">
+                  <h2><%- dict('Username') %><%- dict(': ') %><%- user.get("account")%></h2>
+                  <div class="infobox-inner">
+                      <div class="line" style="text-align:center"><a href="#page/login/changepwd" class="greenbg"><%- dict('Change Password') %></a></div>
+                  </div>
+                </div>
+            </div><!-- subpage="0" --><% } %>
+            <div subpage="1" class="subpage" id="page-setting-settings">
+                <div class="infobox">
+                  <h2><%- dict('Remove All Data & Reset') %> "<%- dict('Step Out') %>"</h2>
+                  <div class="infobox-inner">
+                      <div class="line" style="text-align:center"><a id="btnSystemReset" href="javascript:void(0)"  class="redbg" ><%- dict('System Reset') %></a></div>
+                      <div class="line">&nbsp;</div>
+                      <div class="line"><%- dict('By clicking this button...') %></div>
+                      <div class="line">
+                      <strong><%- dict('all data stored locally will be removed') %></strong><%- dict(', ') %><br /><%- dict('e.g.') %>
+                      <ul>
+                          <li> <%- dict('your login status,') %> </li>
+                          <li> <%- dict('your language preference,') %> </li>
+                          <li> <%- dict('your recent trips,') %> </li>
+                          <li> <%- dict('your trip notes,') %> </li>
+                          <li> <%- dict('your started trip and the task answers,') %> </li>
+                          <li> <%- dict('your trip submissions;') %></li>
+                      </ul>
+                      </div>
+                      <div class="line">
+                      <strong><%- dict('any server data will NOT be removed') %></strong>, <br /><%- dict('e.g.') %>
+                      <ul>
+                          <li> <%- dict('your account,') %> </li>
+                          <li> <%- dict('the trips you created or collaborated,') %> </li>
+                          <li> <%- dict("participants' submissions.") %> </li>
+                      </ul>
+                      </div>
+                  </div>
+                </div>
+            </div><!-- subpage="1" -->  
+      	</div>
+      </div><div class="main-outer2"></div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

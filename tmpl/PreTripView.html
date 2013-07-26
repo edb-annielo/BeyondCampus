@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-pretrip" class="mapcontent">
+      <div class="left">
+        <div subpage="basic" class="subpage"> 
+          <div class="section basicinfo">
+            <h2><%- dict('Basic') %></h2>
+            <div class="line"><span class="lblField"><%- dict('Map Name') %><%- dict(':') %></span> <span class="lblText"><%- mapObj.name %></span></div>
+            <div class="line"><span class="lblField"><%- dict('Description') %><%- dict(':') %></span>
+              <div class="longbox short"><div class="longbox2"> <%=  Convert.BBCodetoHtml(mapObj.description) %> </div><a href="javascript:void(0)" class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+            </div>
+          </div>
+          <div class="section"><span class="lblField"><%- dict('Language') %><%- dict(':') %></span> <span class="lblText"><%= OPTIONS.lang[mapObj.language] %></span></div>
+          <div class="section basicinfo">
+          	<a href="javascript:void(0)" class="greybg-lt"  id="btnChangeCentre" style="float:right"><%- dict('Change Centre') %></a>
+            <h2 class="clearfix"><%- dict('Map Centre') %></h2>
+            <div class="line">
+              <span class="lblField"><%- dict('Lat') %><%- dict(':') %></span> <input id="lat" name="lat" value="<%- mapObj.mapCentre_lat %>" readonly />
+            </div>
+            <div class="line">
+              <span class="lblField"><%- dict('Lng') %><%- dict(':') %></span> <input id="lng" name="lng" value="<%- mapObj.mapCentre_lng %>" readonly />
+            </div>
+            <div class="line">
+              <span class="lblField"><%- dict('Zoom') %><%- dict(':') %></span> <input id="zoom" name="zoom" value="<%- mapObj.mapCentre_zoom %>" readonly />
+            </div>
+          </div>
+          <div class="section flipper horizontal important">
+          	<h2><%- dict('Advance Setting') %><%- dict(': ') %><%- dict('Checkpoints & Tasks') %></h2>
+              <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+              <div class="flipper-content">
+                  <div class="requiredFld lblField"><%- dict('Checkpoint Range') %></div>
+                  <div class="line">
+                    <select id="cpRange" name="cpRange">
+                      <% $.each(OPTIONS.cpRange, function(key){ %>
+                      <option value="<%=key%>"  <%= mapObj.cpRange==key?' selected':'' %>><%- dict(OPTIONS.cpRange[key]) %></option>
+                      <% }); %>
+                    </select>
+                  </div>
+                  <div class="line note psnote"><em>(<%- dict("If the user device's location service is less accurate than the above checkpoint range, the device's accuracy will be used instead.") %>)</em></div>
+              </div>
+              <div class="flipper-normal tap-box">
+                  <div class="requiredFld lblField"><%- dict('Checkpoint Range') %></div>
+                  <div class="note"><%- dict(OPTIONS.cpRange[mapObj.cpRange]) %></div>
+                  <div class="line note psnote"><em>(<%- dict("If the user device's location service is less accurate than the above checkpoint range, the device's accuracy will be used instead.") %>)</em></div>
+              </div>
+          </div>
+          <div class="section qr">
+            <h2><%- dict('Map Key') %> <img src="img/btnmapkey.png" alt="<%- dict('Map Key') %>" /></h2>
+            <div class="line"><div class="mapKey"><%= mapObj.mapKey %></div></div>
+            <div class="note"><%- dict('you may use map key to search this map') %></div>
+            <div class="line"> <img src="http://chart.apis.google.com/chart?cht=qr&chs=200x200&chld=2&chl=<%= mapObj.mapKey %>" style="width:200px;height:200px" class="imgQR" /> </div>
+          </div>
+          <div class="resolution-small">
+          	<div class="section">
+              <h2><%- dict('Trip Timer') %></h2>
+              <div class="timer"><div class="timer-display">--:--:--</div></div>
+              <div class="line"><a class="btnStartTrip" href="javascript:void(0)">S<%- dict('tart Trip') %></a> <a class="btnEndTrip" href="javascript:void(0)"><%- dict('End Trip') %></a></div>
+             </div>
+          </div>
+          <div class="selectmode section">
+            <h2><%- dict('Switch Mode') %></h2>
+            <div class="line lblField"><%- dict('Please select mode') %><%- dict(':') %></div>
+            <div class="line">
+            <a href="#mode/plan/<%= mapObj.mapKey %>" class="selectmode-plan"><img src="img/maplist-mode-plan.png"><br /><%- dict('Plan the Trip') %></a> 
+            <a href="#mode/pre/<%= mapObj.mapKey %>" class="selectmode-pre"><img src="img/maplist-mode-pre.png"><br /><%- dict('Pre-Trip') %></a> 
+            <a href="#mode/trip/<%= mapObj.mapKey %>" class="selectmode-trip"><img src="img/maplist-mode-trip.png"><br /><%- dict('The Trip') %></a>
+            <a href="#mode/after/<%= mapObj.mapKey %>" class="selectmode-after"><img src="img/maplist-mode-after.png"><br /><%- dict('After Trip') %></a></div>
+          </div>
+        </div>
+        <div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal">
+                <div class="section cp">
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                    <div class="note">* <%- dict('Rule') %><%- dict(': ') %><%- dict(OPTIONS.rule[mapObj.rule]) %></div>
+                    <div class="note">
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btndown.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /> <%- dict('to open the checkpoints.') %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /> <%- dict("to view the checkpoint and its tasks.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/pretrip-notes-geo.png" alt="<%- dict('Current Location') %>" title="<%- dict('Current Location') %>" /> <%- dict("to change the checkpoint to current location.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnup.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /><img class="note" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /> <%- dict("to collapse the content.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnview.png" alt="<%- dict('Quick View') %>" title="<%- dict('Quick View') %>" /> <%- dict("to quick view all checkpoints & tasks.") %></span>
+                    </div>
+                </div>
+                <div class="section">
+                	<h2><%- dict('Actions') %></h2>
+                    <div class="line"><%- dict('ALL Checkpoints & Tasks') %></div>
+                    <div class="line">
+                        <a class="greybg-lt shortbtn smallbtn" href="javascript:void(0)" id="btnViewReport"><img src="img/btnview.png" alt="<%- dict('Quick View')%>" /> <%- dict('Quick View') %></a>
+                        <% if((appFunc.get("browser") != "MSIE") &&  (appFunc.get("device") != "Android")){ %><a class="greybg-lt shortbtn smallbtn" href="javascript:void(0)" id="btnDownloadReport"><img src="img/btndownload.png" alt="<%- dict('Download')%>" /> <%- dict('Download') %></a><% } %>
+                    </div> 
+                </div>
+                <div class="checkpoints"></div>
+            </div>
+            <div class="slider-content checkpoint-detail">
+                <div class="section">
+                	<div class="slider-btnOpen btnCPDetail"><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                </div>
+            </div>
+          </div>   
+        </div>
+        <div subpage="notes" class="subpage"> 
+          <div class="section">
+            <h2><%- dict('Trip Timer') %> <img src="img/pretrip-notes-timer.png" alt="<%- dict('Trip Timer') %>" title="<%- dict('Trip Timer') %>" /></h2>
+            <div class="line"><a class="btnStartTrip" href="javascript:void(0)"><%- dict('Start Trip') %></a> <a class="btnEndTrip" href="javascript:void(0)"><%- dict('End Trip') %></a></div>
+            <div class="line"><a class="btnPauseTrip" href="javascript:void(0)"><%- dict('Pause') %></a><a class="btnResumeTrip" href="javascript:void(0)"><%- dict('Resume') %></a> <a class="btnResetTrip redbg" href="javascript:void(0)"><%- dict('Reset') %></a></div>
+          </div>
+          <div class="section">
+          	<h2><%- dict('Current Location') %> <img src="img/pretrip-notes-geo.png" alt="<%- dict('Current Location') %>" title="<%- dict('Current Location') %>" /></h2>
+            <div class="line"><span class="lblField"><%- dict('Lat') %><%- dict(':') %></span> <span id="currLat" class="lblText">-</span></div>
+            <div class="line"><span class="lblField"><%- dict('Lng') %><%- dict(':') %></span> <span id="currLng" class="lblText">-</span></div>
+          </div>
+          <div class="section">
+            <a class="btnNoteAdd greybg-lt shortbtn" style="float:right" href="javascript:void(0)"><img src="img/btnnew.png" alt="<%- dict('Add') %>" title="<%- dict('Add') %>" /> <%- dict('Add') %></a>
+          	<h2><%- dict('Notes') %> <img src="img/pretrip-notes-write.png" alt="<%- dict('Notes') %>" title="<%- dict('Notes') %>" /></h2>
+            <div class="clearfix"></div>
+            <div class="line"><textarea row="6" id="note"></textarea></div>
+          </div>
+        </div>
+      </div> 
+      <div class="main">
+        <div class="mapTitle">
+        	<h1><%- mapObj.name %></h1>
+            <span id="mapCanvasButtons">
+                <a href="javascript:void(0)" class="greybg-lt" id="btnMyPosition"><img src="<%=CONFIG.YouAreHere%>" height="24"/><%- dict('My Position') %></a>
+                <a href="javascript:void(0)" class="greybg-lt" id="btnReturnCentre"><img src="img/mapcontent-returncentre.png" height="22"/><%- dict('Return to Map Centre') %></a>
+            </span>
+        </div>
+        <div id="mapCanvas"></div>
+        <div subpage="basic" class="subpage"> 
+          <div class="section track">
+          	<div class="note"><span class="lblSuggestedBoundary"><strong>----</strong> <%- dict('Suggested Boundary') %></span> <span class="lblSuggestedTrack"><strong>----</strong> <%- dict('Suggested Track') %></span></div>
+          </div>
+          <div class="section">
+          	<!-- compass -->
+            <div class="leftBox" style="display:none;">
+                <h2>Compass</h2>
+                <div class="compass"><div class="compass-direction"><div class="compass-pointer"></div></div></div>
+            </div><div class="rightBox">
+                <h2><%- dict('Trip Timer') %></h2>
+                <div class="timer"><div class="timer-display">--:--:--</div></div>
+                <div class="line"><a class="btnStartTrip" href="javascript:void(0)"><%- dict('Start Trip') %></a> <a class="btnEndTrip" href="javascript:void(0)"><%- dict('End Trip') %></a></div>
+            </div>
+          </div><!-- end section -->
+        </div><!-- basic -->
+        <div subpage="notes" class="subpage noteslog"> 
+        	<div class="section notes">
+            	<h2><%- dict('Notes') %></h2>
+                <a class="btnNoteClear" style="float:right" href="javascript:void(0)"><img src="img/mapcontent-noteclear.png" width="24" height="24" alt="Clear"><%- dict('Clear') %></a>
+                <div class="clearfix"></div>
+                <div id="pretripNoteList">
+                    <div class="pretripNoteHeader">
+                        <div class="table-cell-4"><img src="img/pretrip-notes-datetime.png" alt="<%- dict('Timestamp') %>" title="<%- dict('Timestamp') %>" /> 
+                        </div><div class="table-cell-6">
+                        </div><div class="table-cell-4"><img src="img/pretrip-notes-timer.png" alt="<%- dict('Elapsed') %>" title="<%- dict('Elapsed') %>" />
+                        </div><div class="table-cell-3"><img src="img/pretrip-notes-read.png" alt="<%- dict('Notes') %>" title="<%- dict('Notes') %>" /></div>
+                    </div>
+                    <div class="pretripNoteItem">
+                        <div class="table-cell-4">2012/5/6<br />4:15pm
+                        </div><div class="table-cell-6"><a href="javascript:void(0)" class="geo"><img src="img/pretrip-notes-geo.png" alt="<%- dict('Location') %>" title="<%- dict('Location') %>" /></a>
+                        </div><div class="table-cell-4">00:00:00
+                        </div><div class="table-cell-3">Start Trip</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+		<div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal"></div>
+            <div class="slider-content checkpoint-detail">
+                <div class="section checkpoint-main">
+                	<div class="slider-btnClose btnCPDetail"><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                    <div style="float:right">
+                        <div class="btnCPEdit" title="<%- dict('Edit')%>" ><img src="img/btnedit.png" alt="<%- dict('Edit')%>" /></div><div class="btnCPDelete" title="<%- dict('Delete')%>"><img src="img/btndelete.png" alt="<%- dict('Delete')%>" /></div>
+                    </div>
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                    <div class="line"><span class="cpNumber"><%= cpObj.cpOrder %></span><span class="cpName"><%- cpObj.name %></span></div>
+                    <div class="line note">
+                    <img src="img/thetrip-lock.png" alt="<%- dict('Password') %>" class="note" /> <%- dict('Password') %> (<%- dict('if applicable')%>)<%- dict(': ') %><%- cpObj.password %>
+                    </div>
+                    <div class="note"><span class="seg"><%- dict('Lat') %><%- dict(': ') %><span class="lat"><%- cpObj.lat %></span></span><span class="seg"><%- dict('Lng') %><%- dict(': ') %><span class="lng"><%- cpObj.lng %></span></span></div>
+                    <% if (cpObj.description != "") { %>
+                    <h3><%- dict('Description') %><%- dict(':') %></h3>
+                    <div class="line longbox"><div class="longbox2"><%=  Convert.BBCodetoHtml(cpObj.description) %></div><a href="javascript:void(0)" class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+                    <% } %>
+                </div>
+                <div class="checkpoint-edit section pink">
+                    <div class="cp-right"><a href="javascript:void(0)" class="btnClose"><img src="img/btnclose.png" alt="<%- dict('Cancel') %>" /></a></div>
+                    <h2><%- dict('Edit Checkpoint') %></h2>
+                    <div class="line"><span class="cpNumber"><%=cpObj.cpOrder%></span><span class="requiredFld lblField"><%- dict('Name') %><%- dict(':') %></span> <input type="text" id="editCP-name" name="editCP-name" value="<%-cpObj.name %>" required /></div>
+                    <div class="line"><span class="seg"><span class="requiredFld lblField"><%- dict('Lat') %><%- dict(':') %></span> <input type="text" id="editCP-lat" name="editCP-lat" value="<%-cpObj.lat %>" pattern="<%=PATTERN.Lat%>" required /></span><span class="seg"><span class="requiredFld lblField"><%- dict('Lng') %><%- dict(':') %></span> <input type="text" id="editCP-lng" name="editCP-lng" value="<%-cpObj.lng %>" pattern="<%=PATTERN.Lng%>" required /></span></div>
+                    <div class="line" style="text-align:right"><a href="javascript:void(0)" class="btnUpdatePin greybg-lt shortbtn" ><%- dict('Update Pin') %></a></div>
+                    <div class="line lblField"><%- dict('Description') %><%- dict(':') %></div>
+                    <div class="line"><textarea id="editCP-description" name="editCP-description" row="5" cols="40" class="webedit" ><%-cpObj.description %></textarea></div>
+                    <div class="line" style="text-align:right"><a href="javascript:void(0)" class="btnSave greybg-lt shortbtn" ><img src="img/btnsave.png" alt="<%- dict('Save') %>" /> <%- dict('Save') %></a></div>
+                </div>
+                <div class="checkpoint-tasks">
+                    <div class="section subsections cp">
+                    	<span style="float:right;text-align:right">
+                        <a href="javascript:void(0)" class="btnTaskAdd greybg-lt shortbtn"><img src="img/btnnew.png" alt="<%- dict('Add') %>" title="<%- dict('Add') %>" /> <%- dict('Add') %></a>
+                        <a class="greybg-lt shortbtn smallbtn" id="btnReorderTask" href="javascript:void(0)"><img src="img/btnreorder.png" alt="<%- dict('Task Ordering') %>" title="<%- dict('Task Ordering') %>" /> <%- dict('Task Ordering') %></a>
+                        </span>
+                        <h2><%- dict('Tasks') %></h2>
+                        <div class="line clearfix"></div>
+                        <div class="tasks">
+                        </div>
+                    </div>
+                    <div class="task-new"></div>
+                </div>
+                <div class="checkpoint-tasks-reorder" style="display:none">
+                    <div class="section subsections cp">
+                        <a class="greybg-lt shortbtn smallbtn" id="btnReturnTask" href="javascript:void(0)" style="float:right"><img src="img/btnleft.png" alt="<%- dict('Return & Save') %>" title="<%- dict('Return & Save') %>" /> <%- dict('Return & Save') %></a>
+                        <h2><%- dict('Task Ordering') %></h2>
+                        <div class="line clearfix"></div>
+                        <div class="tasks">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>   
+        </div>      
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-thetrip" class="mapcontent">
+      <div class="left">
+        <div subpage="basic" class="subpage"> 
+          <div class="section basicinfo">
+          	<div style="float:right" class="mapAttrIcons">
+            <% if( mapObj.language == "en") { %><img src="img/maplist-attr-lang1033.png" title="<%- dict('English') %>" /><%} 
+               else if( mapObj.language == "zh-HK") { %><img src="img/maplist-attr-lang1028.png" title="<%- dict('Chinese') %>" /><%}%>
+            <% if(mapAttr.isCreator){ %><img src="img/maplist-attr-creator.png" title="<%- dict('Created by Me') %>" /><% } %>
+            <% if(mapAttr.isCollaborator) { %><img src="img/maplist-attr-collaborating.png" title="<%- dict('Collaborator') %>" /><% }  %>
+         	<% if( mapAttr.isFavMap) { %><img src="img/maplist-attr-favmap.png" title="<%- dict('Fav. Map') %>" /><%}%>
+            <% if( mapAttr.isOpenedMap && false) { %><img src="img/maplist-attr-opened.png" title="<%- dict('Opened') %>" /><%}%>
+            <% if(mapAttr.isSubmitted) { %><img src="img/maplist-attr-submitted.png" title="<%- dict('Submitted') %>" /><% }  %>
+            <% if(!mapAttr.isEnable){ %><img src="img/maplist-attr-disablemap.png" title="<%- dict('Disable') %>" /><% } 
+               else if(mapAttr.isPublic){ %><img src="img/maplist-attr-publicmap.png" title="<%- dict('Public') %>" /><% } 
+               else { %><img src="img/maplist-attr-privatemap.png" title="<%- dict('Private') %>" /><% } %>
+            </div>
+            <h2><%- dict('Basic') %></h2>
+            <div class="line clearfix"><span class="lblField"><%- dict('Map Name') %><%- dict(':') %></span> <span class="lblText"><%- mapObj.name %></span></div>
+            <div class="line"><span class="lblField"><%- dict('Description') %><%- dict(':') %></span>
+              <div class="longbox short"><div class="longbox2"> <%=  Convert.BBCodetoHtml(mapObj.description) %> </div><a href="javascript:void(0)" class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+            </div>
+            <div class="line createdby"><%- dict('Created by ') %><%- mapObj.creatorName %></div>
+            <% if(mapObj.tags != null){ %>
+            <div class="line"><%- dict('Tags') %><%- dict(': ') %><span class="searchTags">
+                    <% $.each(mapObj.tags.split(";"), function(index, tag){ %>
+                    	<a class="searchTag" href="javascript:void(0);"><%- tag %></a>
+                    <% });  %></span>
+                    </div><% } %>
+          </div><!-- end section -->
+          <div class="section qr">
+            <h2><%- dict('Map Key') %> <img src="img/btnmapkey.png" alt="<%- dict('Map Key') %>" /></h2>
+            <div class="line"><div class="mapKey"><%= mapObj.mapKey %></div></div>
+            <div class="note"><%- dict('you may use map key to search this map') %><br /><a href="javascript:void(0)" class="btnToggleQR">(<%- dict('QR Code') %>)</a></div>
+            <div class="line"> <img src="http://chart.apis.google.com/chart?cht=qr&chs=200x200&chld=2&chl=<%= baseURL+'/trip/'+mapObj.mapKey %>" style="width:200px;height:200px" class="imgQR" /> </div>
+          </div><!-- end section -->
+          <div class="section important startTrip">
+            <h2><%- dict('Start Trip') %></h2>
+            <div class="line" style="text-align:center"><a class="btnStartTrip custombg" href="javascript:void(0)"><%- dict('Start Trip') %></a></div>
+          </div><!-- end section -->
+          <div class="resolution-small">
+          	<div class="section timer">
+            	<h2><%- dict('Trip Timer') %></h2>
+            	<div class="timer-display"></div>
+            </div>
+          </div>
+          <div class="section important quitTrip" style="display:none">
+            <h2><%- dict('Quit Trip') %></h2>
+            <div class="line" style="text-align:center"><a class="btnQuitTrip custombg" href="javascript:void(0)"><%- dict('Quit Trip') %></a></div>
+          </div>
+          <% if(appFunc.isApp()) { %>
+          <div class="offlinetrip section">
+            <h2><%- dict('Offline Map') %></h2>
+            <div class="line">
+            	<a class="btnOfflineUpdate greybg-lt" href="javascript:void(0)"><img alt="<%- dict('Update Trip') %>" src="img/arrow_rotate_clockwise.png"> <%- dict('Update Trip') %></a>
+                <a class="btnOfflineRemove greybg-lt" href="javascript:void(0)"><img alt="<%- dict('Remove Offline Data') %>" src="img/btnclear.png"> <%- dict('Remove Offline Data') %></a>
+            </div>
+          </div>
+          <% } %>
+          <div class="selectmode section">
+            <h2><%- dict('Switch Mode') %></h2>
+            <div class="line lblField"><%- dict('Please select mode') %><%- dict(':') %></div>
+            <div class="line">
+            <a href="#mode/plan/<%= mapObj.mapKey %>" class="selectmode-plan"><img src="img/maplist-mode-plan.png"><br /><%- dict('Plan the Trip') %></a> 
+            <a href="#mode/pre/<%= mapObj.mapKey %>" class="selectmode-pre"><img src="img/maplist-mode-pre.png"><br /><%- dict('Pre-Trip') %></a> 
+            <a href="#mode/trip/<%= mapObj.mapKey %>" class="selectmode-trip"><img src="img/maplist-mode-trip.png"><br /><%- dict('The Trip') %></a>
+            <a href="#mode/after/<%= mapObj.mapKey %>" class="selectmode-after"><img src="img/maplist-mode-after.png"><br /><%- dict('After Trip') %></a></div>
+          </div>
+          <!-- end section -->
+        </div><!-- end subpage basic -->
+        <div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal">
+                <div class="section subsections cp">
+                	<h2><%- dict('Checkpoints & Tasks') %></h2>
+                    <div class="subsection basic-information">
+                        <h3><%- dict('Personal Information') %></h3>
+                        <div class="line"><span class="requiredFld lblField"><%- dict('Participant Name') %><%- dict(':') %></span> <input type="text"  id="info-name" maxlength="100" size="30"  required /></div>
+                        <div class="line"><span style="display:inline-block"><span class="requiredFld lblField"><%- dict('Class') %><%- dict(':') %></span> <input type="text" id="info-class" size="10" maxlength="10" style="max-width:10em" required /></span> <span style="display:inline-block"><span class="requiredFld lblField"><%- dict('Class No') %><%- dict(':') %></span> <input type="text" pattern="[0-9]+" id="info-classno" size="5" maxlength="10" style="max-width:5em" required /></span></div>
+                	</div>
+                    <div class="subsection">
+                        <div class="note">* <%- dict(OPTIONS.cpRange[mapObj.cpRange]) %></div>
+                        <!--<div class="line note"><em>(<%- dict("If the user device's location service is less accurate than the above checkpoint range, the device's accuracy will be used instead.") %>)</em></div>-->
+                    </div>
+                    <div class="subsection">
+                    	<div class="note">* <%- dict('Rule') %><%- dict(': ') %><%- dict(OPTIONS.rule[mapObj.rule]) %>
+                        <% if (OPTIONS.ruleOrder[mapObj.rule].needGPS) { %><a class="btnGPS-Note" href="javascript:void(0)" >(*)</a><% } %></div>
+                    	<div class="note">
+                       		<% if (OPTIONS.ruleOrder[mapObj.rule].needPass || OPTIONS.ruleOrder[mapObj.rule].needGPS) { %>
+                            <span class="lblText seg2"><%- dict('Click') %> <img src="img/btnpwd.png" alt="<%- dict('Password')%>" title="<%- dict('Password')%>"/> <%- dict("to enter the checkpoint's password.") %></span>
+                            <% } %>
+                            <span class="lblText seg2"><%- dict('Click') %> <img class="imgDown noRotate note" src="img/btndown.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /> <%- dict('to open the checkpoints.') %></span>
+                            <span class="lblText seg2"><%- dict('Click') %> <img class="imgRight noRotate note" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /> <%- dict("to start completing the checkpoint's tasks.") %></span>
+                            <span class="lblText seg2"><%- dict('Click') %> <span class="lblField">[<%- dict("Complete") %>]</span> <%- dict("to complete a checkpoint.") %></span>
+                            <span class="lblText seg2"><%- dict('Click') %> <img class="imgUp noRotate" src="img/btnup.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /> <%- dict("to collapse the content.") %></span>
+                            <span class="lblText seg2"><%- dict('When you have completed trip, ') %><%- dict('click') %> <span class="lblField">[<img src="img/btnsubmit.png" alt="<%- dict('Submit') %>" /><%- dict("Submit") %>]</span><%- dict('.') %></span>
+                            <span class="lblText seg2"><%- dict('To quit this trip, please return to ') %><a href="#mode/trip/<%= mapObj.mapKey %>/basic"><%- dict('Basic') %></a><%- dict('.') %></span>
+                        </div>
+                    </div>
+                </div><!-- end section -->
+                <div class="checkpoints"></div>
+                <div class="section submit">
+                	<div class="line" style="text-align:center">
+                    	<span id="btnSubmitOuter">
+                   		<a href="javascript:void(0)" id="btnSubmit" title="<%- dict('Submit') %>" class="custombg"><img src="img/btnsubmit.png" alt="<%- dict('Submit') %>" /> <%- dict('Submit') %></a>
+                        </span>
+                    </div>
+                    <div class="line" style="text-align:center; margin-top:20px;">
+                    	<%- dict('To quit this trip, please return to ') %><a href="#mode/trip/<%= mapObj.mapKey %>/basic"><%- dict('Basic') %></a><%- dict('.') %>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-content checkpoint-detail">
+                <div class="section">
+                	<div class="slider-btnOpen btnCPDetail"><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                </div>
+            </div>
+          </div><!-- end slider -->
+        </div><!-- end subpage cp -->
+        <div subpage="notes" class="subpage">
+          <div class="section">
+            <h2><%- dict('Trip Timer') %> <img src="img/pretrip-notes-timer.png" alt="<%- dict('Trip Timer') %>" title="<%- dict('Trip Timer') %>" /></h2>
+            <div class="line"><a class="btnStartTrip" href="javascript:void(0)"><%- dict('Start Trip') %></a> <a class="btnEndTrip" href="javascript:void(0)"><%- dict('End Trip') %></a></div>
+            <div class="line"><a class="btnPauseTrip" href="javascript:void(0)"><%- dict('Pause') %></a><a class="btnResumeTrip" href="javascript:void(0)"><%- dict('Resume') %></a> <a class="btnResetTrip redbg" href="javascript:void(0)"><%- dict('Reset') %></a></div>
+          </div><!-- end section -->
+          <div class="section">
+          	<h2><%- dict('Current Location') %> <img src="img/pretrip-notes-geo.png" alt="<%- dict('Current Location') %>" title="<%- dict('Current Location') %>" /></h2>
+            <div class="line"><%- dict('Lat') %><%- dict(': ') %><span id="currLat">-</span></div>
+            <div class="line"><%- dict('Lng') %><%- dict(': ') %><span id="currLng">-</span></div>
+          </div><!-- end section -->
+        </div><!-- end subpage note -->
+      </div> <!-- end  left -->
+      <div class="main">
+        <div class="mapTitle">
+        	<h1><%- mapObj.name %></h1>
+            <span id="mapCanvasButtons">
+                <a href="javascript:void(0)" class="greybg-lt" id="btnMyPosition"><img src="<%=CONFIG.YouAreHere%>" height="24"/><%- dict('My Position') %></a>
+                <a href="javascript:void(0)" class="greybg-lt" id="btnReturnCentre"><img src="img/mapcontent-returncentre.png" height="22"/><%- dict('Return to Map Centre') %></a>
+            </span>
+        </div>
+        <div id="mapCanvas"></div>
+        <div subpage="basic" class="subpage"> 
+          <div class="section track">
+          	<div class="note"><span class="lblSuggestedBoundary"><strong>----</strong> <%- dict('Suggested Boundary') %></span> <span class="lblSuggestedTrack"><strong>----</strong> <%- dict('Suggested Track') %></span></div>
+          </div><!-- end section -->
+        </div><!-- end subpage basic -->
+        <div class="section notes">
+        	<h2><%- dict('Notifications') %></h2>
+          <a class="btnNoteClear" style="float:right" href="javascript:void(0)"><img src="img/mapcontent-noteclear.png" width="24" height="24" alt="Clear"><%- dict('Clear') %></a>
+          <div class="clearfix" ><img src="img/btnnotice.png" alt="<%- dict('Notifications') %>" /></div>
+          <div id="thetripNoteList">
+              <!--  Item here -->
+          </div><!-- end thetripNoteList -->
+        </div><!-- end section -->
+      </div><!-- end subpage main -->
+    </div><!-- end subpage page-thetrip -->
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

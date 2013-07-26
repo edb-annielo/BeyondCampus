@@ -1,0 +1,397 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mapheader {
+	vertical-align:bottom;
+	background:#fff;
+}
+
+.mapheader .mode-icon{
+	display:inline-block;
+	margin:0;
+	margin-top:5px;
+	margin-right:5px;
+	width:60px;
+	border-right:4px solid #929497;
+	height:55px;
+	text-align:right;
+}
+.mapheader #btnSave img,
+.mapheader .btnSave img{
+	vertical-align:top;
+	height:18px;
+}
+.mapheader .mode-icon img{
+	max-widyh:50px;
+	max-height:50px;
+	vertical-align:bottom;
+	margin-right:5px;
+}
+.mapheader h1{
+	margin:0;
+	display:inline-block;
+	font-style:normal;
+	color:#58595B;
+	padding-bottom:0px;
+	vertical-align:bottom;
+}
+.mapheader .mapfuncs{
+	display:inline-block;
+	margin-left:10px;
+	margin-bottom:2px;
+}
+
+.mapheader img {
+	vertical-align:middle;
+}
+
+.mapheader .mapfuncs{
+	vertical-align:bottom;
+}
+.mapheader .mapfuncs a {
+	display:inline-block;
+	margin:0 5px;
+	max-width:60px;
+}
+.mapheader .mapfuncs a {
+	border:2px solid #D0D2D3;
+	color:#FFF;
+	text-decoration:none;
+	font-size:12px;
+	padding:0 1px;
+	text-align:center;
+	/*min-width:45px;*/
+	
+	/* old version android */
+	background-color:#E5E57C;
+	background-image:url('gradient/top-FFFAD2-E5E57C.jpg');
+	/* IE */
+	background-image: url('gradient/btnlayer.png'), url('gradient/top-FFFAD2-E5E57C.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:url('gradient/btnlayer.png'), -webkit-gradient(linear,left top,left bottom,from(  #FFFAD2  ),to(  #E5E57C  )); 
+	background-image:url('gradient/btnlayer.png'), -webkit-linear-gradient(top, #FFFAD2 , #E5E57C  ); 
+	background-image:url('gradient/btnlayer.png'),    -moz-linear-gradient(top, #FFFAD2 , #E5E57C  ); 
+	background-image:url('gradient/btnlayer.png'),     -ms-linear-gradient(top, #FFFAD2 , #E5E57C  ); 
+	background-image:url('gradient/btnlayer.png'),      -o-linear-gradient(top, #FFFAD2 , #E5E57C  ); 
+	background-image:url('gradient/btnlayer.png'),         linear-gradient(top, #FFFAD2 , #E5E57C  ); 
+	
+	-moz-border-radius:      					4px;
+	-webkit-border-radius:      				4px;
+	border-radius:      						4px;
+	
+}
+
+.mapheader .mapfuncs a.basic {
+	border:2px solid #1B86C1;
+	
+	/* old version android */
+	background-color:#3C78B4;
+	background-image:url('gradient/top-6BC8ED-3C78B4.jpg');
+	/* IE */
+	background-image:url('gradient/btnlayer.png'),  url('gradient/top-6BC8ED-3C78B4.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:url('gradient/btnlayer.png'), -webkit-gradient(linear,left top,left bottom,from(  #6BC8ED  ),to(  #3C78B4  )); 
+	background-image:url('gradient/btnlayer.png'), -webkit-linear-gradient(top, #6BC8ED , #3C78B4  ); 
+	background-image:url('gradient/btnlayer.png'),    -moz-linear-gradient(top, #6BC8ED , #3C78B4  ); 
+	background-image:url('gradient/btnlayer.png'),     -ms-linear-gradient(top, #6BC8ED , #3C78B4  ); 
+	background-image:url('gradient/btnlayer.png'),      -o-linear-gradient(top, #6BC8ED , #3C78B4  ); 
+	background-image:url('gradient/btnlayer.png'),         linear-gradient(top, #6BC8ED , #3C78B4  ); 
+}
+.mapheader .mapfuncs a.cp {
+	border:2px solid #6D136D;
+	
+	/* old version android */
+	background-color:#652D90;
+	background-image:url('gradient/top-9E1F63-652D90.jpg');
+	/* IE */
+	background-image:url('gradient/btnlayer.png'), url('gradient/top-9E1F63-652D90.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:url('gradient/btnlayer.png'),-webkit-gradient(linear,left top,left bottom,from(  #9E1F63  ),to(  #652D90  )); 
+	background-image:url('gradient/btnlayer.png'),-webkit-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:url('gradient/btnlayer.png'),   -moz-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:url('gradient/btnlayer.png'),    -ms-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:url('gradient/btnlayer.png'),     -o-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:url('gradient/btnlayer.png'),        linear-gradient(top, #9E1F63 , #652D90  ); 
+}
+
+.mapheader .mapfuncs a.cp {
+	font-size:8px;
+}
+.mapheader .mapfuncs a.map {
+	border:2px solid #3C7C42;
+	
+	/* old version android */
+	background-color:#799E3F;
+	background-image:url('gradient/top-ACE551-799E3F.jpg');
+	/* IE */
+	background-image:url('gradient/btnlayer.png'),  url('gradient/top-ACE551-799E3F.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:url('gradient/btnlayer.png'), -webkit-gradient(linear,left top,left bottom,from(  #ACE551  ),to(  #799E3F  )); 
+	background-image:url('gradient/btnlayer.png'), -webkit-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:url('gradient/btnlayer.png'),    -moz-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:url('gradient/btnlayer.png'),     -ms-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:url('gradient/btnlayer.png'),      -o-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:url('gradient/btnlayer.png'),         linear-gradient(top, #ACE551 , #799E3F  ); 
+}
+.mapheader .mapfuncs a:active {
+	-webkit-box-shadow:0px 0px 5px #999; 
+   -moz-box-shadow:0px 0px 5px #999;
+		box-shadow:0px 0px 5px #999; 
+}
+.mapheader .mapfuncs a img {
+	display:block;
+	max-height:40px;
+	width:auto;
+	margin:auto;
+}
+.mapheader .timer-display {
+	vertical-align:bottom;
+	display:inline-block;
+	width:130px;
+	height:30px;
+	line-height:30px;
+	margin:0px 5px;
+	padding:5px;
+	text-align:center;
+	/*vertical-align:middle;*/
+	white-space:nowrap;
+	margin-bottom:5px;
+}
+.mapheader .rightcell{
+	float:right;
+	display:inline-block;
+	margin-right:5px;
+	margin-top:10px;
+}
+#header .mapheader a.resolution-small,
+#header .mapheader a.resolution-xsmall{
+	display:none;
+}
+
+/*********************************************/
+#header #header-aftertrip.mapheader #tripName {
+	display:inline-block;
+	background:#FFF;
+	border:1px solid #000;
+	padding:5px;
+	
+	font-size:15px;
+	line-height:15px;
+	margin:0px 5px;
+	color:#000;
+	text-align:center;
+	vertical-align:middle;
+}
+/**********************************************/
+#header .btnSided{
+	display:none; /* need css3 and suitable width */
+	margin-left:10px;
+	
+	border:1px solid #ccc;
+	padding:3px;
+	
+	background:#fff;		
+	/* IE */
+	background-image: url('../gradient/top-FFFFFF-EBEBEC.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #FFFFFF  ),to(  #EBEBEC  )); 
+	background-image:-webkit-linear-gradient(top, #FFFFFF , #EBEBEC  ); 
+	background-image:   -moz-linear-gradient(top, #FFFFFF , #EBEBEC  ); 
+	background-image:    -ms-linear-gradient(top, #FFFFFF , #EBEBEC  ); 
+	background-image:     -o-linear-gradient(top, #FFFFFF , #EBEBEC  ); 
+	background-image:        linear-gradient(top, #FFFFFF , #EBEBEC  ); 
+	-moz-border-radius:      					3px;
+	-webkit-border-radius:      				3px;
+	border-radius:      						3px;
+}
+#header a.btnSided:active{
+	-webkit-box-shadow:0px 0px 6px -2px #666;
+       -moz-box-shadow:0px 0px 6px -2px #666;
+	        box-shadow:0px 0px 6px -2px #666;
+}
+#header .btnSided img {
+	-webkit-filter: drop-shadow(1px 1px 2px #666);
+	filter: drop-shadow(1px 1px 2px #666);
+}
+#header .btnSided img.btnSided_2p{
+	display:none;
+}
+
+#page.sided-1p #header .btnSided img.btnSided_2p{
+	display:inherit;
+}
+#page.sided-1p #header .btnSided img.btnSided_1p{
+	display:none;
+}
+#page:not(.sided-1p) #header .btnSided img.btnSided_1p{
+	display:inherit;
+}
+#page:not(.sided-1p) #header .btnSided img.btnSided_2p{
+	display:none;
+}
+/**********************************************/
+@media screen and (min-width:720px){ 
+	/* 1-page only available to 720px+ */
+	#header .mapheader .btnSided{
+		display:inline-block;
+	}
+	#page.sided-1p #header .mapheader a.resolution-small{
+		display:inline;
+	}
+	#page.sided-1p #header .mapheader .mapfuncs a.resolution-small{
+		display:inline-block;
+	}
+}
+@media screen and (min-width:720px) and (max-width:849px) { 
+	#header .mapheader .timer-display {
+		display:inline-block;
+		width:100px;
+		height:24px;
+		line-height:24px;
+		margin:10px 0px;
+		padding:2px 2px;
+	}
+}
+@media screen and (min-width:525px) and (max-width:719px) { 
+	#header .mapheader .btnSided{
+		display:none;
+	}
+	#header .mapheader{
+		min-height:50px;
+	}
+	.mapheader .mode-icon{
+		margin-top:5px;
+		width:40px;
+		height:45px;
+	}
+	.mapheader .mode-icon img{
+		max-width:40px;
+		max-height:40px;
+		vertical-align:bottom;
+	}
+	.mapheader h1{
+		font-size: 18px;
+	}
+
+	#header .mapheader a.resolution-small{
+		display:inline;
+	}
+	#header .mapheader .mapfuncs a.resolution-small{
+		display:inline-block;
+	}
+	.mapheader .mapfuncs{
+		margin-top:0px;
+		margin-left:5px;
+		margin-bottom:2px;
+		padding:0;
+	}
+	.mapheader .mapfuncs a {
+		margin:0 2px;
+		margin-left:0;
+		vertical-align:bottom;
+	}
+	#header .mapheader .mapfuncs img {
+		max-height:35px;
+	}
+
+	#header #header-pretrip.mapheader #btnSave {
+		display:none;
+	}
+	#header .mapheader .timer-display {
+		display:inline-block;
+		width:100px;
+		height:24px;
+		line-height:24px;
+		margin:5px 0px;
+		padding:2px 2px;
+	}
+}
+@media screen and (max-width:524px) { 
+	#header .mapheader .btnSided{
+		display:none;
+	}
+	#header .mapheader .rightcell {
+		display:none;
+	}
+	#header .mapheader{
+		min-height:50px;
+	}
+	#header .mapheader a.resolution-small{
+		display:inline;
+	}
+
+	#header .mapheader .mapfuncs a.resolution-xsmall{
+		display:inline-block;
+	}
+	#header .mapheader .mapfuncs a.mapfuncs-btnExpand{
+		color:#000;
+		font-size:14px;
+		padding:2px 2px;
+		display:inline-block;
+	}
+	#header .mapheader .mapfuncs a.mapfuncs-btnExpand:before {
+		content:"+";
+		margin-right:5px;
+		display:inline-block;
+	}
+	#header .mapheader .mapfuncs.expand a.mapfuncs-btnExpand:before {
+		content:"-";
+	}
+	#header .mapheader .mapfuncs a,
+	#header .mapheader .mapfuncs a.resolution-small{
+		display:none;
+	}
+	#header .mapheader .mapfuncs.expand a {
+		display:inline-block;
+	}
+	
+	.mapheader .mode-icon{
+		margin-top:5px;
+		width:40px;
+		height:45px;
+		vertical-align:bottom;
+	}
+	.mapheader .mode-icon img{
+		max-width:40px;
+		max-height:40px;
+		vertical-align:bottom;
+	}
+	.mapheader h1{
+		font-size: 18px;
+		vertical-align:bottom;
+	}
+	.mapheader .mapfuncs{
+		margin: 0px;
+		margin-left:5px;
+		margin-bottom:2px;
+		vertical-align:bottom;
+	}
+	.mapheader .mapfuncs a {
+		margin:auto 2px;
+		margin-left:0;
+		vertical-align:bottom;
+	}
+	.mapheader .mapfuncs a {
+		font-size:10px;
+		font-weight:bold;
+	}
+	#header .mapheader .mapfuncs img {
+		max-height:35px;
+	}
+	
+
+	#header .mapheader .timer-display {
+		display:none;
+	}
+	#header #header-pretrip.mapheader .btnSave-placeholder,
+	#header #header-thetrip.mapheader .btnSave-placeholder,
+	#header #header-aftertrip.mapheader .tripName-placeholder {
+		display:none;
+	}
+
+}

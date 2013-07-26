@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+		<div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal"></div>
+            <div class="slider-content checkpoint-detail">
+            	<div class="checkpoint-tasks">
+                	<div class="task-new">
+                        <div class="section pink">
+                          <div style="float:right"><a href="javascript:void(0)" class="btnTaskClose"><img src="img/btnclose.png" alt="<%- dict('Cancel') %>" /></a></div>
+                          <h2><%- dict('New Task') %></h2>
+                          <div class="line">
+                          	<div class="requiredFld lblField"><%- dict('Task Name, Question or Instruction') %><%- dict(':') %></div>
+                            <div><input type="text" id="newTask-question" name="newTask-question" value="<%-taskObj.question %>" required /></div>
+                          </div>
+                          <div class="line"><div class="note"><%- dict('(Optional) Information') %><%- dict(':') %><br /><%- dict('e.g. images, links, readings, etc.') %></div><textarea id="newTask-question2" name="newTask-question2" row="5" cols="40" class="webedit"><%-taskObj.question2 %></textarea></div>
+                          <div class="line"><span class="requiredFld lblField"><%- dict('Answer Type') %><%- dict(':') %></span>
+                          	<select id="newTask-answerType" name="newTask-answerType" value="<%= taskObj.answerType %>">
+                            <% $.each(OPTIONS.answerType, function(key){ %>
+                            <option value="<%=key%>" <%= taskObj.answerType==key?' selected':'' %>><%- dict(OPTIONS.answerType[key]) %></option>
+                            <% }); %>
+                            </select>
+                            <div class="note"><%- dict('Once saved, the answer type cannot be changed.') %></div>
+                          </div>
+                          <% 
+                                switch (taskObj.answerType) {
+                                	case 1:
+                                    case 2:
+                                    case 3:
+                                    case 4:
+                          %>
+                          <div class="line requiredFld lblField"><%- dict('Answer') %><%- dict(':') %></div>
+                          <% 
+                          				break;
+                                    case 6:
+                          %>
+                          <div class="note">
+                          * 1. <%- dict('The majority of mobile devices offer "using the camera" and "selecting an image", others only allow "selecting an image".') %><br />
+                          * 2. <%- dict('This function is not available to iOS5 and IE9.') %><br />
+                          * 3. <%- dict('The photo image will be resized to less than ') %><%-CONFIG.ImgSize.maxWidth %>*<%-CONFIG.ImgSize.maxHeight %><%- dict('.') %><br />
+                          * 4. <strong><%- dict('The entire map cannot contain more than 14 tasks of taking photos.') %></strong>
+                          </div>
+                          <%      
+                                    	break;
+                                    case 7:
+                          %>
+                          <div class="note">
+                          * <%- dict('It is suitable for tasks required the using of other websites.') %>
+                          </div>
+                          <%      
+                                    	break;
+                          		}
+                                switch (taskObj.answerType) {
+                                    case 1: 
+                                        %><div class="line"><textarea id="newTask-answer" name="newTask-answer" class="newTask-answer" required><%-taskObj.answer %></textarea></div><% 
+                                        break;
+                                    case 2:
+                                        var opts = (taskObj.answerOptions!=null)?$.parseJSON(taskObj.answerOptions):{};
+                                        %>
+                                            <%  $.each(opts, function(key, value){
+                                            var boolVal = Convert.ToBoolean(value);
+                                            %>
+                                            <div class="line clearfix answerOption">
+                                            <div class="radio">
+                                            <input type="radio" name="taskAddRadio_<%=param.cid%>"  <%=(boolVal==true)?'checked':'' %> />
+                                            <div class="radio-tick"></div>
+                                            </div>
+                                            <input type="text" class="newTask-answer" value="<%-key %>"  required   />
+                                            <div class="btnOptionRemove"></div>
+                                            </div>
+                                            <%
+                                            }); %>
+                                            <a href="javascript:void(0)" class="btnOptionAdd greenbg-lt"><%- dict('Add Option') %></a>
+                                        <% 
+                                        break;
+                                    case 3:
+                                        var opts = (taskObj.answerOptions!=null)?$.parseJSON(taskObj.answerOptions):{};
+                                        %>
+                                            <%  $.each(opts, function(key, value){
+                                            var boolVal = Convert.ToBoolean(value);
+                                            %>
+                                            <div class="line clearfix answerOption">
+                                            <div class="checkbox">
+                                            <input type="checkbox" <%=(boolVal==true)?'checked':'' %> />
+                                            <div class="checkbox-tick"></div>
+                                            </div>
+                                            <input type="text" class="newTask-answer" value="<%-key %>"  required  />
+                                            <div class="btnOptionRemove"></div>
+                                            </div>
+                                            <%
+                                            }); %>
+                                            <a href="javascript:void(0)" class="btnOptionAdd greenbg-lt"><%- dict('Add Option') %></a>
+                                        <% 
+                                        break;
+                                     case 4:
+                                    	var value = Convert.ToBoolean(taskObj.answer);
+                                    	%><div class="line clearfix">
+                                            <div class="radio">
+                                            <input type="radio" name="taskAddRadio_<%=param.cid%>" value="TRUE" <%=(value==true)?'checked':'' %> >
+                                            <div class="radio-tick"></div>
+                                            </div>
+                                            <%- dict('TRUE') %>
+                                          </div>
+                                          <div class="line clearfix"> 
+                                            <div class="radio">
+                                            <input type="radio" name="taskAddRadio_<%=param.cid%>" value="FALSE" <%=(value!=true)?'checked':'' %> >
+                                            <div class="radio-tick"></div>
+                                            </div>
+                                            <%- dict('FALSE') %>
+                                        </div><% 
+                                        break;
+                                } %>
+                          <div class="line" style="text-align:right"><a href="javascript:void(0)" class="btnTaskSave greybg-lt shortbtn" ><img src="img/btnsave.png" alt="<%- dict('Save') %>" /> <%- dict('Save') %></a></div>
+                        </div>
+                    </div>
+            	</div>
+            </div>
+          </div>   
+        </div>      
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

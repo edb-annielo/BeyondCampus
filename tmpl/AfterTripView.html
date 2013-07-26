@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-aftertrip" class="mapcontent">
+      <div class="left">
+        <div subpage="basic" class="subpage">
+          <div class="section basicinfo">
+            <div style="float:right" class="mapAttrIcons">
+              <% if( mapObj.language == "en") { %><img src="img/maplist-attr-lang1033.png" title="<%- dict('English') %>" /><%} 
+                 else if( mapObj.language == "zh-HK") { %><img src="img/maplist-attr-lang1028.png" title="<%- dict('Chinese') %>" /><%}%>
+              <% if(mapAttr.isCreator){ %>
+              <img src="img/maplist-attr-creator.png" title="<%- dict('Created by Me') %>" />
+              <% } %>
+              <% if(mapAttr.isCollaborator) { %>
+              <img src="img/maplist-attr-collaborating.png" title="<%- dict('Collaborator') %>" />
+              <% } %>
+              <% if( mapAttr.isFavMap) { %>
+              <img src="img/maplist-attr-favmap.png" title="<%- dict('Fav. Map') %>" />
+              <%}%>
+              <% if( mapAttr.isOpenedMap && false) { %>
+              <img src="img/maplist-attr-opened.png" title="<%- dict('Opened') %>" />
+              <%}%>
+              <% if(mapAttr.isSubmitted) { %>
+              <img src="img/maplist-attr-submitted.png" title="<%- dict('Submitted') %>" />
+              <% }  %>
+              <% if(!mapAttr.isEnable){ %>
+              <img src="img/maplist-attr-disablemap.png" title="<%- dict('Disable') %>" />
+              <% } 
+               else if(mapAttr.isPublic){ %>
+              <img src="img/maplist-attr-publicmap.png" title="<%- dict('Public') %>" />
+              <% } 
+               else { %>
+              <img src="img/maplist-attr-privatemap.png" title="<%- dict('Private') %>" />
+              <% } %>
+            </div>
+            <h2><%- dict('Basic') %></h2>
+            <div class="line"><span class="lblField"><%- dict('Map Name') %><%- dict(':') %></span> <span class="lblText"><%- mapObj.name %></span></div>
+            <div class="line"><span class="lblField"><%- dict('Description') %><%- dict(':') %></span>
+              <div class="longbox short"><div class="longbox2"> <%= Convert.BBCodetoHtml(mapObj.description) %> </div><a href="javascript:void(0)"  class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+            </div>
+            <div class="line createdby"><%- dict('Created by ') %><%- mapObj.creatorName %></div>
+            <% if(mapObj.tags != null){ %>
+            <div class="line"><%- dict('Tags') %><%- dict(': ') %><span class="searchTags">
+              <% $.each(mapObj.tags.split(";"), function(index, tag){ %>
+              <a class="searchTag" href="javascript:void(0);"><%-tag %></a>
+              <% });  %>
+              </span> </div>
+            <% } %>
+          </div><!-- end section -->
+          <div class="section qr">
+            <h2><%- dict('Map Key') %> <img src="img/btnmapkey.png" alt="<%- dict('Map Key') %>" /></h2>
+            <div class="line"><div class="mapKey"><%= mapObj.mapKey %></div></div>
+            <div class="note"><%- dict('you may use map key to search this map') %></div>
+            <div class="line"> <img src="http://chart.apis.google.com/chart?cht=qr&chs=200x200&chld=2&chl=<%= mapObj.mapKey %>" style="width:200px;height:200px" class="imgQR" /> </div>
+          </div><!-- end section --> 
+          <% if(mapAttr.isCreator || mapAttr.isCollaborator){ %>
+          <div class="section subsections important">
+          	<h2><%- dict('Advance Setting') %><%- dict(': ') %><%- dict('Trip') %></h2>
+            <div class="subsection">
+            	<div class="checkbox"><input type="checkbox" id="submission" name="submission" <%= mapObj.submission?' checked':'' %> /><div class="checkbox-tick"></div></div>
+                <div class="requiredFld"><%- dict('Receive Submissions') %></div>
+                <div class="note"><%- dict(OPTIONS.submission[mapObj.submission])%></div>
+            </div>
+          </div>
+          <div class="section subsections">
+          	<h2><%- dict('Actions') %></h2>
+            <div class="subsection">
+                <div class="line"><%- dict('ALL Submissions') %></div>
+                <div class="line">
+                    <a class="greybg-lt shortbtn smallbtn" href="javascript:void(0)" id="btnViewReport"><img src="img/btnview.png" alt="<%- dict('View')%>" /> <%- dict('View') %></a>
+                    <% if((appFunc.get("browser") != "MSIE") &&  (appFunc.get("device") != "Android") &&  (appFunc.get("device") != "iOS")){ %><a class="greybg-lt shortbtn smallbtn" href="javascript:void(0)" id="btnDownloadReport"><img src="img/btndownload.png" alt="<%- dict('Download')%>" /> <%- dict('Download') %></a><% } %>
+                </div> 
+            </div>
+            <div class="subsection flipper horizontal">
+            	<div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+            	<div class="flipper-content">
+                    <div class="line"><%- dict('Email ALL Submissions') %> <img src="img/email.png" alt="<%- dict('Email')%>" class="imgShadow-silver" /></div>
+                    <div class="note"><%- dict('Email') %><%- dict(':') %></div>
+                    <div class="line"><input type="email" name="email" id="email" required /></div>
+                    <div class="line"><a class="greenbg shortbtn" style="float:right" href="javascript:void(0)" id="btnSubmissionReport"><%- dict('Send') %></a></div>
+                </div>
+                <div class="flipper-normal tap-box"><div class="line"><%- dict('Email ALL Submissions') %> <img src="img/email.png" alt="<%- dict('Email')%>" class="imgShadow-silver" /></div></div>
+            </div>
+          </div>
+          <% } %>
+          <div class="selectmode section">
+            <h2><%- dict('Switch Mode') %></h2>
+            <div class="line"><%- dict('Please select mode') %><%- dict(':') %></div>
+            <div class="line">
+            <a href="#mode/plan/<%= mapObj.mapKey %>" class="selectmode-plan"><img src="img/maplist-mode-plan.png"><br /><%- dict('Plan the Trip') %></a> 
+            <a href="#mode/pre/<%= mapObj.mapKey %>" class="selectmode-pre"><img src="img/maplist-mode-pre.png"><br /><%- dict('Pre-Trip') %></a> 
+            <a href="#mode/trip/<%= mapObj.mapKey %>" class="selectmode-trip"><img src="img/maplist-mode-trip.png"><br /><%- dict('The Trip') %></a>
+            <a href="#mode/after/<%= mapObj.mapKey %>" class="selectmode-after"><img src="img/maplist-mode-after.png"><br /><%- dict('After Trip') %></a></div>
+          </div>
+        </div>
+        <!-- end subpage basic -->
+        <div subpage="cp" class="subpage">
+          <div class="slider horizontal">
+            <div class="slider-normal">
+              <div class="section subsections cp">
+                <h2><%- dict('Checkpoints & Tasks') %></h2>
+                <div class="subsection flipper horizontal">
+                    <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                    <div class="flipper-content">
+                        <h3><%- dict('Email this submission') %> <img src="img/email.png" alt="<%- dict('Email')%>" /></h3>
+                        <div class="note"><%- dict('Email') %><%- dict(':') %></div>
+                        <div class="line"><input type="email" name="emailthis" id="emailthis" required /></div>
+                        <div class="line"><a class="greenbg shortbtn" style="float:right" href="javascript:void(0)" id="btnTripReport"><%- dict('Send') %></a></div>
+                    </div>
+                    <div class="flipper-normal tap-box"><div class="line"><%- dict('Email this submission') %> <img src="img/email.png" alt="<%- dict('Email')%>" /></div></div>
+                </div>
+                <div class="subsection">
+                    <h3><%- dict('Personal Information') %></h3>
+                    <div class="line"><span class="lblField"><%- dict('Participant Name') %><%- dict(': ') %></span><span id="submission-name" class="submission-infobox lblText"></span></div>
+                    <div class="line"><span class="lblField"><%- dict('Class') %><%- dict(': ') %></span><span id="submission-class" class="submission-infobox lblText"></span> <span class="lblField"><%- dict('Class No') %><%- dict(': ') %></span><span id="submission-classno" class="submission-infobox lblText"></span></div>
+                </div>
+                <div class="subsection">
+                    <h3><%- dict('Trip') %></h3>
+                    <div class="line note"><span class="lblField"><%- dict('Start Time') %><%- dict(': ') %></span><span id="submission-starttime" class="submission-infobox lblText"></span> <span class="lblField"><%- dict('End Time') %><%- dict(':') %></span><span id="submission-endtime" class="submission-infobox lblText"></span></div>
+                    <div class="line note"><span class="lblField"><%- dict('Elapsed') %><%- dict(': ') %></span><span id="submission-elapsed" class="submission-infobox lblText"></span></div>
+                </div>
+                <div class="subsection">
+                    <div class="note">* <%- dict('Rule') %><%- dict(': ') %><%- dict(OPTIONS.rule[mapObj.rule]) %></div>
+                    <div class="note">* <%- dict(OPTIONS.cpRange[mapObj.cpRange]) %></div>
+                    <div class="line note"><em>(<%- dict("If the user device's location service is less accurate than the above checkpoint range, the device's accuracy will be used instead.") %>)</em></div>
+                </div>
+              </div>
+              <!-- end section -->
+              <div class="checkpoints"></div>
+            </div>
+            <div class="slider-content checkpoint-detail">
+              <div class="section">
+                <div class="slider-btnOpen btnCPDetail"><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                <h2><%- dict('Checkpoints & Tasks') %></h2>
+              </div>
+            </div>
+          </div><!-- end slider --> 
+        </div><!-- end subpage cp --> 
+      </div><!-- end  left -->
+      <div class="main">
+        <div class="mapTitle">
+          <h1><%- mapObj.name %></h1>
+          <span id="mapCanvasButtons">
+          <a href="javascript:void(0)" class="greybg-lt" id="btnMyPosition"><img src="<%=CONFIG.YouAreHere%>" height="24"/><%- dict('My Position') %></a>
+          <a href="javascript:void(0)" class="greybg-lt" id="btnReturnCentre"><img src="img/mapcontent-returncentre.png" height="22"/><%- dict('Return to Map Centre') %></a></span> </div>
+        <div id="mapCanvas"></div>
+        <div subpage="basic" class="subpage">
+          <div class="section track">
+            <div class="note"><span class="lblSuggestedBoundary"><strong>----</strong> <%- dict('Suggested Boundary') %></span> <span class="lblSuggestedTrack"><strong>----</strong> <%- dict('Suggested Track') %></span></div>
+          </div><!-- end section --> 
+        </div><!-- end subpage basic -->
+        <div class="section notes" id="aftertripMyTrip"> 
+          <h2><%- dict('My Trip') %></h2>
+          <a class="btnNoteList" style="float:right" href="javascript:void(0)" id="btnAllSubmissions"><img src="img/btnview.png" alt="<%- dict('View')%>" /> <%- dict('Review All Submissions') %></a>
+          <div class="clearfix"></div>
+          <div class="line" style="padding:10px 0; text-align:center" ><%- dict('Password') %><%- dict(': ') %><input type="text" name="tripPwd" id="tripPwd" /> <input type="button" name="btnTripPwd" id="btnTripPwd" value="OK" /></div>
+          <div id="aftertripNoteList" class="aftertripNoteList">
+            <div class="aftertripNoteHeader">
+                <div class="table-cell-4"><img src="img/pretrip-notes-class.png" alt="<%- dict('Class') %>" title="<%- dict('Class') %>" />
+                </div><div class="table-cell-4"><img src="img/pretrip-notes-participant.png" alt="<%- dict('Participant') %>" title="<%- dict('Participant') %>" />
+                </div><div class="table-cell-4"><img src="img/pretrip-notes-datetime.png" alt="<%- dict('Start Time') %>" title="<%- dict('Start Time') %>" /> 
+                </div><div class="table-cell-4"></div>
+            </div><!--  Item here --> 
+          </div><!-- end thetripNoteList --> 
+        </div><!-- end section -->
+        <div class="section notes" id="aftertripAllSubmissions"> 
+          <h2><%- dict('All Submissions') %></h2>
+          <a class="btnNoteList" style="float:right" href="javascript:void(0)" id="btnMyTrip"><img src="img/btnview.png" alt="<%- dict('View')%>" /> <%- dict('Review My Trip') %></a>
+          <div class="clearfix"></div>
+          <div id="aftertripSubmissionList" class="aftertripNoteList">
+            <div class="aftertripNoteHeader">
+                <div class="table-cell-4"><img src="img/pretrip-notes-class.png" alt="<%- dict('Class') %>" title="<%- dict('Class') %>" />
+                </div><div class="table-cell-4"><img src="img/pretrip-notes-participant.png" alt="<%- dict('Participant') %>" title="<%- dict('Participant') %>" />
+                </div><div class="table-cell-4"><img src="img/pretrip-notes-datetime.png" alt="<%- dict('Start Time') %>" title="<%- dict('Start Time') %>" /> 
+                </div><div class="table-cell-4"></div>
+            </div><!--  Item here --> 
+          </div><!-- end thetripNoteList --> 
+        </div><!-- end section -->
+      </div><!-- end subpage main -->
+    </div><!-- end subpage page-thetrip -->
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

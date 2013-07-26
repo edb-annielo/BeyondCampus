@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- header --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-maplist" class="listcontent">
+      <% if (param.mode == "plan"){ %>
+      <div class="btnNewMapOuter">
+      <a href="#mode/newmap/newmap" class="btnNewMap custombg" title="<%- dict('New Map') %>"><img src="img/btnnewmap.png" alt="<%- dict('New Map') %>"> <%- dict('New Map') %></a></div><% } %>
+      <div class="maplist-mode-icon"><% 
+      		switch(param.mode){
+      			case "plan":
+                	%><img src="img/maplist-mode-plan.png"><% break;
+                case "duplicate":
+            		%><img src="img/maplist-mode-duplicate.png"><% break;
+                case "pre":
+                	%><img src="img/maplist-mode-pre.png"><% break;
+                case "trip":
+                	%><img src="img/maplist-mode-trip.png"><% break;
+                case "after":
+                	%><img src="img/maplist-mode-after.png"><% break;    
+            }%></div>
+      <h1><%- dict('Mode') %><%- dict(': ') %><% 
+      		switch(param.mode){
+      			case "plan":
+            		%><%- dict('Plan the Trip') %><% break;
+                case "duplicate":
+            		%><%- dict('Plan the Trip') %> - <small><%- dict('Duplicate Trips') %></small><% break;
+                case "pre":
+                	%><%- dict('Pre-Trip') %><% break;
+                case "trip":
+                	%><%- dict('The Trip') %><% break;
+                case "after":
+                	%><%- dict('After Trip') %><% break;    
+            }%></h1>
+      <div>
+        <div class="tabs">
+        <a href="#mode/plan" <% if(param.mode != 'duplicate') { %>style="display:none" <% } %> class="tab linkTab"><img src="img/maplist-attr-plantrip.png" alt="<%- dict('Plan the Trip') %>" /><%- dict('Plan the Trip') %></a><!--
+        --><a href="javascript:void(0)" <% if(param.mode != 'trip') { %>style="display:none" <% } %> class="tab currentTrip <% if(param.tab == 'CurrentTrip') {%> current<% } %>"><img src="img/maplist-attr-currenttrip.png" alt="<%- dict('Current Trip') %>" /><%- dict('Current Trip') %></a><!--
+        --><a href="javascript:void(0)"  style="display:none" class="tab recentMap <% if(param.tab == 'RecentMap') {%> current<% } %>"><img src="img/maplist-attr-opened.png" alt="<%- dict('Recent Maps') %>" /><%- dict('Recent Maps') %></a><!--
+        --><a href="javascript:void(0)" class="tab searchMap <% if(param.tab == 'SearchMap') {%> current<% } %>"><img src="img/search-icon.png" alt="<%- dict('Search Maps') %>" /><%- dict('Search Maps') %></a><!--
+        --><a href="javascript:void(0)" class="tab getAMap <% if(param.tab == 'GetAMap') {%> current<% } %>"><img src="img/maplist-tabicon-getmap.png" /><%- dict('Get a Map') %></a><!--
+        --><a href="javascript:void(0)" style="display:none"  class="tab favMap <% if(param.tab == 'FavMap') {%> current<% } %>"><img src="img/maplist-tabicon-favmap.png" alt="<%- dict('Fav Map') %>" />Fav Map</a><!--
+        --><a href="#mode/duplicate" <% if(param.mode != 'plan') { %>style="display:none" <% } %> class="tab linkTab"><img src="img/maplist-attr-copyable.png" alt="<%- dict('Duplicate Trips') %>" /><%- dict('Duplicate Trips') %></a></div>
+        <div class="tabcontents">
+          <div class="searchCriteria">
+          <% if(param.tab == "GetAMap") { %>
+          <div class="getAMap clearfix">
+            <img src="img/maplist-getamap.png" width="82" height="70" alt="<%- dict('Get a Map') %>"  class="getAMap-icon" />
+            <div class="getAMap-main">
+                <h2><%- dict('Get a Map') %></h2>
+                <div class="searchbox">
+                <div class="searchbox-bg">
+                  <img src="img/search-icon.png" alt="Search Icon" /><input autocomplete="on" maxlength="100" type="search" id="search" name="search" /><a href="#" class="yellowbg btnSearch" id="btnSearch"><%- dict('Go') %></a>
+                </div></div>
+                <div class="line note"><%- dict('Please enter "Map Key"') %><%- dict('.') %><br />
+                <%- dict('e.g.') %>B00033M1J</div>
+            </div>
+          </div>
+          <% } else { %>
+          <div class="searchbox">
+            <div class="searchbox-bg">
+              <img src="img/search-icon.png" alt="Search Icon" /><input autocomplete="on" maxlength="100" type="search" id="search" name="search" /><a href="#" class="yellowbg btnSearch" id="btnSearch"><%- dict('Search') %></a>
+            </div></div>
+          <div class="line tabbuttons">
+            <% if(param.mode != "plan" && param.mode != "pre" && param.tab != "currentTrip") {
+            %><a href="javascript:void(0)" class="<%=(param.subtab=='allMap')?'greenbg-lt currentbg':'greybg-lt'%> allMap">
+            <% if(param.mode == "trip") { %><img src="img/maplist-attr-publicmap.png" /> <%- dict('All Public Maps') %><% } else if(param.mode == "after") { %><img src="img/maplist-attr-submitting.png" /> <%- dict('All Maps') %><% } else if(param.mode == "duplicate") { %><img src="img/maplist-attr-copyable.png" /> <%- dict('Duplicable Trips') %><% } else { %><%- dict('All Maps') %><% } %></a><% } 
+            if(user.get("userID") != null && (param.tab != 'CurrentTrip')){
+            %><a href="javascript:void(0)" class="<%=(param.subtab=='allMyMap')?'greenbg-lt currentbg':'greybg-lt'%> allMyMap"><img src="img/maplist-attr-allmymap.png" /> <%- dict('All My Maps') %></a><a href="javascript:void(0)" class="<%=(param.subtab=='onlyCreatedByMe')?'currentbg greenbg-lt':'greybg-lt'%> onlyCreatedByMe"><img src="img/maplist-attr-creator.png"> <%- dict('Created by Me') %></a><a href="javascript:void(0)" class="<%=(param.subtab=='onlyCollaborating')?'currentbg greenbg-lt':'greybg-lt'%> onlyCollaborating"><img src="img/maplist-attr-collaborating.png"> <%- dict('Collaborating') %></a><% }
+            if(appFunc.isApp() && param.mode == "trip" && param.tab == "SearchMap") {
+            %><a href="javascript:void(0)" class="<%=(param.subtab=='offlineMap')?'greenbg-lt currentbg':'greybg-lt'%> offlineMap"><img src="img/maplist-attr-favmap.png" alt="<%- dict('Offline Map') %>" /> <%- dict('Offline Map') %></a><% } %>
+          </div>
+          <% } %>
+          </div>
+          <div id="searchresults" class="searchresults">
+            <div class="line showmore"><a href="javascript:void(0)" id="btnShowMore"><%- dict('More') %> ...</a></div>
+            <div class="line noresult"><%- dict('No results') %></div>
+          	<div class="line loading"><img src="img/bg-loading.gif" width="100" height="100" /></div>
+          </div>       
+        </div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

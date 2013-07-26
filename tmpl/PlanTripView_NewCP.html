@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+        <div subpage="cp" class="subpage"> 
+            <div class="slider horizontal">
+                <div class="slider-normal">
+                  <div class="section">
+                    <a class="greybg-lt shortbtn" id="btnAddCP" href="javascript:void(0)" style="float:right"><img src="img/btnnew.png" alt="<%- dict('Add') %>" title="<%- dict('Add') %>" /> <%- dict('Add') %></a>
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                  </div>
+                  <div class="checkpoints"></div>
+                  <div class="checkpoint-new">
+                      <div class="section pink">
+                        <div class="cp-right"><a href="javascript:void(0)" class="btnClose"><img src="img/btnclose.png" alt="<%- dict('Cancel') %>" /></a></div>
+                        <div class="line"><span class="cpNumber"><%=cpObj.cpOrder%></span><span class="cpName">(<%- dict('New Checkpoint') %>)</span></div>
+                        <div class="line"><span class="requiredFld lblField"><%- dict('Name') %><%- dict(':') %></span> <input type="text" id="newCP-name" name="newCP-name" value="<%-cpObj.name %>" required /></div>
+                        <div class="line"><span class="seg"><span class="requiredFld lblField"><%- dict('Lat') %><%- dict(':') %></span> <input type="text" id="newCP-lat" name="newCP-lat" value="<%-cpObj.lat %>" pattern="<%=PATTERN.Lat%>" required /></span><span class="seg"><span class="requiredFld lblField"><%- dict('Lng') %><%- dict(':') %></span> <input type="text" id="newCP-lng" name="newCP-lng" value="<%-cpObj.lng %>" pattern="<%=PATTERN.Lng%>" required /></span></div>
+                        <div class="line" style="text-align:right"><a href="javascript:void(0)" class="btnUpdatePin greybg-lt shortbtn" ><%- dict('Update Pin') %></a></div>
+                        <div class="line lblField"><%- dict('Description') %><%- dict(':') %></div>
+                        <div class="line"><textarea id="newCP-description" name="newCP-description" row="5" cols="40" class="webedit"><%-cpObj.description %></textarea></div>
+                        <div class="line" style="text-align:right"><a href="javascript:void(0)" class="btnSave greybg-lt shortbtn" ><img src="img/btnsave.png" alt="<%- dict('Save') %>" /> <%- dict('Save') %></a></div>
+                      </div>
+                  </div>
+                </div>
+        	</div>
+        </div>
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

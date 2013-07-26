@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- header --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-maplist" class="maincontent">
+      <div>
+        <div class="tabcontents">
+          <div id="searchresults" class="searchresults">
+            <div class="searchresult">
+            	<div class="searchresult-inner">
+            		<div class="right thumbnail"><img src="<%- thumbnail %>" width="120" /></div>
+                    <div class="main"><% var offline=false; if(mapObj["offline"]==true){offline = true;} %>
+                        <div class="line"><span class="mapname"><%- mapObj.name %></span><% if(!(param.mode=="duplicate")) { %><a href="#mode/<%= param.mode %>/<%= mapObj.mapKey %><%- (offline?'/basic/offline':'') %>"  class="btnOpenMap"><%- dict('Open') %><%- (offline?(' ('+dict('Offline')+')'):'') %></a><% } 
+                        else { %><a href="#mode/preview/<%= mapObj.mapKey %>" class="btnPreviewMap"><%- dict('Preview') %></a><% } %>
+                        <div class="mapAttrIcons">
+                        <% if( mapAttr.isWarning) { %><img src="img/maplist-attr-warning.png" title="<%- dict('Warning') %>" /><% }  %>
+                        <% if( mapObj.language == "en") { %><img src="img/maplist-attr-lang1033.png" title="<%- dict('English') %>" /><%} 
+                           else if( mapObj.language == "zh-HK") { %><img src="img/maplist-attr-lang1028.png" title="<%- dict('Chinese') %>" /><%}%>
+                        <% if( mapAttr.isFavMap) { %><img src="img/maplist-attr-favmap.png" title="<%- dict('Fav. Map') %>" /><%}%>
+                        <% if( mapAttr.isOpenedMap && false) { %><img src="img/maplist-attr-opened.png" title="<%- dict('Opened') %>" /><%}%>
+                        <% if(!mapAttr.isEnable){ %><img src="img/maplist-attr-disablemap.png" title="<%- dict('Disable') %>" /><% } 
+                           else if(mapAttr.isPublic){ %><img src="img/maplist-attr-publicmap.png" title="<%- dict('Public') %>" /><% } 
+                           else { %><img src="img/maplist-attr-privatemap.png" title="<%- dict('Private') %>" /><% } %>
+                        <% if( mapAttr.isDuplicable) { %><img src="img/maplist-attr-copyable.png" title="<%- dict('Duplicable Trip') %>" /><%}%>
+                        <% if(mapAttr.isCreator){ %><img src="img/maplist-attr-creator.png" title="<%- dict('Created by Me') %>" /><% } %>
+                        <% if(mapAttr.isCollaborator) { %><img src="img/maplist-attr-collaborating.png" title="<%- dict('Collaborator') %>" /><% }  %>
+                        <% if(mapAttr.isSubmitted) { %><img src="img/maplist-attr-submitted.png" title="<%- dict('Submitted') %>" /><% }  %>
+                        </div><div class="line mapkey"><%- dict('Map Key') %><%- dict(': ') %><span class="mapkey-key"><%= mapObj.mapKey %></span></div><br /></div>
+                        <div class="line"><div class="description longbox short"><div class="longbox2"><%=  Convert.BBCodetoHtml(mapObj.description) %></div><a href="javascript:void(0)"  class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div></div>
+                        <div class="line"><span class="createdby"><%- dict('Created by ') %><%- mapObj.creatorName %></span><span class="createdby"><%- dict('Last Update') %><%- dict(': ') %><%- moment(mapObj.lastUpdateTS).format("YYYY-M-D") %></span><% if(offline) { %><span class="createdby"><%- dict('Offline Update') %><%- dict(': ') %><%- moment(mapObj.logDate).format("YYYY-M-D") %><a class="btnOfflineRemove" href="javascript:void(0)"><img alt="<%- dict('Remove Offline Data') %>" src="img/btnclear.png"></a></span><% } %><span class="tags"><%- dict('Tags') %><%- dict(': ') %><span class="searchTags"><%
+                        if(mapObj.tags != null){
+                         $.each(mapObj.tags.split(";"), function(index, tag){ 
+                         	%><%- (index!=0)?", ":"" %><a class="searchTag" href="javascript:void(0);"><%- tag %></a><%
+                         }); 
+                        } else { %>-<% } %></span>
+                        </span></div>
+                    </div>
+                </div>
+            </div>
+          </div>       
+        </div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,1526 @@
+@charset "utf-8";
+/* CSS Document */
+#header .mapheader .btnTitle, #header .mapheader .btnTitle.yellowbg{
+	cursor:text;
+	margin:5px;
+	
+	-moz-border-radius:      					8px      /*{global-radii-blocks}*/;
+	-webkit-border-radius:      				8px      /*{global-radii-blocks}*/;
+	border-radius:      						8px      /*{global-radii-blocks}*/;	
+}
+#header .mapheader .btnTitle img{
+	margin:0;
+}
+
+#header .mapheader #btnSave,
+#content .mapcontent #btnSubmit{
+	
+	cursor:pointer;
+	color:#FFF;
+	font-weight:bold;
+	text-shadow:1px 1px 2px #999;
+	border:#D6DE23 1px solid;
+	
+	/* IE */
+	background-image: url('gradient/top-ACE551-799E3F.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #ACE551  ),to(  #799E3F  )); 
+	background-image:-webkit-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:   -moz-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:    -ms-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:     -o-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:        linear-gradient(top, #ACE551 , #799E3F  ); 
+
+}
+#content .mapcontent #btnSubmitOuter {
+	display:inline-block;
+	border: 1px solid #5D870C;
+}
+#content .mapcontent #btnSubmit:active{
+	-webkit-box-shadow:0px 0px 10px #799E3F; 
+       -moz-box-shadow:0px 0px 10px #799E3F;
+	        box-shadow:0px 0px 10px #799E3F; 
+}
+
+#header .mapheader #lastUpdate{
+	/*display:inline-block;
+	text-align:left;
+	font-size:12px;
+	position:absolute;
+	right:10px;
+	top:10px;
+	padding:5px;
+	border:1px solid #FFF;
+	background-color:#E1F3FC;*/
+	display:none;
+}
+
+
+
+#content .extrapage{
+	background:#FFFFFF;
+	position: absolute;
+
+	top: 40px; /* 60px;*/
+	left:0;
+	right:0;
+	z-index:100003;
+}
+#content .extrapage .extrapageFooter{
+	font-style:italic;
+	text-align:center;
+}
+#content .extrapage .extrapageInner{
+	background:#FFFFFF;
+	margin:20px;
+	min-height:100%;
+}
+#content .extrapage .extrapageInner img{
+	max-width:90%;
+}
+#content .mapcontent{
+	/*background:#FFF3C5;*/
+	position: absolute;
+
+	top: 100px; /* 60px;*/
+	bottom:0px;
+	left:0;
+	right:0;
+}
+#content .mapcontent .note img {
+	height:16px;
+	-webkit-filter: drop-shadow(1px 1px 2px #666);
+	filter: drop-shadow(1px 1px 2px #666);
+}
+#content .mapcontent .left .longbox img{
+	max-width:90%;
+}
+#content .mapcontent .left .longbox a.url{
+	display:inline-block;
+	overflow: hidden;
+	o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	max-width:90%;
+}
+#content .mapcontent .resolution-small{
+	display:none;
+}
+#content .mapcontent .left, #content .mapcontent .main {
+	padding-bottom:0px;
+	/*-webkit-overflow-scrolling: touch;*/
+	overflow-x:hidden;
+	overflow-y:auto;
+	bottom:0px;
+}
+#page.android-default #content .mapcontent .left,
+#page.android-default #content .mapcontent .main {
+	/*-webkit-overflow-scrolling: touch;*/
+	overflow-x:inherit;
+	overflow-y:inherit;
+}
+#content .mapcontent .main {
+	/*padding-bottom:100px;*/
+}
+
+#content .mapcontent:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#content .mapcontent .left {
+	position: absolute;
+	left: 0;
+	right: 470px;
+	top: 0;
+	/*bottom: auto;*/
+    z-index: 1;
+	min-height:100%;
+}
+#content .mapcontent .left {
+	/* IE */
+	background-image: url('gradient/mapcontent-left-bg.jpg'), url('gradient/left-FAFAFA-D0D2D3.jpg');
+ 	background-size: 100% 18px, 100% 100%;
+	background-repeat:repeat-y, no-repeat;
+	
+	background-image:url('gradient/mapcontent-left-bg.jpg'),-webkit-gradient(linear,left top,right top,from(  #FAFAFA  ),to(  #D0D2D3  )); 
+	background-image:url('gradient/mapcontent-left-bg.jpg'),-webkit-linear-gradient(left, #FAFAFA , #D0D2D3  ); 
+	background-image:url('gradient/mapcontent-left-bg.jpg'),   -moz-linear-gradient(left, #FAFAFA , #D0D2D3  ); 
+	background-image:url('gradient/mapcontent-left-bg.jpg'),    -ms-linear-gradient(left, #FAFAFA , #D0D2D3  ); 
+	background-image:url('gradient/mapcontent-left-bg.jpg'),     -o-linear-gradient(left, #FAFAFA , #D0D2D3  ); 
+	background-image:url('gradient/mapcontent-left-bg.jpg'),        linear-gradient(left, #FAFAFA , #D0D2D3  ); 
+}
+
+
+#content .mapcontent .main {
+
+	min-height:100%;
+	position: absolute;
+	top: 0;
+	/*bottom: auto;*/
+    left:auto;
+	right: 0;
+	width: 470px;
+	z-index:20;
+	
+}
+#content .mapcontent.map .left,
+#content .mapcontent.data .left {
+	display:none;
+}
+#content .mapcontent.map .main,
+#content .mapcontent.data .main {
+	width: 100%;
+	
+}
+#content .mapcontent.map .main #mapCanvas{
+	height:500px;
+}
+#content .mapcontent .left .section:first-child,
+#content .mapcontent .left .subpage .section:first-child{
+	margin-top:20px;
+}
+#content .mapcontent .left .section:last-child,
+#content .mapcontent .left .subpage .section:last-child{
+	margin-bottom:20px;
+}
+
+#content #page-thetrip.mapcontent .left [subpage="cp"] .section.checkpoint:last-child{
+	margin-bottom:0px;
+}
+
+#content .mapcontent .left .section {
+	/* IE */
+	background:#FFF;
+	/*
+	background-image: url('gradient/top-FBE5B6-FCF0C6-FEF9E5.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBE5B6), color-stop(50%,#FCF0C6), color-stop(100%,#FEF9E5)); 
+	background-image: -webkit-linear-gradient(top,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	); /
+	background-image:    -moz-linear-gradient(top,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	);
+	background-image:     -ms-linear-gradient(top,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	);
+	background-image:      -o-linear-gradient(top,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	); 
+	background-image:         linear-gradient(top,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	);
+	border-bottom:1px solid #000;*/
+	padding:5px;
+	margin:0px 5px;
+	
+	-webkit-box-shadow:0px 5px 5px #999; 
+       -moz-box-shadow:0px 5px 5px #999;
+	        box-shadow:0px 5px 5px #999; 
+}
+
+
+
+#content .mapcontent .left .section:after,
+#content .mapcontent .left .section .subsection:after {
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#content .mapcontent .left .section.subsections {
+	padding:5px 0;
+}
+#content .mapcontent .left .section.subsections>h2 {
+	margin:5px;
+	margin-top:0px;
+}
+#content .mapcontent .left .section .subsection{
+	border-top:1px solid #999999;
+	padding:5px;
+
+}
+#content .mapcontent .createdby{
+	/*font-size:15px;*/
+	font-style:italic;
+}
+
+
+#content .mapcontent .main {
+	/* IE */
+	/*
+	background-image: url('gradient/left-FBE5B6-FCF0C6-FEF9E5.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%,#FBE5B6), color-stop(50%,#FCF0C6), color-stop(100%,#FEF9E5)); 
+	background-image: -webkit-linear-gradient(left,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	); 
+	background-image:    -moz-linear-gradient(left,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	);
+	background-image:     -ms-linear-gradient(left,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	); 
+	background-image:      -o-linear-gradient(left,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	);
+	background-image:         linear-gradient(left,  #FBE5B6 0%,  #FCF0C6 50%, #FEF9E5 100%	);
+	*/
+}
+#content .mapcontent .left {
+	border-right:1px solid #000;
+	border-collapse:collapse;
+
+}
+
+#content .mapcontent .main {
+	border-left:1px solid #000;
+	border-collapse:collapse;
+}
+#content .mapcontent .left .section h2:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#content .mapcontent .left .section h2{
+	margin:-5px;
+	padding-left:5px;
+	padding-right:5px;
+	margin-bottom:10px;
+	
+}
+#content .mapcontent .left .section.subsections>h2{
+	margin:0px;
+	margin-top:-5px;
+}
+#content .mapcontent .left .section h2>img {
+	height:20px;
+	-webkit-filter: drop-shadow(1px 1px 2px #fff);
+	filter: drop-shadow(1px 1px 2px #fff);
+}
+#content .mapcontent .left .section h2 {
+	color:#404041;
+
+	/* IE */
+	background-image: url('gradient/top-E6E7E8-BBBDBF.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #E6E7E8  ),to(  #BBBDBF  )); 
+	background-image:-webkit-linear-gradient(top, #E6E7E8 , #BBBDBF  ); 
+	background-image:   -moz-linear-gradient(top, #E6E7E8 , #BBBDBF  ); 
+	background-image:    -ms-linear-gradient(top, #E6E7E8 , #BBBDBF  ); 
+	background-image:     -o-linear-gradient(top, #E6E7E8 , #BBBDBF  ); 
+	background-image:        linear-gradient(top, #E6E7E8 , #BBBDBF  ); 
+}
+
+#content .mapcontent .left .section.cp>h2 {
+	color:#FFF;
+	/* IE */
+	background-image: url('gradient/top-9E1F63-652D90.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #9E1F63  ),to(  #652D90  )); 
+	background-image:-webkit-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:   -moz-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:    -ms-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:     -o-linear-gradient(top, #9E1F63 , #652D90  ); 
+	background-image:        linear-gradient(top, #9E1F63 , #652D90  ); 
+}
+
+#content .mapcontent .left .section.important h2 {
+	color:#FFF;
+	/* IE */
+	background-image: url('gradient/top-E85656-AD2A2A.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #E85656  ),to(  #AD2A2A  )); 
+	background-image:-webkit-linear-gradient(top, #E85656 , #AD2A2A  ); 
+	background-image:   -moz-linear-gradient(top, #E85656 , #AD2A2A  ); 
+	background-image:    -ms-linear-gradient(top, #E85656 , #AD2A2A  ); 
+	background-image:     -o-linear-gradient(top, #E85656 , #AD2A2A  ); 
+	background-image:        linear-gradient(top, #E85656 , #AD2A2A  ); 
+}
+#content .mapcontent .left .section.important h2>img {
+	-webkit-filter: drop-shadow(1px 1px 1px #333);
+	filter: drop-shadow(1px 1px 1px #333);
+}
+#content .mapcontent .left .section.basicinfo h2{
+	color:#FFF;
+	/* IE */
+	background-image: url('gradient/top-63C3D5-3C78B4.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #63C3D5  ),to(  #3C78B4  )); 
+	background-image:-webkit-linear-gradient(top, #63C3D5 , #3C78B4  ); 
+	background-image:   -moz-linear-gradient(top, #63C3D5 , #3C78B4  ); 
+	background-image:    -ms-linear-gradient(top, #63C3D5 , #3C78B4  ); 
+	background-image:     -o-linear-gradient(top, #63C3D5 , #3C78B4  ); 
+	background-image:        linear-gradient(top, #63C3D5 , #3C78B4  ); 
+}
+
+#content .mapcontent .left .section.qr h2 {
+	color:#FFF;
+	/* IE */
+	background-image: url('gradient/top-7ED700-8BA53F.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #7ED700  ),to(  #8BA53F  )); 
+	background-image:-webkit-linear-gradient(top, #7ED700 , #8BA53F  ); 
+	background-image:   -moz-linear-gradient(top, #7ED700 , #8BA53F  ); 
+	background-image:    -ms-linear-gradient(top, #7ED700 , #8BA53F  ); 
+	background-image:     -o-linear-gradient(top, #7ED700 , #8BA53F  ); 
+	background-image:        linear-gradient(top, #7ED700 , #8BA53F  ); 
+}
+#content .mapcontent .left .section.qr .mapKey{
+	text-align:center;
+	font-size:20px;
+	color:#EE4036;
+	margin:auto;
+	padding:10px 5px;
+	border:1px #ccc solid;
+}
+#content .mapcontent .left .section.green {
+	/* IE */
+	background-image: url('gradient/top-B7DCBC-D3E9D5-EDF6EE.jpg');
+ 	background-size: 100% 100%;
+		
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#B7DCBC), color-stop(45%,#D3E9D5), color-stop(100%,#EDF6EE)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* IE10 */
+	background-image:      -o-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* Opera 11.10+ */
+	background-image:         linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	);
+
+}
+
+#content .mapcontent .left .section.pink {
+	/* IE */
+	background-image: url('gradient/top-E5B7D4-E8C1DB-F4E3EF.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E5B7D4), color-stop(50%,#E8C1DB), color-stop(100%,#F4E3EF)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); /* IE10 */
+	background-image:      -o-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); /* Opera 11.10+ */
+	background-image:         linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	);
+}
+#content .mapcontent .left .section.important a.custombg{
+	color:#8C290E;
+	border:1px solid #B67900;
+	font-weight:bold;
+
+	/* IE */
+	background-image: url('gradient/top-FFA400-FFD900-FFD900.jpg');
+	background-size:100% 100%;
+
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFA400), color-stop(70%,#FFD900), color-stop(100%,#FFD900)); 
+	background-image: -webkit-linear-gradient(top,  #FFA400 0%,  #FFD900 70%, #FFD900 100%	); 
+	background-image:    -moz-linear-gradient(top,  #FFA400 0%,  #FFD900 70%, #FFD900 100%	); 
+	background-image:     -ms-linear-gradient(top,  #FFA400 0%,  #FFD900 70%, #FFD900 100%	);
+	background-image:      -o-linear-gradient(top,  #FFA400 0%,  #FFD900 70%, #FFD900 100%	); 
+	background-image:         linear-gradient(top,  #FFA400 0%,  #FFD900 70%, #FFD900 100%	);
+
+}
+#content .mapcontent .left .section.important a.custombg:active{
+	-webkit-box-shadow:0px 0px 5px #FFA400; 
+       -moz-box-shadow:0px 0px 5px #FFA400;
+	        box-shadow:0px 0px 5px #FFA400; 
+}
+
+#content .mapcontent .left .section.mapAttrIcons img{
+	vertical-align:middle;
+}
+#content .mapcontent .left .section .mapAttrIcons{
+	float:right;
+}
+#content .mapcontent .left .section .mapAttrIcons img{
+	height:16px;
+	-webkit-filter: drop-shadow(1px 1px 2px #666);
+	filter: drop-shadow(1px 1px 2px #666);
+}
+
+
+#content .mapcontent .main .section{
+	padding:10px 20px;
+}
+
+#content .mapTitle h1{
+	display:inline;
+	color:#1B75BB;
+}
+#content .mapTitle #btnReturnCentre,
+#content .mapTitle #btnMyPosition{
+	margin:5px;
+	vertical-align:middle;
+}
+#content .mapTitle{
+	padding:5px;
+}
+#content .mapTitle:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/*
+#content .mapcontent .selectmode{
+	padding:10px 20px;
+}*/
+#content .mapcontent .left .selectmode a{
+	min-width:40px;
+	font-size:12px;
+	padding:5px;
+	margin-bottom:5px;
+}
+#content .mapcontent .left .selectmode img{
+	width:40px;
+}
+#content .mapcontent .selectmode a{
+	display:inline-block;
+	text-align:center;
+	border:1px solid #000;
+	background-color:#fff;
+	min-width:70px;
+	color:#000;
+	font-size:14px;
+	text-decoration:none;
+	padding:2px;
+}
+#content .mapcontent .selectmode img{
+	vertical-align:middle;
+}
+#content .mapcontent .selectmode a.disable img{
+	opacity:0.4;
+}
+#content .mapcontent .selectmode a.disable{
+	background-color:#AAA;
+	color:#666;
+}
+#content .mapcontent .selectmode a:not(.disable):active{
+	-moz-box-shadow: 0px 0px 5px 3px #FFF;
+	-webkit-box-shadow: 0px 0px 3px 5px #FFF;
+	box-shadow: 0px 0px 5px 3px #FFF;
+}
+
+/***********************************************/
+#content .mapcontent textarea#description{
+	max-width:90%;
+	width:90%;
+}
+#content .mapcontent select#language{
+	width:100px;
+}
+
+
+
+
+.mapcontent .flipper .flipper-btnOpen{
+	float:right;
+}
+.mapcontent .flipper.horizontal .flipper-btnOpen{
+	margin:8px 10px;
+}
+.mapcontent .flipper.horizontal .flipper-btnOpen:not(:empty){
+	margin:5px;
+}
+.mapcontent .flipper.horizontal.open .flipper-btnOpen{
+	float:left;
+}
+.mapcontent .flipper.horizontal.open .flipper-content{
+	margin-left:40px;
+}
+
+
+.mapcontent .flipper.vertical .flipper-btnOpen{
+	margin:0 5px;
+}
+
+.mapcontent .flipper.open .flipper-btnOpen img:not(.noRotate){
+	-moz-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+.mapcontent .flipper.vertical:not(.open) .flipper-btnOpen img.imgUp,
+.mapcontent .flipper.vertical.open .flipper-btnOpen img.imgDown{
+	display:none;
+}
+.mapcontent .flipper.vertical:not(.open) .flipper-btnOpen img.imgDown,
+.mapcontent .flipper.vertical.open .flipper-btnOpen img.imgUp{
+	display:inline;
+}
+
+
+
+.mapcontent .slider .slider-btnOpen,
+.mapcontent .slider.horizontal .slider-normal .slider-btnOpen,
+.mapcontent .slider.horizontal.open .slider-normal .slider-btnOpen{
+	float:right;
+}
+
+.mapcontent .slider.horizontal.open .slider-btnOpen,
+.mapcontent .slider.horizontal .slider-content .slider-btnClose,
+.mapcontent .slider.horizontal.open .slider-content .slider-btnClose{
+	float:left;
+	margin:2px 5px;
+	margin-left:0;
+}
+
+.mapcontent .slider.horizontal .slider-btnOpen,
+.mapcontent .slider.horizontal .slider-btnClose{
+	margin:2px 5px;
+}
+.mapcontent .slider.horizontal .slider-btnOpen:empty,
+.mapcontent .slider.horizontal .slider-btnClose:empty{
+	margin:8px 10px;
+}
+
+
+.mapcontent .slider.horizontal.open .slider-content{
+	/*margin-left:40px;*/
+}
+
+.mapcontent .slider.vertical .slider-btnOpen,
+.mapcontent .slider.vertical .slider-btnClose{
+	margin:0 5px;
+}
+.mapcontent .slider.open .slider-btnOpen img:not(.noRotate),
+.mapcontent .slider.open .slider-btnClose img:not(.noRotate){
+	-moz-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+.mapcontent .slider.horizontal .slider-btnOpen img:not(.noRotate),
+.mapcontent .slider.horizontal .slider-normal .slider-btnOpen img:not(.noRotate),
+.mapcontent .slider.horizontal.open .slider-normal .slider-btnOpen img:not(.noRotate){
+	-moz-transform:rotate(270deg);
+	-webkit-transform:rotate(270deg);
+	-o-transform:rotate(270deg);
+	-ms-transform:rotate(270deg);
+	-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.mapcontent .slider.horizontal.open .slider-btnOpen img:not(.noRotate),
+.mapcontent .slider.horizontal .slider-content .slider-btnClose img:not(.noRotate),
+.mapcontent .slider.horizontal.open .slider-content .slider-btnClose img:not(.noRotate){
+	-moz-transform:rotate(90deg);
+	-webkit-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+
+
+
+
+/***********************************************/
+#page-pretrip.mapcontent #lat, 
+#page-pretrip.mapcontent #lng, 
+#page-pretrip.mapcontent #zoom,
+#page-plantrip.mapcontent #lat, 
+#page-plantrip.mapcontent #lng, 
+#page-plantrip.mapcontent #zoom {
+	background:none;
+	border:none;
+}
+
+#page-plantrip.mapcontent #btnDeleteMap{
+	padding:4px 10px;
+	
+	-moz-border-radius:      					16px      /*{global-radii-blocks}*/;
+	-webkit-border-radius:      				16px      /*{global-radii-blocks}*/;
+	border-radius:      						16px      /*{global-radii-blocks}*/;	
+	
+	min-width:100px;
+	min-height:23px;
+	font-size:19px;
+	line-height:23px;
+	
+}
+
+#page-aftertrip.mapcontent [subpage=basic] .checkbox,
+#page-plantrip.mapcontent .checkbox{
+	float:right;
+	margin:5px;
+}
+
+
+
+
+
+#page-plantrip.mapcontent select#rule{
+	max-width:95%;
+}
+#page-plantrip.mapcontent .mapUsers,
+#page-plantrip.mapcontent .searchTags {
+	font-size:12px;
+	line-height:16px;
+}
+#page-plantrip.mapcontent .mapUsers .mapUser,
+#page-plantrip.mapcontent .searchTags .searchTag{
+	
+	color:#000;
+	text-decoration:none;
+	display:inline-block;
+	background:#FFF;
+	border:1px solid #3FA9F5;
+	padding:0px 2px 0px 5px;
+	margin-right:10px;
+	border-radius: 0px 10px 10px 0px;
+}
+#page-plantrip.mapcontent .mapUsers .mapUser .btnDelete,
+#page-plantrip.mapcontent .searchTags .searchTag .btnDelete{
+	color:#666;
+  	/*content: "\2718";*/
+	font-size:10px;
+	line-height:14px;
+	text-shadow: 0 2px 2px #FFF;
+	vertical-align:middle;
+	margin-left:4px;
+	cursor:pointer;
+	display:inline-block;
+}
+#page-plantrip.mapcontent [subpage=users] textarea,
+#page-plantrip.mapcontent [subpage=tags] input[type=text],
+#page-plantrip.mapcontent [subpage=tags] select,
+#page-plantrip.mapcontent [subpage=tags] textarea,
+#page-pretrip.mapcontent [subpage=notes] textarea {
+	width:90%;
+	
+}
+#page-plantrip.mapcontent [subpage=advance] .tb-rulesOuter{
+	overflow-x:scroll;
+	/*width:100%;*/
+	margin-left: -30px;
+	-webkit-overflow-scrolling: touch;
+}
+#page-plantrip.mapcontent [subpage=advance] #tb-rules{
+	font-size:12px;
+	margin:0;
+	margin-top:20px;
+	width:100%;
+}
+#page-plantrip.mapcontent [subpage=advance] #tb-rules,
+#page-plantrip.mapcontent [subpage=advance] #tb-rules td,
+#page-plantrip.mapcontent [subpage=advance] #tb-rules th
+{
+	text-align:center;
+	vertical-align:top;
+}
+
+#page-plantrip.mapcontent [subpage=advance] #tb-rules th
+{
+	word-break:hyphenate;
+	padding:2px;
+}
+#page-plantrip.mapcontent [subpage=advance] #tb-rules th{
+	width:15%;
+}
+#page-plantrip.mapcontent [subpage=advance] #tb-rules tr.oddrow td{
+	background-color:#f0f0f0;
+	text-align:left;
+}
+#page-plantrip.mapcontent [subpage=advance] #tb-rules tr.oddrow .td-ruleID{
+	background-color:#FFF;
+	text-align:left;
+	vertical-align:middle;
+	padding-left:2px;
+}
+#page-plantrip.mapcontent [subpage=advance] #tb-rules img{
+	height:12px;
+}
+#page-plantrip.mapcontent [subpage=advance] .plotInstruction{
+	font-size: 12px;
+}
+#page-plantrip.mapcontent [subpage=advance] .plotInstruction ol{
+	margin-top:0;
+	padding-left:1.5em;
+}
+#page-plantrip.mapcontent .main [subpage=advance] a{
+	margin-right: 10px;
+    min-height: 23px;
+    min-width: 50px;
+}
+#page-plantrip.mapcontent .main [subpage=advance] a img{
+	vertical-align:middle;
+	margin-right:5px;
+}
+
+#page-plantrip.mapcontent .main [subpage=cp] {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#page-plantrip.mapcontent .main [subpage=cp] .closestCP-ccterms{
+	font-size:12px;
+	float:right;
+}
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList{
+	border: 1px solid #999999;
+	background:#FFF;
+	min-height:175px;
+	padding:10px;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem{
+	border-bottom:1px solid #3FA9F5;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-left {
+	float:left;
+	width:25px;
+}
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-right,
+#page-plantrip.mapcontent .left [subpage=cp] .checkpoint .cp-right,
+#page-plantrip.mapcontent .left [subpage=cp] .checkpoint-new .cp-right,
+#page-plantrip.mapcontent .left [subpage=cp] .checkpoint-edit .cp-right,
+#page-pretrip.mapcontent .left [subpage=cp] .checkpoint .cp-right {
+	float:right;
+	width:25px;
+}
+#page-plantrip.mapcontent .left [subpage=cpreorder] .checkpoint .cp-right{
+	float:right;
+    margin: 0 5px;
+}
+#page-plantrip.mapcontent .left [subpage=cpreorder] .checkpoint .cp-right a,
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-left a,
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-right a {
+	display:inline-block;
+}
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-left a img,
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-right a img {
+	vertical-align:middle;
+	-webkit-filter: drop-shadow(1px 1px 2px #ccc);
+	filter: drop-shadow(1px 1px 2px #ccc);
+}
+
+#page-plantrip.mapcontent .main [subpage=cp] #closestCPList .closestCPItem-content {
+	margin-left:25px;
+	margin-right:25px;
+	padding:2px 5px;
+}
+
+/***********************************************/
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint,
+#content .mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint {
+	/* IE */
+	background-image: url('gradient/top-D0D2D3-FFFFFF.jpg');
+ 	background-size: 100% 42px;
+	background-repeat:no-repeat;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #D0D2D3  ),to(  #FFFFFF  )); 
+	background-image:-webkit-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:   -moz-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:    -ms-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:     -o-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:        linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+
+}
+#content .mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint .cpNumber,
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint .cpNumber {
+	float:left;
+}
+#content .mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint .cpName,
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint .cpName {
+	color:#58595B;
+	font-weight:bold;
+	font-size:18px;
+	margin-left:22px;
+	display:block;
+}
+#content .mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint,
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint {
+	/* IE */
+	background-image: url('gradient/cpline.jpg'), url('gradient/top-D0D2D3-FFFFFF.jpg');
+ 	background-size: 3px 100%, 100% 30px;
+	background-repeat: no-repeat;
+	background-position:18px top, left top;
+	
+	background-image:url('gradient/cpline.jpg'), -webkit-gradient(linear,left top,left bottom,from(  #D0D2D3  ),to(  FFFFFF  )); 
+	background-image:url('gradient/cpline.jpg'), -webkit-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:url('gradient/cpline.jpg'),    -moz-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:url('gradient/cpline.jpg'),     -ms-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:url('gradient/cpline.jpg'),      -o-linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+	background-image:url('gradient/cpline.jpg'),         linear-gradient(top, #D0D2D3 , #FFFFFF  ); 
+}
+#content .mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint:first-child ,
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint:first-child {
+	background-position:18px 15px, left top;
+}
+#content .mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint:last-child,
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint:last-child {
+	background-size: 3px 15px, 100% 30px;
+}
+
+
+#content .mapcontent .left [subpage=cp] .checkpoints .section.checkpoint .flipper-content{
+	background:#FFF;
+	margin-left:27px;
+}
+
+#content .mapcontent .left [subpage=cp] .checkpoint-detail .section.checkpoint-main{
+	padding-top:0px;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint-detail .section.checkpoint-main h2{
+	margin-top:0;
+}
+
+.mapcontent .left [subpage=cpreorder] .checkpoints .section.checkpoint .cpNumber,
+.mapcontent .left [subpage=cp] .checkpoints .section.checkpoint .cpNumber,
+.mapcontent .left [subpage=cp] .checkpoint-new .cpNumber,
+.mapcontent .left [subpage=cp] .checkpoint-main  .cpNumber,
+.mapcontent .left [subpage=cp] .checkpoint-edit  .cpNumber{
+	background:#FFF;
+	color:#000;
+	padding:0;
+	-moz-border-radius:      					20px;
+	-webkit-border-radius:      				20px;
+	border-radius:      						20px;
+	border:3px solid #BE1E2D;
+	text-align:center;
+	display:inline-block;
+	width:22px;
+	height:22px;
+	line-height:22px;
+	margin-right:5px;
+	font-size:18px;
+	text-align:center;
+	
+	/*-webkit-box-shadow:0px 0px 0px 3px #EBEBEC; 
+   -moz-box-shadow:0px 0px 0px 3px #EBEBEC;
+		box-shadow:0px 0px 0px 3px #EBEBEC; */
+}
+#content .mapcontent .left [subpage=cp] .section.submit{
+	background:#EBEBEB;
+}
+#content .mapcontent .left [subpage=cp] .btnTaskSave img,
+#content .mapcontent .left [subpage=cp] .btnSave img{
+	height:20px;
+}
+
+/***********************************************/
+
+#page-pretrip.mapcontent .main [subpage=basic] .leftBox {
+	float:left;
+	width:130px;
+}
+#page-pretrip.mapcontent .main [subpage=basic] .rightBox {
+	margin-left:140px;
+}
+#page-pretrip.mapcontent .main [subpage=basic] .compass {
+	width:102px;
+	height:102px;
+	background:url(../img/compass-base.png);
+	margin:10px;
+}
+#page-pretrip.mapcontent .main [subpage=basic] .compass .compass-direction {
+	width:102px;
+	height:102px;
+	background:url(../img/compass-direction);
+	transform-origin: center center;
+	-moz-transform-origin: center center;
+	-webkit-transform-origin: center center;
+	-o-transform-origin: center center;
+	-ms-transform-origin: center center;
+	margin:auto;
+}
+#page-pretrip.mapcontent .main [subpage=basic] .compass .compass-pointer {
+	width:102px;
+	height:102px;
+	background:url(../img/compass-pointer.png);
+	margin:auto;
+}
+#page-pretrip.mapcontent .main [subpage=basic] .compass.disable {
+	opacity: 0.4;
+	background-color:#CCC;
+}
+
+
+.mapcontent .timer .timer-display  {
+	width:173px;
+	height:50px;
+	margin:10px 20px;
+	padding:5px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+
+
+#page-pretrip.mapcontent .left [subpage=notes] textarea {
+	width:90%;
+	height:10em;
+	
+}
+#page-pretrip.mapcontent .left [subpage=notes] img,
+#page-pretrip.mapcontent .main [subpage=notes] img  {
+	vertical-align:middle;
+	
+}
+
+#page-pretrip.mapcontent .main [subpage=notes] #pretripNoteList{
+	/*border: 1px solid #999999;
+	background:#FFF;*/
+	min-height:175px;
+	padding:10px;
+}
+#page-pretrip.mapcontent .main [subpage=notes] #pretripNoteList .pretripNoteHeader,
+#page-pretrip.mapcontent .main [subpage=notes] #pretripNoteList .pretripNoteItem{
+	padding:2px 0px;
+	border-bottom:1px solid #B3B3B3;
+}
+
+#page-pretrip.mapcontent .main [subpage=notes] #pretripNoteList .pretripNoteItem>div{
+	vertical-align:top;
+}
+
+#page-pretrip.mapcontent .main [subpage=notes] #pretripNoteList .pretripNoteItem:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/***********************************************/
+#page-thetrip.mapcontent .left .selectImage {
+	min-width:200px;
+	min-height:50px;
+	font-size:20px;
+	font-weight:bold;
+}
+#page-thetrip.mapcontent .left .selectImage-preview img {
+	max-width:90%;
+}
+#page-thetrip.mapcontent .left .selectImage-preview:empty + .selectImage-rotation{
+	display:none;
+}
+#page-thetrip.mapcontent .left .selectImage-rotation a{
+	display:inline-block;
+}
+#page-thetrip.mapcontent .left .selectImage-rotation img{
+	min-height:30px;
+}
+/***********************************************/
+#content .mapcontent .main .section.notes{
+	margin:5px;
+	margin-top:20px;
+	padding-top:0;
+	border:1px solid #A6A8AB;
+	-moz-border-radius:      					4px;
+	-webkit-border-radius:      				4px;
+	border-radius:      						4px;
+	
+	/* IE */
+	background-image: url('gradient/top-FFFFFF-EBEBEB.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #FFFFFF  ),to(  #EBEBEB  )); 
+	background-image:-webkit-linear-gradient(top, #FFFFFF , #EBEBEB  ); 
+	background-image:   -moz-linear-gradient(top, #FFFFFF , #EBEBEB  ); 
+	background-image:    -ms-linear-gradient(top, #FFFFFF , #EBEBEB  ); 
+	background-image:     -o-linear-gradient(top, #FFFFFF , #EBEBEB  ); 
+	background-image:        linear-gradient(top, #FFFFFF , #EBEBEB  ); 
+}
+#content .mapcontent .main .section.notes h2{
+	display:inline-block;
+	color:#FFF;
+	min-width:150px;
+	text-align:center;
+	margin:0;
+	margin-top:-10px;
+	margin-bottom:10px;
+	padding-left:5px;
+	padding-right:5px;
+	/* IE */
+	background-image: url('gradient/top-FFC598-BF8A2C.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #FFC598  ),to(  #BF8A2C  )); 
+	background-image:-webkit-linear-gradient(top, #FFC598 , #BF8A2C  ); 
+	background-image:   -moz-linear-gradient(top, #FFC598 , #BF8A2C  ); 
+	background-image:    -ms-linear-gradient(top, #FFC598 , #BF8A2C  ); 
+	background-image:     -o-linear-gradient(top, #FFC598 , #BF8A2C  ); 
+	background-image:        linear-gradient(top, #FFC598 , #BF8A2C  ); 
+}
+.mapcontent .main .section.notes .btnNoteList,
+.mapcontent .main .section.notes .btnNoteClear {
+	color:#808184;
+	text-decoration:none;
+	padding:2px 5px;
+	margin:2px;
+	vertical-align:middle;
+}
+.mapcontent .main .section.notes .btnNoteList:active,
+.mapcontent .main .section.notes .btnNoteClear:active {
+	-webkit-box-shadow:0px 0px 5px #ccc; 
+   -moz-box-shadow:0px 0px 5px #ccc;
+		box-shadow:0px 0px 5px #ccc; 
+}
+.mapcontent .main .section.notes img  {
+	vertical-align:middle;
+	-webkit-filter: drop-shadow(1px 1px 2px #666);
+	filter: drop-shadow(1px 1px 2px #666);
+}
+.mapcontent .main .section.notes .btnNoteClear img{
+	margin-right:5px;
+}
+#page-aftertrip.mapcontent .main .section.notes .btnNoteList img,
+#page-aftertrip.mapcontent .main .section.notes .btnShow img  {
+	-webkit-filter: drop-shadow(1px 1px 2px #ccc);
+	filter: drop-shadow(1px 1px 2px #ccc);
+}
+#page-thetrip.mapcontent .main .section.notes #thetripNoteList{
+	border: 1px solid #999999;
+	background:#FFF;
+	min-height:175px;
+	padding:10px;
+	margin-top:5px;
+	max-height:175px;
+	overflow:auto
+}
+#page.android-default #page-thetrip.mapcontent .main .section.notes #thetripNoteList {
+	/*-webkit-overflow-scrolling: touch;*/
+	overflow:inherit;
+	max-height:none;
+}
+
+#page-thetrip.mapcontent .main .section.notes #thetripNoteList .thetripNoteHeader,
+#page-thetrip.mapcontent .main .section.notes #thetripNoteList .thetripNoteItem{
+	padding:2px 0px;
+	border-bottom:1px solid #B3B3B3;
+}
+
+#page-thetrip.mapcontent .main .section.notes #thetripNoteList .thetripNoteItem>div{
+	vertical-align:top;
+}
+
+#page-thetrip.mapcontent .main .section.notes #thetripNoteList .thetripNoteItem:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/***********************************************/
+
+#content .mapcontent .left [subpage=cp] .section.checkpoint.lock{
+	/* same as pink */
+	/* IE */
+	/*
+	background-image: url('gradient/top-E5B7D4-E8C1DB-F4E3EF.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E5B7D4), color-stop(50%,#E8C1DB), color-stop(100%,#F4E3EF));
+	background-image: -webkit-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); 
+	background-image:    -moz-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); 
+	background-image:     -ms-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	);
+	background-image:      -o-linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	); 
+	background-image:         linear-gradient(top,  #E5B7D4 0%,  #E8C1DB 50%, #F4E3EF 100%	);*/
+}
+#content .mapcontent .left [subpage=cp] .section.checkpoint.lock .cpNumber {
+	background-color:#CCC;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint.lock .btnPwd,
+#content .mapcontent .left [subpage=cp] .checkpoint.lockTasks .btnPwd,
+#content .mapcontent .left [subpage=cp] .checkpoint.lock .btnlock,
+#content .mapcontent .left [subpage=cp] .checkpoint.lockTasks .btnlockTasks{
+	display:block;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint.lock .flipper-btnOpen {
+	display:none;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint .btnPwd,
+#content .mapcontent .left [subpage=cp] .checkpoint .btnlock,
+#content .mapcontent .left [subpage=cp] .checkpoint .btnlockTasks{
+	margin-right:5px;
+	float:right;
+	display:none;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint.lockTasks .btnCPDetail, 
+#content .mapcontent .left [subpage=cp] .checkpoint.lockTasks .task-simple {
+	display:none;
+}
+
+#content .mapcontent .left [subpage=cp] .section.checkpoint.completed,
+#content .mapcontent .left [subpage=cp] .section.checkpoint-main.completed{
+	/* IE */
+	/*
+	background-image: url('gradient/top-B7DCBC-D3E9D5-EDF6EE.jpg');
+ 	background-size: 100% 100%;
+		
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#B7DCBC), color-stop(45%,#D3E9D5), color-stop(100%,#EDF6EE)); 
+	background-image: -webkit-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); 
+	background-image:    -moz-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	);
+	background-image:     -ms-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	);
+	background-image:      -o-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	);
+	background-image:         linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	);*/
+}
+#content .mapcontent .left [subpage=cp] .section.checkpoint-main.completed .cpNumber,
+#content .mapcontent .left [subpage=cp] .section.checkpoint.completed .cpNumber {
+	/* IE */
+	background-image: url('gradient/top-ACE551-799E3F.jpg');
+ 	background-size: 100% 100%;
+	
+	background-image:-webkit-gradient(linear,left top,left bottom,from(  #ACE551  ),to(  #799E3F  )); 
+	background-image:-webkit-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:   -moz-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:    -ms-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:     -o-linear-gradient(top, #ACE551 , #799E3F  ); 
+	background-image:        linear-gradient(top, #ACE551 , #799E3F  ); 
+}
+#content .mapcontent .left [subpage=cp] .checkpoint .btnCompleted,
+#content .mapcontent .left [subpage=cp] .checkpoint-main .btnCompleted{
+	float:right;
+	display:none;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint.completed .btnCompleted,
+#content .mapcontent .left [subpage=cp] .checkpoint-main.completed .btnCompleted{
+	display:block;
+}
+#content .mapcontent .left [subpage=cp] .checkpoint .btnNear{
+	float:right;
+	display:none;
+}
+#content .mapcontent .left [subpage=cp] .task-main .completedText{
+	background-color:#fff;
+	font-size:12px;
+}
+
+
+/***********************************************/
+
+#page-aftertrip.mapcontent .main .section.notes img  {
+	vertical-align:middle;
+	
+}
+
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList{
+	/*border: 1px solid #999999;
+	background:#FFF;*/
+	min-height:175px;
+	padding:10px;
+}
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteHeader,
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem{
+	padding:2px 0px;
+	border-bottom:1px solid #B3B3B3;
+}
+
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem.selected{
+	/* IE */
+	background-image: url('gradient/top-B7DCBC-D3E9D5-EDF6EE.jpg');
+ 	background-size: 100% 100%;
+		
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#B7DCBC), color-stop(45%,#D3E9D5), color-stop(100%,#EDF6EE)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* IE10 */
+	background-image:      -o-linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	); /* Opera 11.10+ */
+	background-image:         linear-gradient(top,  #B7DCBC 0%,  #D3E9D5 45%, #EDF6EE 100%	);
+}
+
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem>div{
+	vertical-align:top;
+}
+
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem:after{
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem a{
+	display:inline-block;
+}
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem .fldname{
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem .btnShow,
+#page-aftertrip.mapcontent .main .section.notes .aftertripNoteList .aftertripNoteItem .btnDelete{
+	margin-left:5px;
+	margin-right:5px;
+}
+#page-aftertrip.mapcontent .left .section #email,
+#page-aftertrip.mapcontent .left .section #emailthis{
+	width:90%;
+}
+
+
+/***********************************************/
+.mapcontent .left [subpage=cp] h3{
+	margin:0;
+}
+
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnCPEdit,
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnCPDelete{
+	margin:2px 5px;
+	cursor:pointer;
+	display:inline-block;
+	-webkit-filter: drop-shadow(1px 1px 1px #666);
+	filter: drop-shadow(1px 1px 1px #666);
+	
+}
+
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnTaskAdd{
+	/*float:right;*/
+}
+
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnTaskEdit,
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnTaskDelete{
+	margin:2px 5px;
+	cursor:pointer;
+	display:inline-block;
+	-webkit-filter: drop-shadow(1px 1px 2px #666);
+	filter: drop-shadow(1px 1px 2px #666);
+}
+.mapcontent .left [subpage=cp] .checkpoint-detail .task-new input[type=text],
+.mapcontent .left [subpage=cp] .checkpoint-detail .task-new textarea,
+.mapcontent .left [subpage=cp] .checkpoint-detail .tasks textarea,
+.mapcontent .left [subpage=cp] .checkpoint-detail .tasks select,
+.mapcontent .left [subpage=cp] .checkpoint-detail .tasks input[type=url],
+.mapcontent .left [subpage=cp] .checkpoint-detail .tasks input[type=text]{
+	max-width:90%;
+	width:80%;
+}
+.mapcontent .left [subpage=cp] .checkpoint-detail .task-new .checkbox,
+.mapcontent .left [subpage=cp] .checkpoint-detail .tasks .checkbox {
+    float: left;
+    margin-top:0;
+	margin-left:0;
+}
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnOptionRemove{
+	display:inline-block;
+	cursor:pointer;
+}
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnOptionRemove:after {
+	color:#F00;
+  	content: "\2718";
+	text-shadow: 0 2px 2px #FFF;
+}
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnClose,
+.mapcontent .left [subpage=cp] .checkpoint-detail .btnTaskClose{
+	-webkit-filter: drop-shadow(1px 1px 2px #fff);
+	filter: drop-shadow(1px 1px 2px #fff);
+	display:inline-block;
+	
+}
+/*******************************************************************/
+
+#content .mapcontent.map .main .section.notes {
+	display:none;
+}
+/*******************************************************************/
+@media screen and (min-width:720px){ 
+	/* 1-page only available to 720px+ */
+	#page.sided-1p #content .mapcontent .resolution-small{
+		display:block;
+	}
+	#page.sided-1p #content .mapcontent .left {
+		width: 100%;
+		border:0;
+	}
+	#page.sided-1p #content .mapcontent .main {
+		display:none;
+	}
+	#page.sided-1p #content .mapcontent.map .main,
+	#page.sided-1p #content .mapcontent.data .main {
+		display:block;
+	}
+	#page.sided-1p #content .mapcontent.data .main #mapCanvas, 
+	#page.sided-1p #content .mapcontent.data .main #mapCanvasButtons{
+		display:none;
+	}
+	#page.sided-1p #page-thetrip.mapcontent.data .main .section.notes #thetripNoteList {
+		/*-webkit-overflow-scrolling: touch;*/
+		overflow:inherit;
+		max-height:none;
+	}
+}
+
+@media screen and (min-width:850px) { 
+	#content .mapcontent .left {
+		right: 50%;
+	}
+	#content .mapcontent .main {
+		width: 50%;
+	}
+	#content .mapcontent.map .main #mapCanvas{
+		max-height:80%;
+	}
+	#page-plantrip.mapcontent [subpage=basic] #btnChangeCentre,
+	#page-pretrip.mapcontent [subpage=basic] #btnChangeCentre {
+		font-size:16px;
+	}
+}
+@media screen and (min-width:720px) and (max-width:849px) { 
+	#page-plantrip.mapcontent [subpage=advance] #tb-rules th{
+		font-size:10px;
+	}
+
+	#content .mapcontent.map .main #mapCanvas{
+		max-height:80%;
+	}
+	#page-plantrip.mapcontent [subpage=basic] #btnChangeCentre,
+	#page-pretrip.mapcontent [subpage=basic] #btnChangeCentre {
+		font-size:16px;
+	}
+}
+@media screen and (min-width:525px) and (max-width:719px) { 
+	#content .mapcontent{
+		top:90px;
+	}
+	#content .mapcontent .resolution-small{
+		display:block;
+	}
+	#content .mapcontent .left {
+		width: 100%;
+		border:0;
+	}
+	#content .mapcontent .main {
+		display:none;
+	}
+	#content .mapcontent.map .main,
+	#content .mapcontent.data .main {
+		display:block;
+	}
+	#content .mapcontent.map .main #mapCanvas{
+		/*width:100%;*/
+		max-height:80%;
+		min-height:360px;
+	}
+
+	#content .mapcontent.data .main #mapCanvas, #content .mapcontent.data .main #mapCanvasButtons{
+		display:none;
+	}
+	#page-thetrip.mapcontent.data .main .section.notes #thetripNoteList {
+		/*-webkit-overflow-scrolling: touch;*/
+		overflow:inherit;
+		max-height:none;
+	}
+
+	
+}
+@media screen and (max-width:524px) { 
+	#page-plantrip.mapcontent [subpage=advance] #tb-rules{
+		font-size:10px;
+	}
+	#page-plantrip.mapcontent [subpage=advance] #tb-rules th{
+		font-size:8px;
+	}
+	#page-plantrip.mapcontent [subpage=advance] #tb-rules td,
+	#page-plantrip.mapcontent [subpage=advance] #tb-rules th
+	{
+		padding:0px;
+	}
+	#page-plantrip.mapcontent .main [subpage=cp] .closestCP-ccterms{
+		float:none;
+		text-align:right;
+	}
+	#content .mapcontent.map .main #mapCanvas,
+	#content #mapCanvas{
+		/*width:100%;*/
+		min-width:0;
+		min-height:0;
+		max-height:80%;
+	}
+	
+	#content .mapcontent .resolution-small{
+		display:block;
+	}
+	
+	#content .mapcontent{
+		top:90px;
+	}
+	#content .mapcontent .left {
+		width: 100%;
+		border:0;
+	}
+	#content .mapcontent .main {
+		display:none;
+	}
+	#content .mapcontent.map .main,
+	#content .mapcontent.data .main {
+		display:block;
+	}
+	
+	#content .mapcontent.data .main #mapCanvas, #content .mapcontent.data .main #mapCanvasButtons{
+		display:none;
+	}
+	
+	#content .mapTitle #btnReturnCentre, #content .mapTitle #btnMyPosition{
+		margin:2px;
+	}
+	
+	#content .mapcontent .btnQuitTrip, #content .mapcontent .btnStartTrip, 
+	#content .mapcontent .btnEndTrip , #content .mapcontent .btnPauseTrip, 
+	#content .mapcontent .btnResetTrip, #content .mapcontent .btnResumeTrip  {
+		padding-left:15px;
+		padding-right:15px;
+		font-size:20px;
+	}
+	#content .mapcontent #mapCanvasButtons a{
+		padding-top:0;
+		padding-bottom:0;
+		line-height:20px;
+		min-height:20px;
+	}
+
+}
+
+@media screen and (min-width:720px) and (min-height:800px) { 
+
+	#content .mapcontent #mapCanvas{
+		min-height:60%;
+	}
+	#content .mapcontent.map #mapCanvas{
+		min-height:75%;
+	}
+}
+
+@media screen and (max-height:600px) { 
+
+	#content .map #mapCanvas{
+		min-height:0;
+		height:400px;
+	}
+}
+@media screen and (max-height:500px) { 
+
+	#content .map #mapCanvas{
+		min-height:0;
+		height:300px;
+	}
+}
+@media screen and (max-height:400px) { 
+
+	#content .map #mapCanvas{
+		min-height:0;
+		height:200px;
+	}
+}

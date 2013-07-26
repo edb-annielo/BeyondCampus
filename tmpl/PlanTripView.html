@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+        <div subpage="basic" class="subpage"> 
+          <% if (mapObj.isWarning){ %>
+          <div class="section important">
+          	<h2><%- dict('Warning') %></h2>
+            <div class="line"><img src="img/maplist-attr-warning.png" title="<%- dict('Warning') %>" />
+              <%=  Convert.BBCodetoHtml(mapObj.warningText) %>
+            </div>
+          </div>
+          <% } %>
+          <div class="section basicinfo">
+            <h2><%- dict('Basic') %></h2>
+            <div class="line"><span class="requiredFld lblField"><%- dict('Map Name') %><%- dict(':') %></span>
+              <input id="name" name="name" value="<%- mapObj.name %>" type="text" required  />
+            </div>
+            <div class="line"><span class="lblField"><%- dict('Description') %><%- dict(':') %></span><br />
+              <textarea id="description" name="description" row="5" cols="40" class="webedit"><%- mapObj.description %></textarea>
+            </div>
+          </div>
+          <div class="section basicinfo">
+            <div class="line"><span class="requiredFld lblField"><%- dict('Language') %><%- dict(':') %></span> 
+              <select id="language" name="language" value="<%= mapObj.language %>">
+              <% $.each(OPTIONS.lang, function(key){ %>
+              <option value="<%=key%>" <%= mapObj.language==key?' selected':'' %>><%=OPTIONS.lang[key]%></option>
+              <% }); %>
+              </select>
+            </div>
+            <div class="line"><span class="requiredFld lblField"><%- dict('Creator') %><%- dict(':') %></span> 
+            	<input id="creatorName" name="creatorName" value="<%- mapObj.creatorName %>" type="text" required maxlength="100" />
+          	</div>
+          </div>
+          <div class="section basicinfo">
+          	<a href="javascript:void(0)" class="greybg-lt"  id="btnChangeCentre" style="float:right"><%- dict('Change Centre') %></a>
+            <h2 class="clearfix"><%- dict('Map Centre') %></h2>
+            <div class="line">
+              <span class="lblField"><%- dict('Lat') %><%- dict(':') %></span> <input id="lat" name="lat" value="<%- mapObj.mapCentre_lat %>" readonly/>
+            </div>
+            <div class="line">
+              <span class="lblField"><%- dict('Lng') %><%- dict(':') %></span> <input id="lng" name="lng" value="<%- mapObj.mapCentre_lng %>" readonly />
+              <div class="note"><%- dict("Latitude and longitude of the map's centre") %></div>
+            </div>
+            <div class="line">
+              <span class="lblField"><%- dict('Zoom') %><%- dict(':') %></span> <input id="zoom" name="zoom" value="<%- mapObj.mapCentre_zoom %>" readonly/>
+              <div class="note"><%- dict('Zoom level of the map') %></div>
+            </div>
+          </div>
+          <div class="section qr">
+            <h2><%- dict('Map Key') %> <img src="img/btnmapkey.png" alt="<%- dict('Map Key') %>" /></h2>
+            <div class="line"><div class="mapKey"><%= mapObj.mapKey %></div></div>
+            <div class="note"><%- dict('you may use map key to search this map') %></div>
+            <div class="line"> <img src="http://chart.apis.google.com/chart?cht=qr&chs=200x200&chld=2&chl=<%= mapObj.mapKey %>" style="width:200px;height:200px" class="imgQR" /> </div>
+          </div>
+          <div class="selectmode section">
+            <h2><%- dict('Switch Mode') %></h2>
+            <div class="line lblField"><%- dict('Please select mode') %><%- dict(':') %></div>
+            <div class="line">
+            <a href="#mode/plan/<%= mapObj.mapKey %>" class="selectmode-plan"><img src="img/maplist-mode-plan.png"><br /><%- dict('Plan the Trip') %></a> 
+            <a href="#mode/pre/<%= mapObj.mapKey %>" class="selectmode-pre"><img src="img/maplist-mode-pre.png"><br /><%- dict('Pre-Trip') %></a> 
+            <a href="#mode/trip/<%= mapObj.mapKey %>" class="selectmode-trip"><img src="img/maplist-mode-trip.png"><br /><%- dict('The Trip') %></a>
+            <a href="#mode/after/<%= mapObj.mapKey %>" class="selectmode-after"><img src="img/maplist-mode-after.png"><br /><%- dict('After Trip') %></a></div>
+          </div>
+        </div>
+        <div subpage="advance" class="subpage"> 
+          <div class="section basicinfo">
+            <h2><%- dict('Advance Settings') %></h2>
+          </div>
+          <div class="section subsections important">
+            <h2><%- dict('Trip') %></h2>
+            <div class="subsection">
+            	<div class="checkbox"><input type="checkbox" id="isEnable" name="isEnable" <%= mapObj.isEnable?' checked':'' %> /><div class="checkbox-tick"></div></div>
+                <div  class="requiredFld lblField"><%- dict('Enable Map') %></div>
+                <div class="note"><%- dict(OPTIONS.isEnable[mapObj.isEnable]) %></div>
+            </div>
+            <div class="subsection">
+            	<div class="checkbox"><input type="checkbox" id="isPublic" name="isPublic" <%= mapObj.isPublic?' checked':'' %> <%= (mapObj['trialMap']==true)?' disabled':'' %>  /><div class="checkbox-tick"></div></div>
+                <div class="requiredFld lblField"><%- dict('Public Map') %></div>
+                <div class="note"><%- dict(OPTIONS.isPublic[mapObj.isPublic]) %></div>
+                <div class="line note psnote publicCC" <%= !mapObj.isPublic?'style="display:none"':'' %>>
+                <em><strong><%- dict("Cautious") %><%- dict(": ") %><%- dict("@plan-advance-public-notice-line1") %></strong><br />
+                <%- dict("@plan-advance-public-notice-line2") %><br />
+                <%- dict("@plan-advance-public-notice-line3") %></em></div>
+            </div>
+            <div class="subsection flipper horizontal privateKey" <%= mapObj.isPublic?'style="display:none"':'' %>>
+            	<div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                <div class="flipper-content">
+                    <div class="lblField"><%- dict('Password for Private Map') %></div>
+                    <div class="line">
+                      <input type="text" id="privateKey" name="privateKey" value="<%-mapObj.privateKey%>" maxlength="20"/>
+              		</div>
+                    <div class="line note psnote"><em>(<%- dict('If this map is not public and the password is not empty, users have to enter this password before starting the trip.') %>)</em></div>
+                </div>
+                <div class="flipper-normal tap-box">
+                    <div class="lblField"><%- dict('Password for Private Map') %></div>
+                    <div class="note privateKeyNote"><% if((mapObj.privateKey == null) || (mapObj.privateKey == "")){ %><%- dict('(No passwords)') %><%} else {%><%- dict('The password is') %> "<strong style="background-color:#f0f0f0"><%-mapObj.privateKey%></strong>"<%- dict('.') %><% } %></div>
+                    <div class="line note psnote"><em>(<%- dict('If this map is not public and the password is not empty, users have to enter this password before starting the trip.') %>)</em></div>
+                </div>
+            </div>
+            <div class="subsection">
+            	<div class="checkbox"><input type="checkbox" id="submission" name="submission" <%= mapObj.submission?' checked':'' %> /><div class="checkbox-tick"></div></div>
+                <div class="requiredFld lblField"><%- dict('Receive Submissions') %></div>
+                <div class="note"><%- dict(OPTIONS.submission[mapObj.submission])%></div>
+            </div>
+            <div class="subsection flipper horizontal">
+            	<% if(mapAttr.isCreator){ %>
+                <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                <div class="flipper-content">
+                    <div class="requiredFld lblField"><%- dict('Duplicable Trip') %></div>
+                    <div class="line">
+                      <select id="isDuplicable" name="isDuplicable">
+                        <% $.each(OPTIONS.isDuplicable, function(key){ %>
+                        <option value="<%=key%>"  <%= mapObj.isDuplicable==key?' selected':'' %>><%- OPTIONS.duplicableID[key] %>. <%- dict(OPTIONS.isDuplicable[key]) %></option>
+                        <% }); %>
+                      </select>
+                    </div>
+                </div>
+                <% } %>
+                <div class="flipper-normal tap-box">
+                    <div class="requiredFld lblField"><%- dict('Duplicable Trip') %></div>
+                    <div class="note"><%- dict(OPTIONS.isDuplicable[mapObj.isDuplicable]) %></div>
+                    <% if(mapAttr.isCreator){ } 
+                    else { %>
+                      <div class="line note psnote">
+                        <img src="img/maplist-attr-creator.png" alt="<%- dict('Creator') %>" /> <%- dict("This is a creator-only function.") %>
+                      </div>
+                    <% } %>
+                </div>
+                <div class="line note psnote">
+                <em><strong><%- dict("The authorized persons can") %>...</strong><br />
+                - <%- dict("duplicate the trip's checkpoints & tasks to their trips in Beyond Campus,") %><br />
+                - <%- dict('duplicate the trip as their trips in Beyond Campus.') %></em>
+                </div>
+                <div class="line note psnote">
+                <em><strong><%- dict("Cautious") %><%- dict(": ") %><%- dict("This copyable setting is independent to Enable Trip and Public Trip.") %></strong><br />
+                <%- dict("A trip can be copyable by the public, even if it is a private trip and disabled. It can also be public trip and non-copyable.") %></em>
+                </div>
+            </div>
+          </div>
+          <div class="section subsections important">
+            <h2><%- dict('Checkpoints & Tasks') %> </h2>
+               <div class="subsection flipper horizontal">
+                  <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                  <div class="flipper-content">
+                      <div class="requiredFld lblField"><%- dict('Checkpoint Range') %></div>
+                      <div class="line">
+                        <select id="cpRange" name="cpRange">
+                          <% $.each(OPTIONS.cpRange, function(key){ %>
+                          <option value="<%=key%>"  <%= mapObj.cpRange==key?' selected':'' %>><%- dict(OPTIONS.cpRange[key]) %></option>
+                          <% }); %>
+                        </select>
+                      </div>
+                      <div class="line note psnote"><em>(<%- dict("If the user device's location service is less accurate than the above checkpoint range, the device's accuracy will be used instead.") %>)</em></div>
+                  </div>
+                  <div class="flipper-normal tap-box">
+                      <div class="requiredFld lblField"><%- dict('Checkpoint Range') %></div>
+                      <div class="note"><%- dict(OPTIONS.cpRange[mapObj.cpRange]) %></div>
+                      <div class="line note psnote"><em>(<%- dict("If the user device's location service is less accurate than the above checkpoint range, the device's accuracy will be used instead.") %>)</em></div>
+                  </div>
+              </div>
+              <div class="subsection flipper horizontal">
+                <div class="flipper-btnOpen"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                <div class="flipper-content">
+                    <div class="requiredFld lblField"><%- dict('Rules') %></div>
+                    <div class="line">
+                      <select id="rule" name="rule">
+                        <% $.each(OPTIONS.ruleOrderArray, function(index, key){ 
+                        	if(OPTIONS.ruleOrder[key].available){ %>
+                        <option value="<%=key%>" <%= mapObj.rule==key?' selected':'' %>><%- OPTIONS.ruleID[key] %><%- dict(": ") %><%- dict(OPTIONS.rule[key]) %></option>
+                        <% }
+                        }); %>
+                      </select>
+              		</div>
+                    <div class="line note psnote"><em><%- dict("if you change the rule, it is recommended any current participant to restart this trip.") %></em></div>
+                    <div class="line tb-rulesOuter">
+                    <table cellpadding="0" cellspacing="0" border="1" id="tb-rules">
+                    	<tr><th></th><th><%- dict('Checkpoints') %></th><th><%- dict('Tasks') %></th>
+                        <th><%- dict('Required in C.P. Order?') %></th><th><%- dict('Required GPS?') %><br /><a class="btnGPS-Note" href="javascript:void(0)" >(*)</a></th>
+                        <th><%- dict('Required Password?') %></th></tr>
+                    <% 
+                      $.each(OPTIONS.ruleOrderArray, function(index, key){ 
+                        if(OPTIONS.ruleOrder[key].available){ 
+                        var iconImg = '<img src="img/thetrip-lock-black.png" />';
+                        %>
+                        <tr class="oddrow"><td rowspan="2" class="td-ruleID"><%- OPTIONS.ruleID[key] %></td><td colspan="5"><%- dict(OPTIONS.rule[key]) %></td></tr>
+                        <tr><!--<td></td>--><td><%= OPTIONS.ruleOrder[key].cpLock?iconImg: "&#x2714;" %></td><td><%= OPTIONS.ruleOrder[key].taskLock?iconImg:"&#x2714;" %></td>
+                        <td><%= OPTIONS.ruleOrder[key].inOrder?"&#x2714;":"&#x2718;" %></td><td><%= OPTIONS.ruleOrder[key].needGPS?"&#x2714;":"&#x2718;" %></td><td><%= OPTIONS.ruleOrder[key].needPass?"&#x2714;":"&#x2718;" %></td></tr>
+                    <% }
+                    }); %>
+                    </table>
+                    </div>
+                </div>
+                <div class="flipper-normal tap-box">
+                    <div class="requiredFld lblField"><%- dict('Rules') %></div>
+                    <div class="note"><%- dict(OPTIONS.rule[mapObj.rule]) %></div>
+                </div>
+             </div>
+          </div>
+          <div class="section subsections mapviews important">
+            <h2><%- dict('Map') %></h2>
+            <div class="subsection">
+            	<div class="line">
+                	<span class="lblField"><%- dict('Default Map View') %><%- dict(':') %></span> 
+            		<select id="mapTypeDefault" name="mapTypeDefault">
+                        <% $.each(OPTIONS.mapType, function(key, value){ %>
+                        <option value="<%=OPTIONS.mapType[key]%>" <%= mapObj.mapTypeDefault==OPTIONS.mapType[key]?' selected':'' %>><%- dict(key) %></option>
+                        <% }); %>
+                    </select>
+            	</div>
+            </div>
+            <div class="subsection maptypes flipper vertical">
+            	<div class="flipper-btnOpen"><img class="imgUp noRotate" src="img/btnup.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /><img class="imgDown noRotate" src="img/btndown.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /></div>
+                <div class="flipper-normal">
+                	<div class="line clearfix lblField"><%- dict('Available Map Views') %></div>
+                </div>
+                <div class="flipper-content">
+                    <div class="line clearfix"><strong><%- dict('Available Map Views') %></strong></div>
+                    <% var mapTypes = Convert.StringToJson(mapObj.mapTypes); if(mapTypes == null || mapTypes == "") { mapTypes = [];}  %>
+                    <div class="line clearfix"><div class="checkbox"><input type="checkbox" id="mapType-roadmap" name="mapTypes" <%= (mapTypes.indexOf(OPTIONS.mapType['Roadmap']) >= 0)?' checked':'' %> value="<%-OPTIONS.mapType['Roadmap']%>" /><div class="checkbox-tick"></div></div><%- dict('Roadmap View') %> <div class="note" style="display:inline"><%- dict("(Google Map's default)") %></div>
+                        <div class="note"><%- dict('ROADMAP displays the default road map view.') %></div>
+                    </div>
+                    <div class="line clearfix"><div class="checkbox"><input type="checkbox" id="mapType-terrain" name="mapTypes" <%= (mapTypes.indexOf(OPTIONS.mapType['Terrain']) >= 0)?' checked':'' %> value="<%-OPTIONS.mapType['Terrain']%>" /><div class="checkbox-tick"></div></div><%- dict('Terrain View') %> <div class="note" style="display:inline"><%- dict('(Contour lines)') %></div>
+                        <div class="note"><%- dict('TERRAIN displays a physical map based on terrain information.') %></div>
+                    </div>
+                    <div class="line clearfix"><div class="checkbox"><input type="checkbox" id="mapType-satellite" name="mapTypes" <%= (mapTypes.indexOf(OPTIONS.mapType['Satellite']) >= 0)?' checked':'' %> value="<%-OPTIONS.mapType['Satellite']%>" /><div class="checkbox-tick"></div></div><%- dict('Satellite View') %>
+                        <div class="note"><%- dict('SATELLITE displays Google Earth satellite images.') %></div>
+                    </div>
+                    <div class="line clearfix"><div class="checkbox"><input type="checkbox" id="mapType-hybrid" name="mapTypes" <%= (mapTypes.indexOf(OPTIONS.mapType['Hybrid']) >= 0)?' checked':'' %> value="<%-OPTIONS.mapType['Hybrid']%>" /><div class="checkbox-tick"></div></div><%- dict('Hybrid View') %> <div class="note" style="display:inline"><%- dict('(Satellite + Labels)') %></div>
+                        <div class="note"><%- dict('HYBRID displays a mixture of normal and satellite views.') %></div>
+                    </div>
+                    <div class="line clearfix"><div class="checkbox"><input type="checkbox" id="mapTypeStreet" name="mapTypeStreet" <%= mapObj.mapTypeStreet?' checked':'' %> /><div class="checkbox-tick"></div></div><%- dict('Street View') %>
+                        <div class="note"><%- dict('Street View displays the street view control.') %></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="section important">
+            <h2><%- dict('Delete this Map') %> <img src="img/btndelete.png" alt="<%- dict('Delete this Map') %>"></h2>
+            <% if(mapAttr.isCreator){ %>
+              <div class="line" style="text-align:center">
+            	<a class="custombg" id="btnDeleteMap" href="javascript:void(0)"><%- dict('Delete') %></a>
+              </div>
+              <div class="line note">
+                <%- dict("You will lose all data of this map.") %>
+              </div>
+            <% } else { %>
+              <div class="line note">
+                <img src="img/maplist-attr-creator.png" alt="<%- dict('Creator') %>" /> <%- dict("This is a creator-only function.") %>
+              </div>
+            <% } %>
+          </div>
+        </div>
+        <div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal">
+                <div class="section cp">
+                    <h2>
+                    <span style="display:inline-block">
+                    <%- dict('Checkpoints & Tasks') %>
+                    </span>
+                    <span style="float:right;text-align:right">
+                		<a class="greybg-lt shortbtn" id="btnAddCP" href="javascript:void(0)"><img src="img/btnnew.png" alt="<%- dict('Add') %>" title="<%- dict('Add') %>" /> <%- dict('Add') %></a>
+                    	<a class="greybg-lt shortbtn smallbtn" id="btnReorderCP" href="#mode/plan/<%=mapObj.mapKey %>/cpreorder"><img src="img/btnreorder.png" alt="<%- dict('Checkpoint Ordering') %>" title="<%- dict('Checkpoint Ordering') %>" /> <%- dict('Checkpoint Ordering') %></a>
+                    </span>
+                    </h2>
+                    <div class="note">
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btndown.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /> <%- dict('to open the checkpoints.') %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /> <%- dict("to manage the checkpoint and its tasks.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnnew.png" alt="<%- dict('Add') %>" title="<%- dict('Add') %>" /> <%- dict("to add a new checkpoint / task.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnedit.png" alt="<%- dict('Edit') %>" title="<%- dict('Edit') %>" /> <%- dict("to edit the checkpoint / task.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btndelete.png" alt="<%- dict('Delete') %>" title="<%- dict('Delete') %>" /> <%- dict("to delete the checkpoint / task.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnup.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /><img class="note" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /> <%- dict("to collapse the content.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnreorder.png" alt="<%- dict('Reorder') %>" title="<%- dict('Reorder') %>" /> <%- dict("to reorder the checkpoints.") %></span>
+                        <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnview.png" alt="<%- dict('Quick View') %>" title="<%- dict('Quick View') %>" /> <%- dict("to quick view all checkpoints & tasks.") %></span>
+                    </div>
+                </div>
+                <div class="section">
+                	<h2><%- dict('Actions') %></h2>
+                    <div class="line"><%- dict('ALL Checkpoints & Tasks') %></div>
+                    <div class="line">
+                        <a class="greybg-lt shortbtn smallbtn" href="javascript:void(0)" id="btnViewReport"><img src="img/btnview.png" alt="<%- dict('Quick View')%>" /> <%- dict('Quick View') %></a>
+                        <% if((appFunc.get("browser") != "MSIE") &&  (appFunc.get("device") != "Android")){ %><a class="greybg-lt shortbtn smallbtn" href="javascript:void(0)" id="btnDownloadReport"><img src="img/btndownload.png" alt="<%- dict('Download')%>" /> <%- dict('Download') %></a><% } %>
+                    </div> 
+                </div>
+                <div class="checkpoints"></div>
+                <div class="checkpoint-new"></div>
+            </div>
+            <div class="slider-content checkpoint-detail">
+                <div class="section">
+                	<div class="slider-btnOpen btnCPDetail"><img class="imgLeft noRotate" src="img/btnleft.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /></div>
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                </div>
+            </div>
+          </div>   
+        </div>
+        <div subpage="cpreorder" class="subpage"> 
+        	<div class="section cp">
+            	<a class="greybg-lt shortbtn smallbtn" id="btnReturnCP" href="#mode/plan/<%=mapObj.mapKey %>/cp" style="float:right"><img src="img/btnleft.png" alt="<%- dict('Return & Save') %>" title="<%- dict('Return & Save') %>" /> <%- dict('Return & Save') %></a>
+                <h2><%- dict('Checkpoint Ordering') %></h2>
+                <div class="note">
+                	<span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnmovedown.png" alt="<%- dict('Move Down') %>" title="<%- dict('Move Down') %>" /> <%- dict('to move down the checkpoint.') %></span>
+                    <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnmoveup.png" alt="<%- dict('Move Up') %>" title="<%- dict('Move Up') %>" /> <%- dict("to move up the checkpoint.") %></span>
+                    <span class="lblText seg2"><%- dict('Click') %> <img class="note" src="img/btnleft.png" alt="<%- dict('Return') %>" title="<%- dict('Return') %>" /> <%- dict("to return to checkpoint list and save the new orders.") %></span>
+                </div>
+            </div>
+            <div class="checkpoints"></div>
+        </div>
+        <div subpage="users" class="subpage"> 
+        </div>
+        <div subpage="tags" class="subpage"> 
+        </div>
+      </div> 
+      <div class="main">
+        <div class="mapTitle">
+        	<div class="clearfix">
+                <h1><%- mapObj.name %></h1>
+                <span id="mapCanvasButtons">
+                    <a href="javascript:void(0)" class="greybg-lt" id="btnMyPosition"><img src="<%=CONFIG.YouAreHere%>" height="24"/><%- dict('My Position') %></a>
+                    <a href="javascript:void(0)" class="greybg-lt"  id="btnReturnCentre" ><img src="img/mapcontent-returncentre.png" height="22"/><%- dict('Return to Map Centre') %></a>
+                </span>
+            </div>
+            <div class="line"><form onSubmit="return false;"><span class="lblText"><img src="img/search-icon.png" title="<%- dict('Search Places') %>" alt="<%- dict('Search Places') %>" /></span><!--
+            --><input id="mapSearchbox" name="mapSearchbox" type="search" title="<%- dict('Search Places') %>" placeholder="<%- dict('Search Places') %>" /><!--
+            --><a href="javascript:void(0)" id="mapSearchbox_btnClear"><img src="img/btnClear.png" title="<%- dict('Clear Search') %>" alt="<%- dict('Clear Search') %>" /></a><!--
+            --></form>
+            </div>
+        </div>
+        <div id="mapCanvas"></div>
+        <div subpage="basic" class="subpage"> 
+          <div class="section">
+            <h2><%- dict('Go to ...') %></h2>
+            <div class="line">
+              <%- dict('Lat') %><%- dict(': ') %><input id="goto_lat" name="goto_lat" value="<%- mapObj.mapCentre_lat %>" type="text" required pattern="<%=PATTERN.Lat%>" />
+            </div>
+            <div class="line">
+              <%- dict('Lng') %><%- dict(': ') %><input id="goto_lng" name="goto_lng" value="<%- mapObj.mapCentre_lng %>" type="text" required pattern="<%=PATTERN.Lng%>" />
+            </div>
+            <div class="line">
+              <%- dict('Zoom') %><%- dict(': ') %><input id="goto_zoom" name="goto_zoom" value="<%- mapObj.mapCentre_zoom %>" type="text" required pattern="<%=PATTERN.Zoom%>" />
+            </div>
+            <div class="line">
+                <a href="javascript:void(0)" class="greybg-lt"  id="btnUpdateByInput"><%- dict('Update (by Input)') %></a>
+            </div>
+          </div>
+        </div>
+        <div subpage="advance" class="subpage"> 
+        </div>
+        <div subpage="cp" class="subpage"> 
+          <div class="section">
+          	<h2 class="clearfix"><%- dict('Closest Checkpoints & Tasks') %></h2>
+            <div class="line note">* <%- dict('Click + to add the checkpoint to this trip.') %></div>
+			<div id="closestCPList">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-aftertrip" class="mapcontent">
+      <div class="left">
+		<div subpage="cp" class="subpage"> 
+          <div class="slider horizontal">
+            <div class="slider-normal">
+                <div class="section">
+                    <h2><%- dict('Checkpoints & Tasks') %></h2>
+                </div>
+                <div class="checkpoints">
+                    <div class="section checkpoint">
+                        <div class="flipper vertical">
+                        	<div class="btnlock"><img src="img/thetrip-lock.png" alt="<%- dict('Locked') %>" title="<%- dict('Locked') %>"></div>
+                            <div class="flipper-btnOpen"><img class="imgUp noRotate" src="img/btnup.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /><img class="imgDown noRotate" src="img/btndown.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /></div>
+                            <div class="btnCompleted"><img src="img/thetrip-complete.png" title="<%- dict('Completed') %>" alt="<%- dict('Completed') %>"></div>
+                            <div class="line clearfix tap-box"><span class="cpNumber"><%= cpObj.cpOrder %></span><span class="cpName"><%- cpObj.name %></span></div>
+                            <div class="flipper-content">
+                                <% if (cpObj.description != "") { %>
+                                <h3><%- dict('Description') %><%- dict(':') %></h3>
+                                <div class="line longbox short"><div class="longbox2"><%=  Convert.BBCodetoHtml(cpObj.description) %></div><a href="javascript:void(0)" class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+                                <% } %>
+                                <div class="btnlockTasks"><img src="img/thetrip-lock.png" width="20" height="25"></div>
+                                <div class="slider-btnOpen btnCPDetail"><img class="imgRight noRotate" src="img/btnright.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /></div>
+                                <div class="tab-box-tasks">
+                                <h3><%- dict('Tasks') %><%- dict(':') %></h3>
+                                <div class="task-simple"><% if(tasks == null){ %><div class="line">-</div><% }else{ %><%=tasks %><% } %></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>   
+        </div>      
+      </div> 
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

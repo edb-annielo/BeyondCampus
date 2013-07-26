@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    height:auto;
+	background:none;
+}
+#header {
+	display:none;
+}
+#siteheader {
+	display:none;
+}
+#siteheader_ph{
+	display:none;
+}
+#sitenotice {
+	display:none;
+}
+#sitefooter {
+	display:none;
+}
+.extrapageFooter{
+	display:none;
+}
+
+#content .mapcontent{
+	display:none;
+}
+#content .extrapage {
+	top:0;
+}
+#content .maincontent{
+   padding-bottom:0px;
+}
+#content .maincontent.menuAndMain .main-outer {
+    background: none;
+}
+#content .maincontent.menuAndMain .menu{
+	display:none;
+}
+#content .maincontent:before {
+    display:none;
+}
+#content .maincontent.menuAndMain h1,
+#content .maincontent.menuAndMain .main {
+    margin-left: 0;
+    margin-right: 0;
+}
+#content .maincontent.menuAndMain .main-outer2{
+	display:none;
+}
+#content .maincontent.menuAndMain .main {
+	background-image:none;
+    min-height: 0;
+}

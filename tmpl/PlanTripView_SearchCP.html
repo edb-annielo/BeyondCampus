@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html><!-- InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8; Cache-Control: no-cache" />
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta http-equiv="Expires" content="-1" />
+<base href="../" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Step Out</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="page">
+<div id="siteheader"><!-- InstanceBeginEditable name="siteheader" --><!-- siteheader --><!-- InstanceEndEditable --></div>
+<div id="header"><!-- InstanceBeginEditable name="header" --><!-- InstanceEndEditable --></div>
+<div id="content"><!-- InstanceBeginEditable name="content" -->
+    <div id="page-plantrip" class="mapcontent">
+      <div class="left">
+      </div> 
+      <div class="main">
+        <div subpage="cp" class="subpage"> 
+          <div class="section">
+          	<h2>Closest Checkpoints &amp; Tasks</h2>
+			<div id="closestCPList">
+            	<div class="closestCPItem">
+                	<div class="flipper vertical">
+                        <div class="closestCPItem-left"><a href="javascript:void(0)" class="btnAdd"><img src="img/btnadd.png" alt="<%- dict('add this checkpoint') %>" title="<%- dict('add this checkpoint') %>" /></a></div>
+                        <% var hasDetail = false;
+                        if(((cpObj.description != null) || (cpObj.description != "")) && cpObj.tasks != null){ hasDetail= true; } %>
+                        <div class="closestCPItem-right flipper-btnOpen" <%=hasDetail?"":'style="visibility:hidden"' %> ><img class="imgUp noRotate" src="img/btnup.png" alt="<%- dict('Collapse') %>" title="<%- dict('Collapse') %>" /><img class="imgDown noRotate" src="img/btndown.png" alt="<%- dict('Expand') %>" title="<%- dict('Expand') %>" /></div>
+                        <div class="closestCPItem-content"><div class="tap-box"><%- cpObj.name %></div>
+                            <div class="flipper-content">
+                                <% if((cpObj.description != null) && (cpObj.description != "")){ %>
+                                <h3><%- dict('Description') %><%- dict(':') %></h3>
+                                <div class="line longbox short"><div class="longbox2"><%=  Convert.BBCodetoHtml(cpObj.description) %></div><a href="javascript:void(0)"  class="morebox"><span class="moretext"><%- dict('@longbox-more') %></span></a></div>
+                                <% } %>
+                                <% if(cpObj.tasks != null){ %>
+                                <h3><%- dict('Tasks') %><%- dict(':') %></h3>
+                                <% 
+                                 $.each(cpObj.tasks, function(taskOrder, task){ %>
+                                 	<div class="line"><span class="taskNumber"><%- dict('Task') %> <%=taskOrder%>.</span> <%- task %></div>
+                                <% }); 
+                                }  %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- InstanceEndEditable --></div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

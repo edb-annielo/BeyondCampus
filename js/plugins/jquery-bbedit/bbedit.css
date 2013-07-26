@@ -1,0 +1,77 @@
+.underline {
+text-decoration: underline;
+}
+.line-throught {
+text-decoration: line-through;
+}
+.bbedit-toolbar {
+line-height: 20px;
+font-size: 10px;
+}
+.bbedit-toolbar span {
+padding: 3px 8px;
+border: 1px solid #B2B2B2;
+background-color: #F0F0F0;
+cursor: pointer;
+}
+.bbedit-toolbar span.hover,
+.bbedit-toolbar span:hover {
+border-color: #777777;
+background-color: #E5E5E5;
+}
+.bbedit-smileybar img {
+margin-right: 3px;
+cursor: pointer;
+}
+.bbedit-b {
+background: url("icons.gif") no-repeat 0 0;
+}
+.bbedit-i {
+background: url("icons.gif") no-repeat -20px 0;
+}
+.bbedit-u {
+background: url("icons.gif") no-repeat -40px 0;
+}
+.bbedit-s {
+background: url("icons.gif") no-repeat -60px 0;
+}
+.bbedit-url {
+background: url("icons.gif") no-repeat -80px 0;
+}
+.bbedit-img {
+background: url("icons.gif") no-repeat -100px 0;
+}
+.bbedit-code {
+background: url("icons.gif") no-repeat -120px 0;
+}
+.bbedit-quote {
+background: url("icons.gif") no-repeat -140px 0;
+}
+
+/***** new icon set *****/
+.bbedit-b  {
+background: url("famfamfam_silk_icons_v013/icons/text_bold.png") no-repeat center center;
+}
+.bbedit-i {
+background: url("famfamfam_silk_icons_v013/icons/text_italic.png") no-repeat center center;
+}
+.bbedit-u {
+background: url("famfamfam_silk_icons_v013/icons/text_underline.png") no-repeat center center;
+}
+.bbedit-ol {
+background: url("famfamfam_silk_icons_v013/icons/text_list_numbers.png") no-repeat center center;
+}
+.bbedit-ul {
+background: url("famfamfam_silk_icons_v013/icons/text_list_bullets.png") no-repeat center center;
+}
+.bbedit-url {
+background: url("famfamfam_silk_icons_v013/icons/link.png") no-repeat center center;
+}
+.bbedit-li {
+background: url("famfamfam_silk_icons_v013/modified/text_list_item.png") no-repeat center center;
+}
+.bbedit-color {
+background: url("famfamfam_silk_icons_v013/icons/color_swatch.png") no-repeat center center;
+}
+
+
