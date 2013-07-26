@@ -46,7 +46,7 @@ version = "1.0">
   <!--<icon src="ico/appleicon.png" />-->
   
   <!-- if a single icon is specified then Build will use it for all platforms -->
-  <icon src="icon.png" />
+  <!--<icon src="icon.png" />-->
   
   <!-- the default attribute can also be used -->
   <!--<icon src="appfiles/icon.png" default="true" /> -->
